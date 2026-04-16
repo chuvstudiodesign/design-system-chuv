@@ -2,7 +2,10 @@
   "mcpServers": {
     "figma": {
       "command": "npx",
-      "args": ["-y", "figma-developer-mcp", "--figma-api-key=SEU_TOKEN_AQUI", "--stdio"]
+      "args": ["-y", "figma-developer-mcp", "--stdio"],
+      "env": {
+        "FIGMA_API_KEY": "SEU_TOKEN_FIGMA_AQUI"
+      }
     },
     "shadcn": {
       "command": "npx",
