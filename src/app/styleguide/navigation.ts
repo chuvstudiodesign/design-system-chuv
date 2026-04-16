@@ -21,6 +21,7 @@ export const navigation: NavSection[] = [
     title: "Components",
     items: [
       { name: "Accordion", href: "/styleguide/components/accordion" },
+      { name: "Badge", href: "/styleguide/components/badge" },
       { name: "Buttons", href: "/styleguide/components/buttons" },
       { name: "Carousel", href: "/styleguide/components/carousel" },
       { name: "Checkbox", href: "/styleguide/components/checkbox" },

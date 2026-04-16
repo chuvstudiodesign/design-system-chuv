@@ -30,3 +30,17 @@ When the user asks for design or component changes, follow this order:
 - A tunnel preview may look correct visually while interactive behavior differs from production.
 - Do not skip interaction work just because the tunnel is being used for visual review only.
 - Prefer consistency with the project's existing design system and documented card/section patterns.
+
+## Foundation-First Components
+
+- Every new component must be designed in context of the existing foundation before adding new visual decisions.
+- Always review and respect the current `Design Tokens`, `Section System`, and `Card System` before implementing a new component or a new showcase page.
+- Showcase pages must use the same section structure already established in the project:
+  - section container on the light gray foundation background
+  - internal cards following the documented card system
+- Any card-like block inside a new component page must follow the current card foundation:
+  - `neutral gray 50` background
+  - white stroke
+  - `rounded-none`
+  - `p-[var(--card-padding)]`
+- When adapting shadcn/ui components, extend them so they feel native to this design system instead of leaving them in the default shadcn visual language.

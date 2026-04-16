@@ -81,7 +81,7 @@ export default function CardSystemPage() {
             {[
               { layer: "01", name: "Base canvas",          color: "#ffffff", border: true,  desc: "Fundo da página — branco puro" },
               { layer: "02", name: "Section container",    color: "#efefef", border: false, desc: "Container de seção — cinza claro, radius 10px" },
-              { layer: "03", name: "Card",                 color: "#f9f9f9", border: true,  desc: "Bloco de conteúdo — neutral gray 50, stroke branco, padding 45px" },
+              { layer: "03", name: "Card",                 color: "#f9f9f9", border: true,  desc: "Bloco de conteúdo — neutral gray 50, stroke branco, padding 45px, radius 0px" },
             ].map((l) => (
               <div key={l.layer} className="flex items-center gap-4 border-b border-black/8 py-3 last:border-0">
                 <span className="text-[10px] font-mono text-primary font-bold w-6 shrink-0">{l.layer}</span>
@@ -235,6 +235,7 @@ export default function CardSystemPage() {
             ["Sempre neutral gray 50", "O fundo do card é sempre #f9f9f9. O branco puro pertence ao canvas base da página."],
             ["Sempre com stroke branco", "Cards sempre têm border-white. O contraste vem da superfície cinza clara do próprio card."],
             ["Sem corner radius",     "Cards usam rounded-none. A identidade Chuv reserva o radius de 10px exclusivamente para os containers de seção."],
+            ["Elementos internos também retos", "Badges, imagens, botões e demais componentes usados dentro da section ou do card também seguem rounded-none."],
             ["Padding consistente",   "Use sempre p-[var(--card-padding)]. Nunca px-6, p-4, ou outros valores ad hoc."],
             ["Gap de 16px",           "Quando múltiplos cards estão lado a lado ou empilhados, o gap entre eles é sempre gap-4 (16px)."],
             ["Não aninhados",         "Cards não contêm outros cards. Hierarquia é: seção → card → conteúdo."],

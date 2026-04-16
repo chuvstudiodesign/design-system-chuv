@@ -91,6 +91,13 @@ export default function SectionSystemPage() {
                 <p className="text-muted-foreground text-xs mt-0.5">Cinza claro, radius 10px. Todo o conteúdo vive aqui — diretamente ou dentro de cards.</p>
               </div>
             </div>
+            <div className="flex items-start gap-4">
+              <div className="mt-0.5 w-4 h-4 shrink-0 border border-white bg-[#f9f9f9]" />
+              <div>
+                <p className="font-semibold text-foreground">Conteúdo interno — sempre sem radius</p>
+                <p className="text-muted-foreground text-xs mt-0.5">Cards, imagens, componentes e qualquer elemento dentro da section usam rounded-none. O radius de 10px pertence exclusivamente ao container de section.</p>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
@@ -106,6 +113,7 @@ export default function SectionSystemPage() {
           <Spec label="Padding"        value="16px mínimo  →  p-4" />
           <Spec label="Gap (vertical)" value="16px entre sections  →  gap-4" />
           <Spec label="Base canvas"    value="#ffffff  →  --color-background" />
+          <Spec label="Conteúdo interno" value="rounded-none  →  sem corner radius dentro da section" />
         </div>
       </Section>
 
@@ -155,10 +163,16 @@ export default function SectionSystemPage() {
                 <Annotation>p-4</Annotation>
               </div>
             </div>
-            <div className="flex flex-col gap-2">
-              <div className="h-4 w-1/2 bg-foreground/10" />
-              <div className="h-3 w-full bg-foreground/6" />
-              <div className="h-3 w-3/4 bg-foreground/6" />
+            <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2">
+                <div className="h-4 w-1/2 bg-foreground/10" />
+                <div className="h-3 w-full bg-foreground/6" />
+              </div>
+              <div className="rounded-none border border-white bg-[#f9f9f9] p-4">
+                <div className="h-4 w-3/5 bg-foreground/10" />
+                <div className="mt-2 h-3 w-full bg-foreground/6" />
+                <div className="mt-2 h-3 w-3/4 bg-foreground/6" />
+              </div>
             </div>
           </div>
 
@@ -178,10 +192,17 @@ export default function SectionSystemPage() {
                 <Annotation>p-4</Annotation>
               </div>
             </div>
-            <div className="flex flex-col gap-2">
-              <div className="h-4 w-3/5 bg-foreground/10" />
-              <div className="h-3 w-full bg-foreground/6" />
-              <div className="h-3 w-4/5 bg-foreground/6" />
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="rounded-none border border-white bg-[#f9f9f9] p-4">
+                <div className="h-4 w-3/5 bg-foreground/10" />
+                <div className="mt-2 h-3 w-full bg-foreground/6" />
+                <div className="mt-2 h-3 w-4/5 bg-foreground/6" />
+              </div>
+              <div className="rounded-none border border-white bg-[#f9f9f9] p-4">
+                <div className="h-4 w-1/2 bg-foreground/10" />
+                <div className="mt-2 h-3 w-full bg-foreground/6" />
+                <div className="mt-2 h-3 w-2/3 bg-foreground/6" />
+              </div>
             </div>
           </div>
         </div>
@@ -197,15 +218,21 @@ export default function SectionSystemPage() {
   <div className="flex flex-col gap-4 p-4">
 
     <section className="rounded-[10px] bg-[#efefef] p-4">
-      {/* primeira section */}
+      {/* conteúdo direto da section */}
+      <h2 className="rounded-none">Título</h2>
+      <p className="rounded-none">Texto, imagem ou componente</p>
+
+      <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
+        {/* card dentro da section */}
+      </div>
     </section>
 
     <section className="rounded-[10px] bg-[#efefef] p-4">
-      {/* segunda section */}
+      <img className="rounded-none" src="/..." alt="" />
     </section>
 
     <section className="rounded-[10px] bg-[#efefef] p-4">
-      {/* terceira section */}
+      <button className="rounded-none">{/* componente */}</button>
     </section>
 
   </div>
@@ -216,6 +243,7 @@ export default function SectionSystemPage() {
               ["bg-white",        "Fundo da página"],
               ["bg-[#efefef]",    "Fundo da section  →  --color-card"],
               ["rounded-[10px]",  "Radius da section  →  --radius"],
+              ["rounded-none",    "Regra de qualquer elemento interno à section"],
               ["p-4",             "Padding mínimo interno  →  16px"],
               ["gap-4",           "Gap entre sections  →  16px"],
             ].map(([token, desc]) => (
@@ -238,9 +266,10 @@ export default function SectionSystemPage() {
             ["Base sempre branca",        "O fundo da página é sempre #ffffff. Nunca use cor ou padrão no base."],
             ["Conteúdo dentro da section","Nada significativo fica diretamente sobre o branco. Tudo vive dentro de uma section."],
             ["Radius único",              "Sections usam sempre exatamente 10px de corner radius. Nenhuma exceção."],
+            ["Tudo dentro é reto",        "Cards, imagens, badges, botões e qualquer outro elemento dentro da section usam rounded-none."],
             ["Gap consistente",           "O espaço vertical entre sections é sempre 16px."],
             ["Padding mínimo",            "Sections têm sempre ao menos 16px de padding em todos os lados. Viewports maiores podem ter mais."],
-            ["Sem sections aninhadas",    "Sections não contêm outras sections. A hierarquia é: página → section → cards → conteúdo."],
+            ["Sem sections aninhadas",    "Sections não contêm outras sections. A hierarquia é: página → section → conteúdos e cards."],
           ].map(([title, body], i) => (
             <li key={title as string} className="flex gap-4">
               <span className="text-[10px] font-mono text-primary font-bold mt-0.5 w-4 shrink-0">
@@ -262,20 +291,21 @@ export default function SectionSystemPage() {
       >
         <div className="space-y-5 max-w-2xl">
           <p className="text-sm text-foreground/80 leading-relaxed">
-            Dentro de cada section, o conteúdo pode ser colocado diretamente ou
-            agrupado em <strong>cards</strong> — blocos em neutral gray 50 com stroke
-            branco, sem radius
-            e com padding padronizado. Os cards são a terceira camada da hierarquia
-            visual e têm suas próprias regras de construção.
+            Dentro de cada section podem existir duas coisas ao mesmo tempo:
+            <strong> conteúdos diretos</strong> e <strong>cards</strong>. Os
+            conteúdos diretos são textos, imagens e componentes que pertencem ao
+            assunto da própria section. Os cards entram quando esse assunto
+            precisa ser dividido em blocos separados. Em ambos os casos, tudo que
+            está dentro da section segue a regra de <strong>rounded-none</strong>.
           </p>
 
           {/* Hierarquia resumida */}
-          <div className="flex flex-col gap-0 max-w-sm">
+          <div className="flex flex-col gap-0 max-w-md">
             {[
               { label: "Página",   sub: "bg-white" },
               { label: "Section",  sub: "bg-[#efefef] · rounded-[10px]" },
-              { label: "Card",     sub: "bg-[#f9f9f9] · border-white · p-[var(--card-padding)]" },
-              { label: "Conteúdo", sub: "texto, componentes, imagens" },
+              { label: "Conteúdos", sub: "texto, componentes, imagens · rounded-none" },
+              { label: "Cards",     sub: "bg-[#f9f9f9] · border-white · p-[var(--card-padding)] · rounded-none" },
             ].map((item, i, arr) => (
               <div key={item.label} className="flex gap-3">
                 <div className="flex flex-col items-center">
