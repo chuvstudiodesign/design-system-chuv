@@ -239,7 +239,7 @@ React.useEffect(() => {
                 ["plugins",     "EmblaPluginType[]",          "—  embla plugins"],
                 ["setApi",      "(api: CarouselApi) => void", "—  access the Embla instance"],
               ].map(([prop, type, def]) => (
-                <div key={prop} className="bg-white border border-black/10 px-4 py-3">
+                <div key={prop} className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
                   <p className="font-mono text-xs text-primary font-semibold">{prop}</p>
                   <p className="text-xs text-muted-foreground mt-0.5">{type}</p>
                   <p className="text-[11px] text-muted-foreground/70 mt-1">{def}</p>

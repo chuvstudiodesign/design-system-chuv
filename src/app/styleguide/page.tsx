@@ -17,7 +17,7 @@ function ColorSwatch({
   return (
     <div className="flex flex-col gap-2">
       <div
-        className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 border border-white"
+        className="h-16 w-16 border border-white sm:h-[4.5rem] sm:w-[4.5rem] md:h-[5.5rem] md:w-[5.5rem]"
         style={{ backgroundColor: value }}
       />
       <div>
@@ -159,11 +159,11 @@ export default function StyleguidePage() {
             <h3 className="text-sm font-semibold text-foreground mb-4">
               System Tokens (CSS Variables)
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
               {[
                 ["--background", "#ffffff"],
                 ["--foreground", "#111111"],
-                ["--card", "#efefef"],
+                ["--card", "#f9f9f9"],
                 ["--primary", "#5628e8"],
                 ["--primary-foreground", "#ffffff"],
                 ["--secondary", "#efefef"],
@@ -176,7 +176,7 @@ export default function StyleguidePage() {
               ].map(([name, val]) => (
                 <div
                   key={name}
-                  className="flex items-center justify-between bg-white px-4 py-2.5 border border-[#e0e0e0]"
+                  className="flex items-center justify-between rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
                 >
                   <code className="text-xs text-primary font-mono">{name}</code>
                   <div className="flex items-center gap-2">
@@ -274,7 +274,7 @@ export default function StyleguidePage() {
           ].map((r) => (
             <div key={r.name} className="flex flex-col items-center gap-3">
               <div
-                className={`w-16 h-16 border border-[#e0e0e0] bg-white ${r.cls}`}
+                className={`h-16 w-16 border border-white bg-[#f9f9f9] ${r.cls}`}
               />
               <span className="text-xs text-muted-foreground">{r.name}</span>
             </div>
@@ -295,7 +295,7 @@ export default function StyleguidePage() {
           ].map((s) => (
             <div key={s.name} className="flex flex-col items-center gap-3">
               <div
-                className={`w-20 h-20 bg-white border border-[#e0e0e0] ${s.cls}`}
+                className={`h-20 w-20 border border-white bg-[#f9f9f9] ${s.cls}`}
               />
               <span className="text-xs text-muted-foreground">Shadow {s.name}</span>
             </div>
@@ -339,7 +339,7 @@ export default function StyleguidePage() {
           <div>
             <h3 className="text-sm font-semibold mb-4">Card</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
-              <Card className="rounded-none bg-white border border-[#e0e0e0]">
+              <Card className="rounded-none border border-white bg-card ring-0">
                 <CardHeader className="pt-[var(--card-padding)] px-[var(--card-padding)] pb-4">
                   <Badge className="rounded-none w-fit mb-2">Design</Badge>
                   <CardTitle>Identidade Visual</CardTitle>
@@ -380,13 +380,13 @@ export default function StyleguidePage() {
           <div>
             <h3 className="text-sm font-semibold mb-4">Alerts</h3>
             <div className="space-y-3 max-w-xl">
-              <Alert className="rounded-none p-[var(--card-padding)]">
+              <Alert className="rounded-none border-white bg-card p-[var(--card-padding)]">
                 <AlertTitle>Design System pronto</AlertTitle>
                 <AlertDescription>
                   Os tokens da Chuv Studio foram aplicados com sucesso.
                 </AlertDescription>
               </Alert>
-              <Alert variant="destructive" className="rounded-none p-[var(--card-padding)]">
+              <Alert variant="destructive" className="rounded-none border-white bg-card p-[var(--card-padding)]">
                 <AlertTitle>Atenção</AlertTitle>
                 <AlertDescription>
                   Verifique as configurações antes de publicar.

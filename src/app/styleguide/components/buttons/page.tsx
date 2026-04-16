@@ -372,7 +372,7 @@ export default function ButtonsPage() {
               ].map(([prop, type, def]) => (
                 <div
                   key={prop as string}
-                  className="bg-white border border-black/10 px-4 py-3"
+                  className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
                 >
                   <p className="font-mono text-xs text-primary font-semibold">{prop as string}</p>
                   <p className="text-xs text-muted-foreground mt-0.5">{type as string}</p>

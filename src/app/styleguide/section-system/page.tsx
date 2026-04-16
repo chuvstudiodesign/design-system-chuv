@@ -29,7 +29,7 @@ function Section({
 
 function Spec({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center gap-3 bg-white border border-black/10 px-4 py-3">
+    <div className="flex items-center gap-3 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
       <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest w-28 shrink-0">
         {label}
       </span>
@@ -101,7 +101,7 @@ export default function SectionSystemPage() {
         subtitle="As regras fixas de todo container de seção"
       >
         <div className="flex flex-col gap-2 max-w-lg">
-          <Spec label="Background"     value="#efefef  →  --color-card" />
+          <Spec label="Background"     value="#efefef  →  section container" />
           <Spec label="Corner Radius"  value="10px  →  rounded-[10px]" />
           <Spec label="Padding"        value="16px mínimo  →  p-4" />
           <Spec label="Gap (vertical)" value="16px entre sections  →  gap-4" />
@@ -219,7 +219,7 @@ export default function SectionSystemPage() {
               ["p-4",             "Padding mínimo interno  →  16px"],
               ["gap-4",           "Gap entre sections  →  16px"],
             ].map(([token, desc]) => (
-              <div key={token} className="flex items-center gap-4 bg-white border border-black/10 px-4 py-2.5">
+              <div key={token} className="flex items-center gap-4 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
                 <code className="text-xs font-mono text-primary w-36 shrink-0">{token}</code>
                 <span className="text-xs text-muted-foreground">{desc}</span>
               </div>
@@ -263,7 +263,8 @@ export default function SectionSystemPage() {
         <div className="space-y-5 max-w-2xl">
           <p className="text-sm text-foreground/80 leading-relaxed">
             Dentro de cada section, o conteúdo pode ser colocado diretamente ou
-            agrupado em <strong>cards</strong> — blocos brancos com borda, sem radius
+            agrupado em <strong>cards</strong> — blocos em neutral gray 50 com stroke
+            branco, sem radius
             e com padding padronizado. Os cards são a terceira camada da hierarquia
             visual e têm suas próprias regras de construção.
           </p>
@@ -273,7 +274,7 @@ export default function SectionSystemPage() {
             {[
               { label: "Página",   sub: "bg-white" },
               { label: "Section",  sub: "bg-[#efefef] · rounded-[10px]" },
-              { label: "Card",     sub: "bg-white · border · p-[var(--card-padding)]" },
+              { label: "Card",     sub: "bg-[#f9f9f9] · border-white · p-[var(--card-padding)]" },
               { label: "Conteúdo", sub: "texto, componentes, imagens" },
             ].map((item, i, arr) => (
               <div key={item.label} className="flex gap-3">
@@ -302,7 +303,7 @@ export default function SectionSystemPage() {
       <div className="px-1 pt-2 pb-4">
         <p className="text-xs text-muted-foreground">
           Chuv Studio Design System · Foundation: Section System ·{" "}
-          <span className="font-mono">bg-white → rounded-[10px] → gap-4 → p-4</span>
+          <span className="font-mono">bg-white → section #efefef → card #f9f9f9</span>
         </p>
       </div>
 

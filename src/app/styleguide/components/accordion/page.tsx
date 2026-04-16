@@ -83,7 +83,7 @@ export default function AccordionPage() {
         title="Single"
         subtitle='type="single" — apenas um item aberto por vez, collapsible'
       >
-        <div className="max-w-xl bg-white border border-black/10 p-[var(--card-padding)]">
+        <div className="max-w-xl rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
           <Accordion type="single" collapsible defaultValue="item-1">
             {faqItems.map((item) => (
               <AccordionItem key={item.value} value={item.value}>
@@ -106,7 +106,7 @@ export default function AccordionPage() {
         title="Multiple"
         subtitle='type="multiple" — vários itens abertos simultaneamente'
       >
-        <div className="max-w-xl bg-white border border-black/10 p-[var(--card-padding)]">
+        <div className="max-w-xl rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
           <Accordion type="multiple" defaultValue={["item-1", "item-3"]}>
             {faqItems.map((item) => (
               <AccordionItem key={item.value} value={item.value}>
@@ -166,7 +166,7 @@ export default function AccordionPage() {
                 ["value",         "string | string[]",            "Item(s) aberto(s) (controlado)"],
                 ["onValueChange", "(value) => void",              "Callback ao mudar seleção"],
               ].map(([prop, type, desc]) => (
-                <div key={prop} className="bg-white border border-black/10 px-4 py-3">
+                <div key={prop} className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
                   <p className="font-mono text-xs text-primary font-semibold">{prop}</p>
                   <p className="text-xs text-muted-foreground mt-0.5">{type}</p>
                   <p className="text-[11px] text-muted-foreground/70 mt-1">{desc}</p>

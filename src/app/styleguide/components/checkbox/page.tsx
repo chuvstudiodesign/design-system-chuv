@@ -2,7 +2,6 @@
 
 import * as React from "react"
 
-import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
@@ -50,6 +49,11 @@ function RowLabel({ label }: { label: string }) {
 }
 
 export default function CheckboxPage() {
+  const [basicChecked, setBasicChecked] = React.useState(false)
+  const [updatesChecked, setUpdatesChecked] = React.useState(true)
+  const [featureChecked, setFeatureChecked] = React.useState(true)
+  const [stateUnchecked, setStateUnchecked] = React.useState(false)
+  const [stateChecked, setStateChecked] = React.useState(true)
   const [checked, setChecked] = React.useState(false)
   const [disabled, setDisabled] = React.useState(false)
   const [dark, setDark] = React.useState(false)
@@ -79,39 +83,59 @@ export default function CheckboxPage() {
           <div className="flex items-center gap-6">
             <RowLabel label="Default" />
             <div className="flex items-center gap-3">
-              <Checkbox id="terms-basic" />
-              <Label htmlFor="terms-basic">Accept terms and conditions</Label>
+              <Checkbox
+                id="terms-basic"
+                checked={basicChecked}
+                onCheckedChange={setBasicChecked}
+              />
+              <Label htmlFor="terms-basic" className="cursor-pointer">
+                Accept terms and conditions
+              </Label>
             </div>
           </div>
 
           <div className="flex items-start gap-6">
             <RowLabel label="With text" />
             <div className="flex items-start gap-3">
-              <Checkbox id="updates" defaultChecked />
+              <Checkbox
+                id="updates"
+                checked={updatesChecked}
+                onCheckedChange={setUpdatesChecked}
+              />
               <div className="grid gap-2">
-                <Label htmlFor="updates">Receive product updates</Label>
-                <p className="text-sm text-muted-foreground">
+                <Label htmlFor="updates" className="cursor-pointer">
+                  Receive product updates
+                </Label>
+                <Label
+                  htmlFor="updates"
+                  className="cursor-pointer text-sm leading-relaxed text-muted-foreground"
+                >
                   Helpful release notes and design-system changes in your inbox.
-                </p>
+                </Label>
               </div>
             </div>
           </div>
 
           <div className="flex items-start gap-6">
             <RowLabel label="Feature card" />
-            <Label className="flex max-w-md items-start gap-3 rounded-[10px] border border-black/10 bg-white p-4 hover:bg-accent/50 has-[[aria-checked=true]]:border-primary has-[[aria-checked=true]]:bg-accent">
-              <Checkbox
-                id="notifications-card"
-                defaultChecked
-                className="mt-0.5"
-              />
-              <div className="grid gap-1.5 font-normal">
-                <p className="text-sm leading-none font-medium text-foreground">
-                  Enable notifications
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Get a ping whenever new components or tokens are published.
-                </p>
+            <Label
+              className="max-w-md cursor-pointer items-start rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
+            >
+              <div className="flex items-start gap-3">
+                <Checkbox
+                  id="notifications-card"
+                  checked={featureChecked}
+                  onCheckedChange={setFeatureChecked}
+                  className="mt-0.5"
+                />
+                <div className="grid gap-1.5 font-normal">
+                  <p className="text-sm leading-none font-medium">
+                    Enable notifications
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Get a ping whenever new components or tokens are published.
+                  </p>
+                </div>
               </div>
             </Label>
           </div>
@@ -133,16 +157,28 @@ export default function CheckboxPage() {
           <div className="flex items-center gap-6">
             <RowLabel label="Unchecked" />
             <div className="flex items-center gap-3">
-              <Checkbox id="state-unchecked" />
-              <Label htmlFor="state-unchecked">Marketing emails</Label>
+              <Checkbox
+                id="state-unchecked"
+                checked={stateUnchecked}
+                onCheckedChange={setStateUnchecked}
+              />
+              <Label htmlFor="state-unchecked" className="cursor-pointer">
+                Marketing emails
+              </Label>
             </div>
           </div>
 
           <div className="flex items-center gap-6">
             <RowLabel label="Checked" />
             <div className="flex items-center gap-3">
-              <Checkbox id="state-checked" defaultChecked />
-              <Label htmlFor="state-checked">Weekly digest</Label>
+              <Checkbox
+                id="state-checked"
+                checked={stateChecked}
+                onCheckedChange={setStateChecked}
+              />
+              <Label htmlFor="state-checked" className="cursor-pointer">
+                Weekly digest
+              </Label>
             </div>
           </div>
 
@@ -169,38 +205,50 @@ export default function CheckboxPage() {
         subtitle="Controlled checkbox with quick prop toggles and light/dark preview"
       >
         <div className="space-y-6">
-          <div className="flex flex-wrap gap-3">
-            <Button
-              variant={checked ? "default" : "outline"}
-              onClick={() => setChecked((value) => !value)}
-            >
-              {checked ? "Checked" : "Unchecked"}
-            </Button>
-            <Button
-              variant={disabled ? "secondary" : "outline"}
-              onClick={() => setDisabled((value) => !value)}
-            >
-              {disabled ? "Disabled" : "Enabled"}
-            </Button>
-            <Button
-              variant={dark ? "default" : "outline"}
-              onClick={() => setDark((value) => !value)}
-            >
-              {dark ? "Dark Preview" : "Light Preview"}
-            </Button>
+          <div className="grid gap-3 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
+            <div className="flex items-center gap-3">
+              <Checkbox
+                id="control-checked"
+                checked={checked}
+                onCheckedChange={setChecked}
+              />
+              <Label htmlFor="control-checked" className="cursor-pointer">
+                Checked
+              </Label>
+            </div>
+            <div className="flex items-center gap-3">
+              <Checkbox
+                id="control-disabled"
+                checked={disabled}
+                onCheckedChange={setDisabled}
+              />
+              <Label htmlFor="control-disabled" className="cursor-pointer">
+                Disabled
+              </Label>
+            </div>
+            <div className="flex items-center gap-3">
+              <Checkbox
+                id="control-dark"
+                checked={dark}
+                onCheckedChange={setDark}
+              />
+              <Label htmlFor="control-dark" className="cursor-pointer">
+                Dark Preview
+              </Label>
+            </div>
           </div>
 
           <div className={dark ? "dark" : undefined}>
-            <div className="rounded-[10px] border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-[#111111]">
+            <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] dark:border-white/10 dark:bg-[#1a1a1a]">
               <div className="flex items-start gap-3">
                 <Checkbox
                   id="playground-checkbox"
                   checked={checked}
                   disabled={disabled}
-                  onCheckedChange={(value) => setChecked(Boolean(value))}
+                  onCheckedChange={setChecked}
                 />
                 <div className="grid gap-2">
-                  <Label htmlFor="playground-checkbox">
+                  <Label htmlFor="playground-checkbox" className="cursor-pointer">
                     Include advanced analytics
                   </Label>
                   <p className="text-sm text-muted-foreground">
@@ -248,7 +296,7 @@ import { Label } from "@/components/ui/label"`}</pre>
               ].map(([prop, type, description]) => (
                 <div
                   key={prop}
-                  className="border border-black/10 bg-white px-4 py-3"
+                  className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
                 >
                   <p className="font-mono text-xs font-semibold text-primary">
                     {prop}

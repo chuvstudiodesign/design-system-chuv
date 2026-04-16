@@ -29,7 +29,7 @@ function Section({
 
 function Spec({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center gap-3 bg-white border border-black/10 px-4 py-3">
+    <div className="flex items-center gap-3 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
       <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest w-32 shrink-0">
         {label}
       </span>
@@ -72,7 +72,7 @@ export default function CardSystemPage() {
         <div className="space-y-4 max-w-2xl">
           <p className="text-sm text-foreground/80 leading-relaxed">
             Todo conteúdo real da Chuv Studio passa por três camadas. O <strong>Card System</strong> define
-            a terceira — os blocos brancos que vivem dentro dos containers de seção e
+            a terceira — os blocos em neutral gray 50 que vivem dentro dos containers de seção e
             envolvem o conteúdo final.
           </p>
 
@@ -81,7 +81,7 @@ export default function CardSystemPage() {
             {[
               { layer: "01", name: "Base canvas",          color: "#ffffff", border: true,  desc: "Fundo da página — branco puro" },
               { layer: "02", name: "Section container",    color: "#efefef", border: false, desc: "Container de seção — cinza claro, radius 10px" },
-              { layer: "03", name: "Card",                 color: "#ffffff", border: true,  desc: "Bloco de conteúdo — branco, borda, padding 45px" },
+              { layer: "03", name: "Card",                 color: "#f9f9f9", border: true,  desc: "Bloco de conteúdo — neutral gray 50, stroke branco, padding 45px" },
             ].map((l) => (
               <div key={l.layer} className="flex items-center gap-4 border-b border-black/8 py-3 last:border-0">
                 <span className="text-[10px] font-mono text-primary font-bold w-6 shrink-0">{l.layer}</span>
@@ -105,8 +105,8 @@ export default function CardSystemPage() {
         subtitle="As regras fixas de todo card"
       >
         <div className="flex flex-col gap-2 max-w-lg">
-          <Spec label="Background"    value="#ffffff  →  branco puro" />
-          <Spec label="Borda"         value="1px solid #e0e0e0  →  border border-[#e0e0e0]" />
+          <Spec label="Background"    value="#f9f9f9  →  neutral gray 50" />
+          <Spec label="Borda"         value="1px solid #ffffff  →  border-white" />
           <Spec label="Corner Radius" value="0px  →  rounded-none  (regra da identidade)" />
           <Spec label="Padding"       value="45px todos os lados  →  p-[var(--card-padding)]" />
           <Spec label="Token"         value="--card-padding: 45px  (globals.css)" />
@@ -128,15 +128,15 @@ export default function CardSystemPage() {
           </div>
 
           {/* Card */}
-          <div className="bg-white border border-[#e0e0e0] p-[var(--card-padding)]">
+          <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
             {/* Annotations */}
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">
                 Card
               </span>
               <div className="flex gap-4">
-                <Annotation>bg #ffffff</Annotation>
-                <Annotation>border #e0e0e0</Annotation>
+                <Annotation>bg #f9f9f9</Annotation>
+                <Annotation>border #ffffff</Annotation>
                 <Annotation>radius 0px</Annotation>
                 <Annotation>p-[var(--card-padding)]</Annotation>
               </div>
@@ -160,7 +160,7 @@ export default function CardSystemPage() {
           </div>
 
           {/* Second card */}
-          <div className="bg-white border border-[#e0e0e0] p-[var(--card-padding)]">
+          <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">
                 Card
@@ -183,7 +183,7 @@ export default function CardSystemPage() {
         <div className="space-y-6">
           <div>
             <p className="text-sm font-semibold mb-3">Card básico</p>
-            <pre className="bg-foreground/5 border border-black/10 px-4 py-3 text-xs font-mono text-foreground/70 overflow-x-auto whitespace-pre">{`<div className="bg-white border border-[#e0e0e0] p-[var(--card-padding)]">
+            <pre className="bg-foreground/5 border border-black/10 px-4 py-3 text-xs font-mono text-foreground/70 overflow-x-auto whitespace-pre">{`<div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
   {/* conteúdo */}
 </div>`}</pre>
           </div>
@@ -193,11 +193,11 @@ export default function CardSystemPage() {
             <pre className="bg-foreground/5 border border-black/10 px-4 py-3 text-xs font-mono text-foreground/70 overflow-x-auto whitespace-pre">{`<section className="rounded-[10px] bg-[#efefef] p-4">
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-    <div className="bg-white border border-[#e0e0e0] p-[var(--card-padding)]">
+    <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
       {/* card 1 */}
     </div>
 
-    <div className="bg-white border border-[#e0e0e0] p-[var(--card-padding)]">
+    <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
       {/* card 2 */}
     </div>
 
@@ -209,13 +209,13 @@ export default function CardSystemPage() {
             <p className="text-sm font-semibold mb-3">Mapa de tokens</p>
             <div className="flex flex-col gap-2 max-w-lg">
               {[
-                ["bg-white",                    "Fundo do card"],
-                ["border border-[#e0e0e0]",     "Borda  →  --border (#e0e0e0)"],
+                ["bg-[#f9f9f9]",                "Fundo do card  →  neutral gray 50"],
+                ["border-white",                "Stroke branco do card"],
                 ["rounded-none",                "Sem radius  →  regra da identidade"],
                 ["p-[var(--card-padding)]",      "Padding interno  →  --card-padding (45px)"],
                 ["gap-4",                        "Gap entre cards  →  16px"],
               ].map(([token, desc]) => (
-                <div key={token} className="flex items-center gap-4 bg-white border border-black/10 px-4 py-2.5">
+                <div key={token} className="flex items-center gap-4 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
                   <code className="text-xs font-mono text-primary w-52 shrink-0">{token}</code>
                   <span className="text-xs text-muted-foreground">{desc}</span>
                 </div>
@@ -232,8 +232,8 @@ export default function CardSystemPage() {
       >
         <ol className="flex flex-col gap-4 max-w-xl">
           {[
-            ["Sempre branco",         "O fundo do card é sempre #ffffff. Nunca use a cor do container de seção (#efefef) como fundo de card."],
-            ["Sempre com borda",      "Cards sempre têm border border-[#e0e0e0]. Sem borda, o card se funde ao fundo branco da página."],
+            ["Sempre neutral gray 50", "O fundo do card é sempre #f9f9f9. O branco puro pertence ao canvas base da página."],
+            ["Sempre com stroke branco", "Cards sempre têm border-white. O contraste vem da superfície cinza clara do próprio card."],
             ["Sem corner radius",     "Cards usam rounded-none. A identidade Chuv reserva o radius de 10px exclusivamente para os containers de seção."],
             ["Padding consistente",   "Use sempre p-[var(--card-padding)]. Nunca px-6, p-4, ou outros valores ad hoc."],
             ["Gap de 16px",           "Quando múltiplos cards estão lado a lado ou empilhados, o gap entre eles é sempre gap-4 (16px)."],
@@ -256,7 +256,7 @@ export default function CardSystemPage() {
       <div className="px-1 pt-2 pb-4">
         <p className="text-xs text-muted-foreground">
           Chuv Studio Design System · Foundation: Card System ·{" "}
-          <span className="font-mono">bg-white → border → rounded-none → p-[var(--card-padding)]</span>
+          <span className="font-mono">neutral gray 50 → border-white → rounded-none → p-[var(--card-padding)]</span>
         </p>
       </div>
 
