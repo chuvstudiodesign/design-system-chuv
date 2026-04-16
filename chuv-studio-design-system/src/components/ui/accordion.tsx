@@ -3,11 +3,87 @@ import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion"
 import { cn } from "@/lib/utils"
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react"
 
-function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
+type AccordionRootProps<Value = string> = Omit<
+  AccordionPrimitive.Root.Props<Value>,
+  "defaultValue" | "multiple" | "onValueChange" | "value"
+> & {
+  type?: "single" | "multiple"
+  collapsible?: boolean
+} & (
+    | {
+        type?: "single"
+        defaultValue?: Value
+        value?: Value
+        onValueChange?: (
+          value: Value | undefined,
+          eventDetails: AccordionPrimitive.Root.ChangeEventDetails,
+        ) => void
+      }
+    | {
+        type: "multiple"
+        defaultValue?: Value[]
+        value?: Value[]
+        onValueChange?: (
+          value: Value[],
+          eventDetails: AccordionPrimitive.Root.ChangeEventDetails,
+        ) => void
+      }
+  )
+
+function Accordion<Value = string>({
+  className,
+  type = "single",
+  collapsible: _collapsible,
+  defaultValue,
+  value,
+  onValueChange,
+  ...props
+}: AccordionRootProps<Value>) {
+  const isMultiple = type === "multiple"
+  const normalizedDefaultValue = isMultiple
+    ? (defaultValue as Value[] | undefined)
+    : defaultValue === undefined
+      ? undefined
+      : [defaultValue as Value]
+  const normalizedValue = isMultiple
+    ? (value as Value[] | undefined)
+    : value === undefined
+      ? undefined
+      : [value as Value]
+  const valueChangeProps = onValueChange
+    ? {
+        onValueChange: (
+          nextValue: Value[],
+          eventDetails: AccordionPrimitive.Root.ChangeEventDetails,
+        ) => {
+          if (isMultiple) {
+            ;(
+              onValueChange as (
+                value: Value[],
+                details: AccordionPrimitive.Root.ChangeEventDetails,
+              ) => void
+            )(nextValue, eventDetails)
+            return
+          }
+
+          ;(
+            onValueChange as (
+              value: Value | undefined,
+              details: AccordionPrimitive.Root.ChangeEventDetails,
+            ) => void
+          )(nextValue[0], eventDetails)
+        },
+      }
+    : {}
+
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
       className={cn("flex w-full flex-col", className)}
+      multiple={isMultiple}
+      defaultValue={normalizedDefaultValue}
+      value={normalizedValue}
+      {...valueChangeProps}
       {...props}
     />
   )
