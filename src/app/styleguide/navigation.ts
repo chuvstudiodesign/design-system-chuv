@@ -23,6 +23,7 @@ export const navigation: NavSection[] = [
       { name: "Accordion", href: "/styleguide/components/accordion" },
       { name: "Buttons", href: "/styleguide/components/buttons" },
       { name: "Carousel", href: "/styleguide/components/carousel" },
+      { name: "Checkbox", href: "/styleguide/components/checkbox" },
     ],
   },
 ];
