@@ -22,6 +22,7 @@ export const navigation: NavSection[] = [
     items: [
       { name: "Accordion", href: "/styleguide/components/accordion" },
       { name: "Alert", href: "/styleguide/components/alert" },
+      { name: "Alert Dialog", href: "/styleguide/components/alert-dialog" },
       { name: "Aspect Ratio", href: "/styleguide/components/aspect-ratio" },
       { name: "Badge", href: "/styleguide/components/badge" },
       { name: "Buttons", href: "/styleguide/components/buttons" },
