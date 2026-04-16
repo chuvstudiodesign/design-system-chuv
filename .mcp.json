@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "figma": {
-      "type": "http",
-      "url": "http://127.0.0.1:3845/mcp"
+      "command": "npx",
+      "args": ["-y", "figma-developer-mcp", "--figma-api-key=SEU_TOKEN_AQUI", "--stdio"]
     },
     "shadcn": {
       "command": "npx",
