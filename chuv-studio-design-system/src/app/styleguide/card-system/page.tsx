@@ -1,0 +1,265 @@
+import { Separator } from "@/components/ui/separator"
+
+// ── Section wrapper ────────────────────────────────────────────────────────────
+function Section({
+  title,
+  subtitle,
+  children,
+}: {
+  title: string
+  subtitle?: string
+  children: React.ReactNode
+}) {
+  return (
+    <section
+      className="w-full rounded-[10px] p-10 md:p-12 lg:p-20"
+      style={{ backgroundColor: "#efefef" }}
+    >
+      <div className="mb-5">
+        <h2 className="text-2xl font-bold text-foreground">{title}</h2>
+        {subtitle && (
+          <p className="text-sm text-muted-foreground mt-1">{subtitle}</p>
+        )}
+      </div>
+      <Separator className="mb-8 bg-black/10" />
+      {children}
+    </section>
+  )
+}
+
+function Spec({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex items-center gap-3 bg-white border border-black/10 px-4 py-3">
+      <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest w-32 shrink-0">
+        {label}
+      </span>
+      <code className="text-xs font-mono text-primary">{value}</code>
+    </div>
+  )
+}
+
+function Annotation({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-2">
+      <div className="w-3 h-px bg-foreground/30" />
+      <span className="text-[11px] font-mono text-muted-foreground">{children}</span>
+    </div>
+  )
+}
+
+// ── Page ──────────────────────────────────────────────────────────────────────
+export default function CardSystemPage() {
+  return (
+    <div className="flex flex-col gap-3 py-3 lg:gap-4 lg:py-4 lg:pr-4">
+
+      {/* Header */}
+      <div className="px-1 mb-2">
+        <p className="text-xs font-bold tracking-widest text-primary uppercase mb-2">
+          01 — FOUNDATION
+        </p>
+        <h1 className="text-4xl font-bold text-foreground mb-3">Card System</h1>
+        <p className="text-muted-foreground text-base max-w-xl">
+          Como os blocos de conteúdo são construídos dentro dos containers de seção.
+          Os cards são a terceira camada da hierarquia visual da Chuv Studio.
+        </p>
+      </div>
+
+      {/* ── HIERARQUIA ── */}
+      <Section
+        title="Hierarquia Visual"
+        subtitle="Três camadas, sempre nesta ordem"
+      >
+        <div className="space-y-4 max-w-2xl">
+          <p className="text-sm text-foreground/80 leading-relaxed">
+            Todo conteúdo real da Chuv Studio passa por três camadas. O <strong>Card System</strong> define
+            a terceira — os blocos brancos que vivem dentro dos containers de seção e
+            envolvem o conteúdo final.
+          </p>
+
+          {/* Camadas */}
+          <div className="flex flex-col gap-0">
+            {[
+              { layer: "01", name: "Base canvas",          color: "#ffffff", border: true,  desc: "Fundo da página — branco puro" },
+              { layer: "02", name: "Section container",    color: "#efefef", border: false, desc: "Container de seção — cinza claro, radius 10px" },
+              { layer: "03", name: "Card",                 color: "#ffffff", border: true,  desc: "Bloco de conteúdo — branco, borda, padding 45px" },
+            ].map((l) => (
+              <div key={l.layer} className="flex items-center gap-4 border-b border-black/8 py-3 last:border-0">
+                <span className="text-[10px] font-mono text-primary font-bold w-6 shrink-0">{l.layer}</span>
+                <div
+                  className="w-8 h-8 shrink-0 border border-black/15"
+                  style={{ backgroundColor: l.color }}
+                />
+                <div>
+                  <p className="text-sm font-semibold text-foreground">{l.name}</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">{l.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* ── SPECS ── */}
+      <Section
+        title="Card Specs"
+        subtitle="As regras fixas de todo card"
+      >
+        <div className="flex flex-col gap-2 max-w-lg">
+          <Spec label="Background"    value="#ffffff  →  branco puro" />
+          <Spec label="Borda"         value="1px solid #e0e0e0  →  border border-[#e0e0e0]" />
+          <Spec label="Corner Radius" value="0px  →  rounded-none  (regra da identidade)" />
+          <Spec label="Padding"       value="45px todos os lados  →  p-[var(--card-padding)]" />
+          <Spec label="Token"         value="--card-padding: 45px  (globals.css)" />
+        </div>
+      </Section>
+
+      {/* ── DIAGRAMA ── */}
+      <Section
+        title="Estrutura Visual"
+        subtitle="Diagrama anotado — card dentro do container de seção"
+      >
+        {/* Section container */}
+        <div
+          className="rounded-[10px] p-8 border border-dashed border-black/20"
+          style={{ backgroundColor: "#efefef" }}
+        >
+          <div className="text-[10px] font-mono text-muted-foreground mb-4">
+            Section container — bg #efefef, radius 10px
+          </div>
+
+          {/* Card */}
+          <div className="bg-white border border-[#e0e0e0] p-[var(--card-padding)]">
+            {/* Annotations */}
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">
+                Card
+              </span>
+              <div className="flex gap-4">
+                <Annotation>bg #ffffff</Annotation>
+                <Annotation>border #e0e0e0</Annotation>
+                <Annotation>radius 0px</Annotation>
+                <Annotation>p-[var(--card-padding)]</Annotation>
+              </div>
+            </div>
+
+            {/* Mock content */}
+            <div className="flex flex-col gap-2">
+              <div className="h-5 w-1/2 bg-foreground/10" />
+              <div className="h-3 w-full bg-foreground/6" />
+              <div className="h-3 w-5/6 bg-foreground/6" />
+              <div className="h-3 w-4/6 bg-foreground/6" />
+              <div className="h-8 w-28 bg-primary/20 mt-2" />
+            </div>
+          </div>
+
+          {/* Gap annotation */}
+          <div className="h-4 flex items-center gap-2 px-1 mt-0">
+            <div className="flex-1 border-t border-dashed border-black/20" />
+            <span className="text-[10px] font-mono text-muted-foreground shrink-0">gap entre cards — 16px</span>
+            <div className="flex-1 border-t border-dashed border-black/20" />
+          </div>
+
+          {/* Second card */}
+          <div className="bg-white border border-[#e0e0e0] p-[var(--card-padding)]">
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">
+                Card
+              </span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="h-5 w-2/5 bg-foreground/10" />
+              <div className="h-3 w-full bg-foreground/6" />
+              <div className="h-3 w-3/4 bg-foreground/6" />
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* ── PATTERN ── */}
+      <Section
+        title="Padrão de implementação"
+        subtitle="O código Tailwind que todo card deve seguir"
+      >
+        <div className="space-y-6">
+          <div>
+            <p className="text-sm font-semibold mb-3">Card básico</p>
+            <pre className="bg-foreground/5 border border-black/10 px-4 py-3 text-xs font-mono text-foreground/70 overflow-x-auto whitespace-pre">{`<div className="bg-white border border-[#e0e0e0] p-[var(--card-padding)]">
+  {/* conteúdo */}
+</div>`}</pre>
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold mb-3">Cards em grid dentro de uma section</p>
+            <pre className="bg-foreground/5 border border-black/10 px-4 py-3 text-xs font-mono text-foreground/70 overflow-x-auto whitespace-pre">{`<section className="rounded-[10px] bg-[#efefef] p-4">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+    <div className="bg-white border border-[#e0e0e0] p-[var(--card-padding)]">
+      {/* card 1 */}
+    </div>
+
+    <div className="bg-white border border-[#e0e0e0] p-[var(--card-padding)]">
+      {/* card 2 */}
+    </div>
+
+  </div>
+</section>`}</pre>
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold mb-3">Mapa de tokens</p>
+            <div className="flex flex-col gap-2 max-w-lg">
+              {[
+                ["bg-white",                    "Fundo do card"],
+                ["border border-[#e0e0e0]",     "Borda  →  --border (#e0e0e0)"],
+                ["rounded-none",                "Sem radius  →  regra da identidade"],
+                ["p-[var(--card-padding)]",      "Padding interno  →  --card-padding (45px)"],
+                ["gap-4",                        "Gap entre cards  →  16px"],
+              ].map(([token, desc]) => (
+                <div key={token} className="flex items-center gap-4 bg-white border border-black/10 px-4 py-2.5">
+                  <code className="text-xs font-mono text-primary w-52 shrink-0">{token}</code>
+                  <span className="text-xs text-muted-foreground">{desc}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* ── REGRAS ── */}
+      <Section
+        title="Regras"
+        subtitle="Restrições não negociáveis"
+      >
+        <ol className="flex flex-col gap-4 max-w-xl">
+          {[
+            ["Sempre branco",         "O fundo do card é sempre #ffffff. Nunca use a cor do container de seção (#efefef) como fundo de card."],
+            ["Sempre com borda",      "Cards sempre têm border border-[#e0e0e0]. Sem borda, o card se funde ao fundo branco da página."],
+            ["Sem corner radius",     "Cards usam rounded-none. A identidade Chuv reserva o radius de 10px exclusivamente para os containers de seção."],
+            ["Padding consistente",   "Use sempre p-[var(--card-padding)]. Nunca px-6, p-4, ou outros valores ad hoc."],
+            ["Gap de 16px",           "Quando múltiplos cards estão lado a lado ou empilhados, o gap entre eles é sempre gap-4 (16px)."],
+            ["Não aninhados",         "Cards não contêm outros cards. Hierarquia é: seção → card → conteúdo."],
+          ].map(([title, body], i) => (
+            <li key={title as string} className="flex gap-4">
+              <span className="text-[10px] font-mono text-primary font-bold mt-0.5 w-4 shrink-0">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <p className="text-sm font-semibold text-foreground">{title as string}</p>
+                <p className="text-sm text-muted-foreground mt-0.5">{body as string}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      {/* Footer */}
+      <div className="px-1 pt-2 pb-4">
+        <p className="text-xs text-muted-foreground">
+          Chuv Studio Design System · Foundation: Card System ·{" "}
+          <span className="font-mono">bg-white → border → rounded-none → p-[var(--card-padding)]</span>
+        </p>
+      </div>
+
+    </div>
+  )
+}
