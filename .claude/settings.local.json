@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__figma-desktop__get_metadata",
+      "mcp__figma-desktop__get_design_context",
+      "mcp__plugin_figma_figma__use_figma",
+      "mcp__plugin_figma_figma__get_screenshot",
+      "Bash(npx create-next-app@latest chuv-studio-design-system --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git --yes)",
+      "Bash(npx shadcn@latest init --defaults)",
+      "Bash(npx shadcn@latest add card input label badge dialog navigation-menu separator tabs --yes)",
+      "Bash(npm run *)",
+      "mcp__plugin_figma_figma__get_metadata",
+      "mcp__plugin_figma_figma__get_design_context",
+      "Bash(npx shadcn@latest add alert radio-group switch tooltip --yes)",
+      "Read(//Users/lucaszerlotini/.claude/**)",
+      "mcp__plugin_figma_figma__whoami",
+      "Bash(pnpm dlx *)",
+      "Bash(npx shadcn@latest mcp init --client claude)"
+    ]
+  }
+}
