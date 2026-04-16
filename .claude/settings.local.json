@@ -15,7 +15,8 @@
       "Read(//Users/lucaszerlotini/.claude/**)",
       "mcp__plugin_figma_figma__whoami",
       "Bash(pnpm dlx *)",
-      "Bash(npx shadcn@latest mcp init --client claude)"
+      "Bash(npx shadcn@latest mcp init --client claude)",
+      "mcp__figma__get_figma_data"
     ]
   }
 }
