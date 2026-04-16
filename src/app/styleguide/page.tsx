@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Separator } from "@/components/ui/separator";
+import { Typography } from "@/components/typography";
 
 // ── Color swatch ──────────────────────────────────────────────────────────────
 function ColorSwatch({
@@ -42,13 +43,13 @@ function Section({
 }) {
   return (
     <section
-      className="w-full rounded-[10px] p-10 md:p-12 lg:p-20"
+      className="ds-section"
       style={{ backgroundColor: "#efefef" }}
     >
       <div className="mb-5">
-        <h2 className="text-2xl font-bold text-foreground">{title}</h2>
+        <h2 className="ds-section-title">{title}</h2>
         {subtitle && (
-          <p className="text-sm text-muted-foreground mt-1">{subtitle}</p>
+          <p className="ds-section-subtitle">{subtitle}</p>
         )}
       </div>
       <Separator className="mb-6 bg-black/10" />
@@ -93,16 +94,16 @@ export default function StyleguidePage() {
   ];
 
   return (
-    <div className="flex flex-col gap-3 py-3 lg:gap-4 lg:py-4 lg:pr-4">
+    <div className="ds-page">
       {/* Header */}
       <div className="px-1 mb-2">
         <p className="text-xs font-bold tracking-widest text-primary uppercase mb-2">
           01 — FOUNDATION
         </p>
-        <h1 className="text-4xl font-bold text-foreground mb-3">
+        <h1 className="ds-page-title">
           Design Tokens
         </h1>
-        <p className="text-muted-foreground text-base max-w-xl">
+        <p className="ds-page-description max-w-xl">
           Todos os tokens de design da Chuv Studio, extraídos diretamente do
           arquivo Figma{" "}
           <span className="font-medium text-foreground">
@@ -214,13 +215,38 @@ export default function StyleguidePage() {
             { label: "Label M",    size: "text-sm",  weight: "font-medium",    sample: "ENVIAR · CONTATO · SAIBA MAIS" },
             { label: "Caption",    size: "text-xs",  weight: "font-normal",    sample: "Design by Italy · Chuv Studio © 2025 · id@chuv.studio" },
           ].map((t) => (
-            <div key={t.label} className="flex items-baseline gap-4 md:gap-8">
+            <div key={t.label} className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:gap-4 md:gap-8">
               <div className="w-20 md:w-28 shrink-0">
                 <span className="text-[10px] md:text-xs font-medium text-primary">{t.label}</span>
               </div>
-              <p className={`${t.size} ${t.weight} text-foreground leading-tight truncate`}>
+              <Typography
+                variant={
+                  t.label === "Display XL"
+                    ? "display-xl"
+                    : t.label === "Display L"
+                      ? "display-l"
+                      : t.label === "Heading H1"
+                        ? "h1"
+                        : t.label === "Heading H2"
+                          ? "h2"
+                          : t.label === "Heading H3"
+                            ? "h3"
+                            : t.label === "Heading H4"
+                              ? "h4"
+                              : t.label === "Body XL"
+                                ? "body-xl"
+                                : t.label === "Body M"
+                                  ? "body-m"
+                                  : t.label === "Body S"
+                                    ? "body-s"
+                                    : t.label === "Label M"
+                                      ? "label-m"
+                                      : "caption"
+                }
+                className="truncate"
+              >
                 {t.sample}
-              </p>
+              </Typography>
             </div>
           ))}
         </div>
@@ -284,7 +310,7 @@ export default function StyleguidePage() {
 
       {/* ── SHADOWS ── */}
       <Section title="Shadows & Elevation">
-        <div className="flex flex-wrap gap-8 items-center">
+        <div className="flex flex-wrap items-center gap-6 sm:gap-8">
           {[
             { name: "XS",  cls: "shadow-xs" },
             { name: "S",   cls: "shadow-sm" },

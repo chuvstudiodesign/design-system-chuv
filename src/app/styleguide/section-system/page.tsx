@@ -12,13 +12,13 @@ function Section({
 }) {
   return (
     <section
-      className="w-full rounded-[10px] p-10 md:p-12 lg:p-20"
+      className="ds-section"
       style={{ backgroundColor: "#efefef" }}
     >
       <div className="mb-5">
-        <h2 className="text-2xl font-bold text-foreground">{title}</h2>
+        <h2 className="ds-section-title">{title}</h2>
         {subtitle && (
-          <p className="text-sm text-muted-foreground mt-1">{subtitle}</p>
+          <p className="ds-section-subtitle">{subtitle}</p>
         )}
       </div>
       <Separator className="mb-8 bg-black/10" />
@@ -49,15 +49,15 @@ function Annotation({ children }: { children: React.ReactNode }) {
 
 export default function SectionSystemPage() {
   return (
-    <div className="flex flex-col gap-3 py-3 lg:gap-4 lg:py-4 lg:pr-4">
+    <div className="ds-page">
 
       {/* Header */}
       <div className="px-1 mb-2">
         <p className="text-xs font-bold tracking-widest text-primary uppercase mb-2">
           01 — FOUNDATION
         </p>
-        <h1 className="text-4xl font-bold text-foreground mb-3">Section System</h1>
-        <p className="text-muted-foreground text-base max-w-xl">
+        <h1 className="ds-page-title">Section System</h1>
+        <p className="ds-page-description max-w-xl">
           Como toda página da Chuv Studio é construída — a camada estrutural
           que define o fundo base e os containers de seção empilhados sobre ele.
         </p>
@@ -123,7 +123,7 @@ export default function SectionSystemPage() {
         subtitle="Diagrama anotado — como a página se empilha"
       >
         <div
-          className="relative border border-dashed border-black/20 p-4 flex flex-col"
+          className="relative flex flex-col border border-dashed border-black/20 p-4"
           style={{ backgroundColor: "#ffffff" }}
         >
           <div className="absolute -top-5 left-0">
@@ -132,9 +132,9 @@ export default function SectionSystemPage() {
 
           {/* Section 1 */}
           <div className="rounded-[10px] p-4 flex flex-col gap-3" style={{ backgroundColor: "#efefef" }}>
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
               <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">Section</span>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 <Annotation>bg #efefef</Annotation>
                 <Annotation>radius 10px</Annotation>
                 <Annotation>p-4</Annotation>
@@ -155,9 +155,9 @@ export default function SectionSystemPage() {
 
           {/* Section 2 */}
           <div className="rounded-[10px] p-4 flex flex-col gap-3" style={{ backgroundColor: "#efefef" }}>
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
               <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">Section</span>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 <Annotation>bg #efefef</Annotation>
                 <Annotation>radius 10px</Annotation>
                 <Annotation>p-4</Annotation>
@@ -184,9 +184,9 @@ export default function SectionSystemPage() {
 
           {/* Section 3 */}
           <div className="rounded-[10px] p-4 flex flex-col gap-3" style={{ backgroundColor: "#efefef" }}>
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
               <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">Section</span>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 <Annotation>bg #efefef</Annotation>
                 <Annotation>radius 10px</Annotation>
                 <Annotation>p-4</Annotation>

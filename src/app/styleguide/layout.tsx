@@ -109,7 +109,7 @@ export default function StyleguideLayout({ children }: { children: React.ReactNo
       {/* ── Mobile drawer ──────────────────────────────────────── */}
       <aside
         className={cn(
-          "fixed top-0 left-0 z-50 h-full w-72 flex flex-col overflow-y-auto p-5 transition-transform duration-200 lg:hidden rounded-r-[10px]",
+          "fixed top-0 left-0 z-50 h-full w-[min(20rem,calc(100vw-1rem))] flex flex-col overflow-y-auto p-4 sm:p-5 transition-transform duration-200 lg:hidden rounded-r-[10px]",
           open ? "translate-x-0" : "-translate-x-full"
         )}
         style={{ backgroundColor: "#efefef" }}
@@ -126,7 +126,7 @@ export default function StyleguideLayout({ children }: { children: React.ReactNo
 
         {/* Desktop sidebar */}
         <aside
-          className="hidden lg:flex w-60 shrink-0 sticky top-4 self-start flex-col overflow-y-auto rounded-[10px] p-5"
+          className="hidden lg:flex w-60 xl:w-64 shrink-0 sticky top-4 self-start flex-col overflow-y-auto rounded-[10px] p-5"
           style={{
             backgroundColor: "#efefef",
             maxHeight: "calc(100vh - 32px)",
@@ -136,7 +136,7 @@ export default function StyleguideLayout({ children }: { children: React.ReactNo
         </aside>
 
         {/* Main content */}
-        <main className="flex-1 min-w-0 px-4 pb-4 lg:px-0 lg:pb-0">
+        <main className="flex-1 min-w-0 px-3 pb-3 sm:px-4 sm:pb-4 lg:px-0 lg:pb-0">
           {children}
         </main>
       </div>

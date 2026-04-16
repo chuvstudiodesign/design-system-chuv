@@ -209,3 +209,61 @@
     @apply font-sans;
   }
 }
+
+@layer components {
+  .ds-page {
+    @apply flex flex-col gap-3 py-3 sm:gap-4 sm:py-4 lg:pr-4;
+  }
+
+  .ds-page-header {
+    @apply mb-2 px-1;
+  }
+
+  .ds-page-title {
+    @apply mb-3 text-3xl font-bold text-foreground sm:text-4xl;
+  }
+
+  .ds-page-description {
+    @apply max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base;
+  }
+
+  .ds-section {
+    @apply w-full rounded-[10px] p-5 sm:p-8 md:p-10 lg:p-14 xl:p-20;
+  }
+
+  .ds-section-title {
+    @apply text-xl font-bold text-foreground sm:text-2xl;
+  }
+
+  .ds-section-subtitle {
+    @apply mt-1 text-sm leading-6 text-muted-foreground;
+  }
+
+  .ds-row {
+    @apply flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-6;
+  }
+
+  .ds-row-center {
+    @apply flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6;
+  }
+
+  .ds-row-label {
+    @apply w-full shrink-0 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground sm:w-24;
+  }
+
+  .ds-code-snippet {
+    @apply mt-6 overflow-x-auto whitespace-pre-wrap border border-black/10 bg-foreground/5 px-4 py-3 text-[11px] text-foreground/70 sm:text-xs;
+  }
+
+  .ds-card-grid-3 {
+    @apply grid gap-4 md:grid-cols-2 xl:grid-cols-3;
+  }
+
+  .ds-card-grid-2 {
+    @apply grid gap-4 xl:grid-cols-2;
+  }
+
+  .ds-interactive-grid {
+    @apply grid gap-8 xl:grid-cols-[280px_minmax(0,1fr)];
+  }
+}

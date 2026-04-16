@@ -27,13 +27,13 @@ function Section({
 }) {
   return (
     <section
-      className="w-full rounded-[10px] p-10 md:p-12 lg:p-20"
+      className="ds-section"
       style={{ backgroundColor: "#efefef" }}
     >
       <div className="mb-5">
-        <h2 className="text-2xl font-bold text-foreground">{title}</h2>
+        <h2 className="ds-section-title">{title}</h2>
         {subtitle ? (
-          <p className="mt-1 text-sm text-muted-foreground">{subtitle}</p>
+          <p className="ds-section-subtitle">{subtitle}</p>
         ) : null}
       </div>
       <Separator className="mb-8 bg-black/10" />
@@ -44,7 +44,7 @@ function Section({
 
 function CodeSnippet({ code }: { code: string }) {
   return (
-    <pre className="mt-6 overflow-x-auto whitespace-pre-wrap border border-black/10 bg-foreground/5 px-4 py-3 text-xs text-foreground/70">
+    <pre className="ds-code-snippet">
       {code}
     </pre>
   )
@@ -52,7 +52,7 @@ function CodeSnippet({ code }: { code: string }) {
 
 function RowLabel({ label }: { label: string }) {
   return (
-    <span className="w-24 shrink-0 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+    <span className="ds-row-label">
       {label}
     </span>
   )
@@ -93,13 +93,13 @@ export default function BadgePage() {
               : "Badge"
 
   return (
-    <div className="flex flex-col gap-3 py-3 lg:gap-4 lg:py-4 lg:pr-4">
-      <div className="mb-2 px-1">
+    <div className="ds-page">
+      <div className="ds-page-header">
         <p className="mb-2 text-xs font-bold uppercase tracking-widest text-primary">
           02 — COMPONENTS
         </p>
-        <h1 className="mb-3 text-4xl font-bold text-foreground">Badge</h1>
-        <p className="max-w-2xl text-base text-muted-foreground">
+        <h1 className="ds-page-title">Badge</h1>
+        <p className="ds-page-description">
           Small metadata label for services, tools, stack, project stage, and
           portfolio context. Built from shadcn/ui and adapted to the Chuv
           Studio foundation, following the rule that internal section elements
@@ -170,7 +170,7 @@ export default function BadgePage() {
             },
           ].map(({ label, el, code }) => (
             <div key={label}>
-              <div className="flex items-center gap-6">
+              <div className="ds-row-center">
                 <RowLabel label={label} />
                 <div className="flex flex-wrap gap-3">{el}</div>
               </div>
@@ -184,7 +184,7 @@ export default function BadgePage() {
         title="Studio Contexts"
         subtitle="Examples that make sense for a design studio working with products and tech"
       >
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="ds-card-grid-3">
           <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
               Services
@@ -271,7 +271,7 @@ export default function BadgePage() {
             },
           ].map(({ label, el, code }) => (
             <div key={label}>
-              <div className="flex items-center gap-6">
+              <div className="ds-row-center">
                 <RowLabel label={label} />
                 <div className="flex flex-wrap gap-3">{el}</div>
               </div>

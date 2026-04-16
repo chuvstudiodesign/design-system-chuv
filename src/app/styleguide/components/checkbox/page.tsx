@@ -17,13 +17,13 @@ function Section({
 }) {
   return (
     <section
-      className="w-full rounded-[10px] p-10 md:p-12 lg:p-20"
+      className="ds-section"
       style={{ backgroundColor: "#efefef" }}
     >
       <div className="mb-5">
-        <h2 className="text-2xl font-bold text-foreground">{title}</h2>
+        <h2 className="ds-section-title">{title}</h2>
         {subtitle ? (
-          <p className="mt-1 text-sm text-muted-foreground">{subtitle}</p>
+          <p className="ds-section-subtitle">{subtitle}</p>
         ) : null}
       </div>
       <Separator className="mb-8 bg-black/10" />
@@ -34,7 +34,7 @@ function Section({
 
 function CodeSnippet({ code }: { code: string }) {
   return (
-    <pre className="mt-6 overflow-x-auto whitespace-pre-wrap border border-black/10 bg-foreground/5 px-4 py-3 text-xs text-foreground/70">
+    <pre className="ds-code-snippet">
       {code}
     </pre>
   )
@@ -42,7 +42,7 @@ function CodeSnippet({ code }: { code: string }) {
 
 function RowLabel({ label }: { label: string }) {
   return (
-    <span className="w-24 shrink-0 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+    <span className="ds-row-label">
       {label}
     </span>
   )
@@ -59,12 +59,12 @@ export default function CheckboxPage() {
   const [dark, setDark] = React.useState(false)
 
   return (
-    <div className="flex flex-col gap-3 py-3 lg:gap-4 lg:py-4 lg:pr-4">
-      <div className="mb-2 px-1">
+    <div className="ds-page">
+      <div className="ds-page-header">
         <p className="mb-2 text-xs font-bold uppercase tracking-widest text-primary">
           02 — COMPONENTS
         </p>
-        <h1 className="mb-3 text-4xl font-bold text-foreground">Checkbox</h1>
+        <h1 className="ds-page-title">Checkbox</h1>
         <p className="max-w-xl text-base text-muted-foreground">
           Binary selection built with{" "}
           <code className="bg-black/5 px-1 py-0.5 text-xs font-mono">
@@ -80,7 +80,7 @@ export default function CheckboxPage() {
         subtitle="Default compositions with label, helper text, and card-style selection"
       >
         <div className="space-y-6">
-          <div className="flex items-center gap-6">
+          <div className="ds-row-center">
             <RowLabel label="Default" />
             <div className="flex items-center gap-3">
               <Checkbox
@@ -94,7 +94,7 @@ export default function CheckboxPage() {
             </div>
           </div>
 
-          <div className="flex items-start gap-6">
+          <div className="ds-row">
             <RowLabel label="With text" />
             <div className="flex items-start gap-3">
               <Checkbox
@@ -116,7 +116,7 @@ export default function CheckboxPage() {
             </div>
           </div>
 
-          <div className="flex items-start gap-6">
+          <div className="ds-row">
             <RowLabel label="Feature card" />
             <Label
               className="max-w-md cursor-pointer items-start rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
@@ -154,7 +154,7 @@ export default function CheckboxPage() {
         subtitle="Common states you will use in forms and preferences flows"
       >
         <div className="space-y-5">
-          <div className="flex items-center gap-6">
+          <div className="ds-row-center">
             <RowLabel label="Unchecked" />
             <div className="flex items-center gap-3">
               <Checkbox
@@ -168,7 +168,7 @@ export default function CheckboxPage() {
             </div>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="ds-row-center">
             <RowLabel label="Checked" />
             <div className="flex items-center gap-3">
               <Checkbox
@@ -182,7 +182,7 @@ export default function CheckboxPage() {
             </div>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="ds-row-center">
             <RowLabel label="Disabled" />
             <div className="flex items-center gap-3">
               <Checkbox id="state-disabled" disabled />
@@ -190,7 +190,7 @@ export default function CheckboxPage() {
             </div>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="ds-row-center">
             <RowLabel label="Disabled on" />
             <div className="flex items-center gap-3">
               <Checkbox id="state-disabled-checked" defaultChecked disabled />

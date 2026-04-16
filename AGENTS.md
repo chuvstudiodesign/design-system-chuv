@@ -44,3 +44,14 @@ When the user asks for design or component changes, follow this order:
   - `rounded-none`
   - `p-[var(--card-padding)]`
 - When adapting shadcn/ui components, extend them so they feel native to this design system instead of leaving them in the default shadcn visual language.
+
+## Typography Consistency
+
+- The typography scale documented in `Design Tokens → Typography` is the source of truth for the whole project.
+- New component pages and styleguide sections should derive their text hierarchy from the shared typography component instead of inventing ad-hoc type styles.
+- Keep typography consistent across the design system:
+  - use display variants for hero-level emphasis
+  - use heading variants for section structure
+  - use body variants for reading content
+  - use label and caption variants for metadata and support text
+- Visual experimentation is allowed, but it must not break the documented typographic hierarchy of the system.

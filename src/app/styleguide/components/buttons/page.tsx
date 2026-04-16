@@ -21,13 +21,13 @@ function Section({
 }) {
   return (
     <section
-      className="w-full rounded-[10px] p-10 md:p-12 lg:p-20"
+      className="ds-section"
       style={{ backgroundColor: "#efefef" }}
     >
       <div className="mb-5">
-        <h2 className="text-2xl font-bold text-foreground">{title}</h2>
+        <h2 className="ds-section-title">{title}</h2>
         {subtitle && (
-          <p className="text-sm text-muted-foreground mt-1">{subtitle}</p>
+          <p className="ds-section-subtitle">{subtitle}</p>
         )}
       </div>
       <Separator className="mb-8 bg-black/10" />
@@ -57,14 +57,14 @@ function RowLabel({ label }: { label: string }) {
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function ButtonsPage() {
   return (
-    <div className="flex flex-col gap-3 py-3 lg:gap-4 lg:py-4 lg:pr-4">
+    <div className="ds-page">
       {/* Header */}
       <div className="px-1 mb-2">
         <p className="text-xs font-bold tracking-widest text-primary uppercase mb-2">
           02 — COMPONENTS
         </p>
-        <h1 className="text-4xl font-bold text-foreground mb-3">Button</h1>
-        <p className="text-muted-foreground text-base max-w-xl">
+        <h1 className="ds-page-title">Button</h1>
+        <p className="ds-page-description max-w-xl">
           Trigger actions or navigate. Built on{" "}
           <code className="text-xs font-mono bg-black/5 px-1 py-0.5">
             @base-ui/react/button
@@ -116,7 +116,7 @@ export default function ButtonsPage() {
             },
           ].map(({ label, el, code }) => (
             <div key={label}>
-              <div className="flex items-center gap-6">
+              <div className="ds-row-center">
                 <RowLabel label={label} />
                 {el}
               </div>
@@ -155,7 +155,7 @@ export default function ButtonsPage() {
             },
           ].map(({ label, el, code }) => (
             <div key={label}>
-              <div className="flex items-center gap-6">
+              <div className="ds-row-center">
                 <RowLabel label={label} />
                 {el}
               </div>
@@ -210,7 +210,7 @@ export default function ButtonsPage() {
             },
           ].map(({ label, el, code }) => (
             <div key={label}>
-              <div className="flex items-center gap-6">
+              <div className="ds-row-center">
                 <RowLabel label={label} />
                 {el}
               </div>
@@ -269,7 +269,7 @@ export default function ButtonsPage() {
             },
           ].map(({ label, el, code }) => (
             <div key={label}>
-              <div className="flex items-center gap-6">
+              <div className="ds-row-center">
                 <RowLabel label={label} />
                 {el}
               </div>
@@ -322,7 +322,7 @@ export default function ButtonsPage() {
             },
           ].map(({ label, el, code }) => (
             <div key={label}>
-              <div className="flex items-center gap-6">
+              <div className="ds-row-center">
                 <RowLabel label={label} />
                 {el}
               </div>

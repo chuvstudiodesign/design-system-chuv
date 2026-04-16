@@ -23,13 +23,13 @@ function Section({
 }) {
   return (
     <section
-      className="w-full rounded-[10px] p-10 md:p-12 lg:p-20"
+      className="ds-section"
       style={{ backgroundColor: "#efefef" }}
     >
       <div className="mb-5">
-        <h2 className="text-2xl font-bold text-foreground">{title}</h2>
+        <h2 className="ds-section-title">{title}</h2>
         {subtitle && (
-          <p className="text-sm text-muted-foreground mt-1">{subtitle}</p>
+          <p className="ds-section-subtitle">{subtitle}</p>
         )}
       </div>
       <Separator className="mb-8 bg-black/10" />
@@ -69,15 +69,15 @@ export default function CarouselPage() {
   }, [api])
 
   return (
-    <div className="flex flex-col gap-3 py-3 lg:gap-4 lg:py-4 lg:pr-4">
+    <div className="ds-page">
 
       {/* Header */}
-      <div className="px-1 mb-2">
+      <div className="ds-page-header">
         <p className="text-xs font-bold tracking-widest text-primary uppercase mb-2">
           02 — COMPONENTS
         </p>
-        <h1 className="text-4xl font-bold text-foreground mb-3">Carousel</h1>
-        <p className="text-muted-foreground text-base max-w-xl">
+        <h1 className="ds-page-title">Carousel</h1>
+        <p className="ds-page-description max-w-xl">
           Scrollable slide container powered by{" "}
           <code className="text-xs font-mono bg-black/5 px-1 py-0.5">embla-carousel-react</code>.
           Supports horizontal, vertical, multi-slide, and programmatic control via API.
@@ -89,7 +89,7 @@ export default function CarouselPage() {
         title="Basic"
         subtitle="Single slide at a time, horizontal"
       >
-        <div className="px-12">
+        <div className="px-4 sm:px-8 lg:px-12">
           <Carousel className="w-full">
             <CarouselContent>
               {Array.from({ length: 5 }).map((_, i) => (
@@ -102,7 +102,7 @@ export default function CarouselPage() {
             <CarouselNext />
           </Carousel>
         </div>
-        <pre className="mt-8 bg-foreground/5 border border-black/10 px-4 py-3 text-xs font-mono text-foreground/70 overflow-x-auto whitespace-pre">{`<Carousel className="w-full">
+        <pre className="ds-code-snippet mt-8 whitespace-pre">{`<Carousel className="w-full">
   <CarouselContent>
     {items.map((item, i) => (
       <CarouselItem key={i}>
@@ -120,7 +120,7 @@ export default function CarouselPage() {
         title="Multiple Slides"
         subtitle="Show several items at once using basis classes on CarouselItem"
       >
-        <div className="px-12">
+        <div className="px-4 sm:px-8 lg:px-12">
           <Carousel opts={{ align: "start" }} className="w-full">
             <CarouselContent>
               {Array.from({ length: 6 }).map((_, i) => (
@@ -133,7 +133,7 @@ export default function CarouselPage() {
             <CarouselNext />
           </Carousel>
         </div>
-        <pre className="mt-8 bg-foreground/5 border border-black/10 px-4 py-3 text-xs font-mono text-foreground/70 overflow-x-auto whitespace-pre">{`<Carousel opts={{ align: "start" }} className="w-full">
+        <pre className="ds-code-snippet mt-8 whitespace-pre">{`<Carousel opts={{ align: "start" }} className="w-full">
   <CarouselContent>
     {items.map((item, i) => (
       <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
@@ -152,7 +152,7 @@ export default function CarouselPage() {
         subtitle="Scrolls top-to-bottom via orientation prop"
       >
         <div className="flex justify-center">
-          <Carousel orientation="vertical" className="w-full max-w-xs">
+          <Carousel orientation="vertical" className="w-full max-w-[18rem] sm:max-w-xs">
             <CarouselContent className="h-64">
               {Array.from({ length: 5 }).map((_, i) => (
                 <CarouselItem key={i} className="basis-full">
@@ -164,7 +164,7 @@ export default function CarouselPage() {
             <CarouselNext />
           </Carousel>
         </div>
-        <pre className="mt-8 bg-foreground/5 border border-black/10 px-4 py-3 text-xs font-mono text-foreground/70 overflow-x-auto whitespace-pre">{`<Carousel orientation="vertical" className="w-full max-w-xs">
+        <pre className="ds-code-snippet mt-8 whitespace-pre">{`<Carousel orientation="vertical" className="w-full max-w-xs">
   <CarouselContent className="h-64">
     {items.map((item, i) => (
       <CarouselItem key={i}>
@@ -182,7 +182,7 @@ export default function CarouselPage() {
         title="Controlled via API"
         subtitle="Access the Embla API to read position and listen to events"
       >
-        <div className="px-12 space-y-4">
+        <div className="space-y-4 px-4 sm:px-8 lg:px-12">
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
               {Array.from({ length: 5 }).map((_, i) => (
@@ -201,7 +201,7 @@ export default function CarouselPage() {
             <span className="font-semibold text-foreground">{count}</span>
           </p>
         </div>
-        <pre className="mt-8 bg-foreground/5 border border-black/10 px-4 py-3 text-xs font-mono text-foreground/70 overflow-x-auto whitespace-pre">{`const [api, setApi] = React.useState<CarouselApi>()
+        <pre className="ds-code-snippet mt-8 whitespace-pre">{`const [api, setApi] = React.useState<CarouselApi>()
 const [current, setCurrent] = React.useState(0)
 
 React.useEffect(() => {
@@ -220,7 +220,7 @@ React.useEffect(() => {
 
           <div>
             <p className="font-semibold mb-2">Import</p>
-            <pre className="bg-foreground/5 border border-black/10 px-4 py-3 text-xs font-mono text-foreground/70 overflow-x-auto whitespace-pre">{`import {
+            <pre className="ds-code-snippet whitespace-pre">{`import {
   Carousel,
   CarouselContent,
   CarouselItem,

@@ -12,13 +12,13 @@ function Section({
 }) {
   return (
     <section
-      className="w-full rounded-[10px] p-10 md:p-12 lg:p-20"
+      className="ds-section"
       style={{ backgroundColor: "#efefef" }}
     >
       <div className="mb-5">
-        <h2 className="text-2xl font-bold text-foreground">{title}</h2>
+        <h2 className="ds-section-title">{title}</h2>
         {subtitle && (
-          <p className="text-sm text-muted-foreground mt-1">{subtitle}</p>
+          <p className="ds-section-subtitle">{subtitle}</p>
         )}
       </div>
       <Separator className="mb-8 bg-black/10" />
@@ -50,15 +50,15 @@ function Annotation({ children }: { children: React.ReactNode }) {
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function CardSystemPage() {
   return (
-    <div className="flex flex-col gap-3 py-3 lg:gap-4 lg:py-4 lg:pr-4">
+    <div className="ds-page">
 
       {/* Header */}
       <div className="px-1 mb-2">
         <p className="text-xs font-bold tracking-widest text-primary uppercase mb-2">
           01 — FOUNDATION
         </p>
-        <h1 className="text-4xl font-bold text-foreground mb-3">Card System</h1>
-        <p className="text-muted-foreground text-base max-w-xl">
+        <h1 className="ds-page-title">Card System</h1>
+        <p className="ds-page-description max-w-xl">
           Como os blocos de conteúdo são construídos dentro dos containers de seção.
           Os cards são a terceira camada da hierarquia visual da Chuv Studio.
         </p>
@@ -120,7 +120,7 @@ export default function CardSystemPage() {
       >
         {/* Section container */}
         <div
-          className="rounded-[10px] p-8 border border-dashed border-black/20"
+          className="rounded-[10px] border border-dashed border-black/20 p-4 sm:p-6 lg:p-8"
           style={{ backgroundColor: "#efefef" }}
         >
           <div className="text-[10px] font-mono text-muted-foreground mb-4">
@@ -130,11 +130,11 @@ export default function CardSystemPage() {
           {/* Card */}
           <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
             {/* Annotations */}
-            <div className="flex items-center justify-between mb-4">
+            <div className="mb-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
               <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">
                 Card
               </span>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-3">
                 <Annotation>bg #f9f9f9</Annotation>
                 <Annotation>border #ffffff</Annotation>
                 <Annotation>radius 0px</Annotation>
@@ -161,7 +161,7 @@ export default function CardSystemPage() {
 
           {/* Second card */}
           <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
-            <div className="flex items-center justify-between mb-4">
+            <div className="mb-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
               <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">
                 Card
               </span>
