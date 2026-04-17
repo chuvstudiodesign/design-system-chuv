@@ -27,10 +27,10 @@ const studioBadgeVariants = cva(
           "border-transparent bg-[var(--warning)] text-[var(--warning-foreground)]",
       },
       size: {
-        sm: "p-[10px] text-[10px] uppercase tracking-[0.16em]",
-        default: "p-[12px] text-xs",
-        lg: "p-[14px] text-sm",
-        count: "min-w-8 rounded-none p-[12px] font-mono tabular-nums",
+        sm: "px-[12px] py-[10px] text-[10px] uppercase tracking-[0.16em]",
+        default: "px-[12px] py-[10px] text-xs",
+        lg: "px-[12px] py-[10px] text-sm",
+        count: "min-w-8 rounded-none px-[12px] py-[10px] font-mono tabular-nums",
       },
     },
     defaultVariants: {

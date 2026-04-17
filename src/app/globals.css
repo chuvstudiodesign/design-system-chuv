@@ -161,13 +161,10 @@
   /* === Component Spacing === */
   /* Internal padding for cards, modules, and content blocks inside section containers */
   --card-padding: 45px;
-  --button-padding: 16px;
-  --button-padding-sm: 14px;
-  --button-padding-xs: 12px;
-  --button-padding-lg: 18px;
-  --badge-padding: 12px;
-  --badge-padding-sm: 10px;
-  --badge-padding-lg: 14px;
+  --button-padding-x: 16px;
+  --button-padding-y: 14px;
+  --badge-padding-x: 12px;
+  --badge-padding-y: 10px;
 }
 
 .dark {

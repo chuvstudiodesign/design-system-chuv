@@ -176,8 +176,10 @@ export default function StyleguidePage() {
                 ["--ring", "#5628e8"],
                 ["--destructive", "#ef4444"],
                 ["--card-padding", "45px"],
-                ["--button-padding", "16px"],
-                ["--badge-padding", "12px"],
+                ["--button-padding-x", "16px"],
+                ["--button-padding-y", "14px"],
+                ["--badge-padding-x", "12px"],
+                ["--badge-padding-y", "10px"],
               ].map(([name, val]) => (
                 <div
                   key={name}
@@ -289,8 +291,8 @@ export default function StyleguidePage() {
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {[
             ["Card Padding", "45px", "Padrão obrigatório para cards e content containers."],
-            ["Button Padding", "16px", "Novo padrão de padding uniforme dos botões nos quatro lados."],
-            ["Badge Padding", "12px", "Novo padrão de padding uniforme dos badges nos quatro lados."],
+            ["Button Padding", "16px / 14px", "Padding dos botões em pixels: 16px nas laterais e 14px na parte superior e inferior."],
+            ["Badge Padding", "12px / 10px", "Padding dos badges em pixels: 12px nas laterais e 10px na parte superior e inferior."],
           ].map(([title, value, description]) => (
             <div
               key={title}
