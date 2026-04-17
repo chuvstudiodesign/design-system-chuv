@@ -38,4 +38,10 @@ export const navigation: NavSection[] = [
       { name: "Typography", href: "/styleguide/components/typography" },
     ],
   },
+  {
+    title: "Social Media",
+    items: [
+      { name: "Vertical Post · 5 Pages", href: "/styleguide/social-media/vertical-post" },
+    ],
+  },
 ];
