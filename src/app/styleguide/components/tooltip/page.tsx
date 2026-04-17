@@ -76,7 +76,7 @@ function InlineTrigger({
       className={[
         "inline-flex items-center gap-2 rounded-none border px-4 py-3 text-sm font-medium transition-colors",
         active
-          ? "border-black bg-black text-white"
+          ? "border-[var(--brand-primary-900)] bg-[var(--brand-primary-900)] text-white"
           : "border-white bg-[#f9f9f9] text-foreground",
       ].join(" ")}
     >
@@ -358,7 +358,7 @@ export default function TooltipPage() {
 
               <div className="flex min-h-[280px] items-center justify-center border border-white bg-white p-5 sm:min-h-[320px] sm:p-8">
                 <Tooltip>
-                  <TooltipTrigger className="inline-flex size-14 items-center justify-center rounded-none border border-black bg-black text-white">
+                  <TooltipTrigger className="inline-flex size-14 items-center justify-center rounded-none border border-[var(--brand-primary-900)] bg-[var(--brand-primary-900)] text-white">
                     <CircleHelp className="size-5" />
                   </TooltipTrigger>
                   <TooltipContent side={side} align={align} sideOffset={10}>

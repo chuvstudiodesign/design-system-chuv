@@ -74,7 +74,7 @@ function TriggerLink({
         "inline-flex items-center gap-2 rounded-none border px-4 py-3 text-sm font-medium transition-colors",
         subtle
           ? "border-white bg-[#f9f9f9] text-foreground"
-          : "border-black bg-black text-white hover:bg-black/85",
+          : "border-[var(--brand-primary-900)] bg-[var(--brand-primary-900)] text-white hover:bg-[var(--brand-primary-800)]",
       ].join(" ")}
     >
       {children}

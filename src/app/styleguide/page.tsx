@@ -166,6 +166,7 @@ export default function StyleguidePage() {
                 ["--foreground", "#111111"],
                 ["--card", "#f9f9f9"],
                 ["--primary", "#5628e8"],
+                ["--brand-primary-900", "#1b003d"],
                 ["--primary-foreground", "#ffffff"],
                 ["--secondary", "#efefef"],
                 ["--muted", "#f5f5f5"],
@@ -174,6 +175,9 @@ export default function StyleguidePage() {
                 ["--border", "#e0e0e0"],
                 ["--ring", "#5628e8"],
                 ["--destructive", "#ef4444"],
+                ["--card-padding", "45px"],
+                ["--button-padding", "16px"],
+                ["--badge-padding", "12px"],
               ].map(([name, val]) => (
                 <div
                   key={name}
@@ -281,12 +285,31 @@ export default function StyleguidePage() {
             </div>
           ))}
         </div>
+
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {[
+            ["Card Padding", "45px", "Padrão obrigatório para cards e content containers."],
+            ["Button Padding", "16px", "Novo padrão de padding uniforme dos botões nos quatro lados."],
+            ["Badge Padding", "12px", "Novo padrão de padding uniforme dos badges nos quatro lados."],
+          ].map(([title, value, description]) => (
+            <div
+              key={title}
+              className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                {title}
+              </p>
+              <p className="mt-4 text-2xl font-semibold text-foreground">{value}</p>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">{description}</p>
+            </div>
+          ))}
+        </div>
       </Section>
 
       {/* ── RADIUS ── */}
       <Section
         title="Border Radius"
-        subtitle="Estilo: levemente arredondado — 10px nas seções, herança do Figma 2.0"
+        subtitle="Estilo: radius exclusivo para sections; componentes internos como botões e badges permanecem retos"
       >
         <div className="flex flex-wrap gap-6 items-center">
           {[
@@ -305,6 +328,27 @@ export default function StyleguidePage() {
               <span className="text-xs text-muted-foreground">{r.name}</span>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
+          <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+              Buttons
+            </p>
+            <p className="mt-4 text-2xl font-semibold text-foreground">0px</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Todos os botões do sistema usam <code className="bg-black/5 px-1 py-0.5 text-xs font-mono">rounded-none</code>.
+            </p>
+          </div>
+          <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+              Badges
+            </p>
+            <p className="mt-4 text-2xl font-semibold text-foreground">0px</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Todos os badges do sistema usam <code className="bg-black/5 px-1 py-0.5 text-xs font-mono">rounded-none</code>.
+            </p>
+          </div>
         </div>
       </Section>
 

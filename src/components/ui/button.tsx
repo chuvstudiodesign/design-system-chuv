@@ -21,14 +21,14 @@ const buttonVariants = cva(
       },
       size: {
         default:
-          "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
-        xs: "h-6 gap-1 px-2 text-xs has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-7 gap-1 px-2.5 text-[0.8rem] has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
-        lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
-        icon: "size-8",
-        "icon-xs": "size-6 [&_svg:not([class*='size-'])]:size-3",
-        "icon-sm": "size-7",
-        "icon-lg": "size-9",
+          "gap-2 p-[16px] has-data-[icon=inline-end]:pr-[12px] has-data-[icon=inline-start]:pl-[12px]",
+        xs: "gap-1.5 p-[12px] text-xs has-data-[icon=inline-end]:pr-[10px] has-data-[icon=inline-start]:pl-[10px] [&_svg:not([class*='size-'])]:size-3",
+        sm: "gap-1.5 p-[14px] text-[0.8rem] has-data-[icon=inline-end]:pr-[12px] has-data-[icon=inline-start]:pl-[12px] [&_svg:not([class*='size-'])]:size-3.5",
+        lg: "gap-2 p-[18px] text-base has-data-[icon=inline-end]:pr-[14px] has-data-[icon=inline-start]:pl-[14px]",
+        icon: "size-12",
+        "icon-xs": "size-9 [&_svg:not([class*='size-'])]:size-3",
+        "icon-sm": "size-10",
+        "icon-lg": "size-14",
       },
     },
     defaultVariants: {
