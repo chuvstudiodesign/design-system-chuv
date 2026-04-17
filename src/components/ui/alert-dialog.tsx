@@ -52,7 +52,7 @@ function AlertDialogContent({
           data-slot="alert-dialog-content"
           data-size={size}
           className={cn(
-          "group/alert-dialog-content fixed top-1/2 left-1/2 z-50 grid w-[calc(100vw-1.5rem)] max-w-[42rem] -translate-x-1/2 -translate-y-1/2 gap-5 rounded-none border border-white bg-[#f9f9f9] p-5 text-foreground shadow-none duration-100 outline-none data-[size=sm]:max-w-md sm:w-full sm:p-6 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          "group/alert-dialog-content fixed top-1/2 left-1/2 z-50 grid w-[calc(100vw-1.5rem)] max-w-[42rem] -translate-x-1/2 -translate-y-1/2 gap-5 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] text-foreground shadow-none duration-100 outline-none data-[size=sm]:max-w-md sm:w-full data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
           className
         )}
         {...props}
@@ -85,7 +85,7 @@ function AlertDialogFooter({
     <div
       data-slot="alert-dialog-footer"
       className={cn(
-        "-mx-5 -mb-5 flex flex-col-reverse gap-2 border-t border-white bg-white/60 p-5 sm:-mx-6 sm:-mb-6 sm:flex-row sm:justify-end sm:p-6",
+        "-mx-[var(--card-padding)] -mb-[var(--card-padding)] flex flex-col-reverse gap-2 border-t border-white bg-white/60 p-[var(--card-padding)] sm:flex-row sm:justify-end",
         className
       )}
       {...props}

@@ -425,7 +425,7 @@ export default function HoverCardPage() {
 
             <div
               className={[
-                "flex min-h-[280px] items-center justify-center border border-white p-5 sm:min-h-[320px] sm:p-8",
+                "flex min-h-[280px] items-center justify-center border border-white p-[var(--card-padding)] sm:min-h-[320px]",
                 darkPreview ? "bg-[#111111]" : "bg-white",
               ].join(" ")}
             >

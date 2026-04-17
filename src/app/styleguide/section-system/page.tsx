@@ -76,28 +76,47 @@ export default function SectionSystemPage() {
             cor de fundo, radius e padding fixos. Todo o conteúdo real vive dentro
             desses containers. Nada significativo fica diretamente sobre o branco.
           </p>
-          <div className="flex flex-col gap-3 text-sm">
-            <div className="flex items-start gap-4">
-              <div className="mt-0.5 w-4 h-4 shrink-0 border border-black/20" style={{ backgroundColor: "#ffffff" }} />
-              <div>
-                <p className="font-semibold text-foreground">Camada 1 — Base canvas</p>
-                <p className="text-muted-foreground text-xs mt-0.5">Branco puro. Nunca usado como superfície de conteúdo. Sempre embaixo.</p>
+          <div className="flex flex-col gap-0">
+            {[
+              {
+                layer: "01",
+                name: "Base canvas",
+                color: "#ffffff",
+                description:
+                  "Branco puro. Nunca usado como superfície de conteúdo. Sempre embaixo.",
+              },
+              {
+                layer: "02",
+                name: "Section containers",
+                color: "#efefef",
+                description:
+                  "Cinza claro, radius 10px. Todo o conteúdo vive aqui — diretamente ou dentro de cards.",
+              },
+              {
+                layer: "03",
+                name: "Conteúdo interno",
+                color: "#f9f9f9",
+                description:
+                  "Cards, imagens, componentes e qualquer elemento dentro da section usam rounded-none. O radius de 10px pertence exclusivamente ao container de section.",
+              },
+            ].map((item) => (
+              <div
+                key={item.layer}
+                className="flex items-center gap-4 border-b border-black/8 py-3 last:border-0"
+              >
+                <span className="w-6 shrink-0 text-[10px] font-mono font-bold text-primary">
+                  {item.layer}
+                </span>
+                <div
+                  className="h-8 w-8 shrink-0 border border-black/15"
+                  style={{ backgroundColor: item.color }}
+                />
+                <div>
+                  <p className="text-sm font-semibold text-foreground">{item.name}</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">{item.description}</p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="mt-0.5 w-4 h-4 shrink-0 border border-black/10" style={{ backgroundColor: "#efefef" }} />
-              <div>
-                <p className="font-semibold text-foreground">Camada 2 — Section containers</p>
-                <p className="text-muted-foreground text-xs mt-0.5">Cinza claro, radius 10px. Todo o conteúdo vive aqui — diretamente ou dentro de cards.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="mt-0.5 w-4 h-4 shrink-0 border border-white bg-[#f9f9f9]" />
-              <div>
-                <p className="font-semibold text-foreground">Conteúdo interno — sempre sem radius</p>
-                <p className="text-muted-foreground text-xs mt-0.5">Cards, imagens, componentes e qualquer elemento dentro da section usam rounded-none. O radius de 10px pertence exclusivamente ao container de section.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </Section>
@@ -168,7 +187,7 @@ export default function SectionSystemPage() {
                 <div className="h-4 w-1/2 bg-foreground/10" />
                 <div className="h-3 w-full bg-foreground/6" />
               </div>
-              <div className="rounded-none border border-white bg-[#f9f9f9] p-4">
+              <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
                 <div className="h-4 w-3/5 bg-foreground/10" />
                 <div className="mt-2 h-3 w-full bg-foreground/6" />
                 <div className="mt-2 h-3 w-3/4 bg-foreground/6" />
@@ -193,12 +212,12 @@ export default function SectionSystemPage() {
               </div>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
-              <div className="rounded-none border border-white bg-[#f9f9f9] p-4">
+              <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
                 <div className="h-4 w-3/5 bg-foreground/10" />
                 <div className="mt-2 h-3 w-full bg-foreground/6" />
                 <div className="mt-2 h-3 w-4/5 bg-foreground/6" />
               </div>
-              <div className="rounded-none border border-white bg-[#f9f9f9] p-4">
+              <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
                 <div className="h-4 w-1/2 bg-foreground/10" />
                 <div className="mt-2 h-3 w-full bg-foreground/6" />
                 <div className="mt-2 h-3 w-2/3 bg-foreground/6" />

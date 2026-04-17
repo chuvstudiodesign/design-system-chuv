@@ -355,7 +355,7 @@ export default function AlertDialogPage() {
               </div>
             </div>
 
-            <div className="border border-white bg-white p-5 sm:p-8">
+            <div className="border border-white bg-white p-[var(--card-padding)]">
               <AlertDialog>
                 <AlertDialogTrigger render={<Button variant="outline" />}>
                   Open preview dialog

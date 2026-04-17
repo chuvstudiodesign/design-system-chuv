@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const alertVariants = cva(
-  "group/alert relative grid w-full gap-1 rounded-none border border-white bg-[#f9f9f9] px-4 py-4 text-left text-sm has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-3 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4 sm:px-5 sm:py-5",
+  "group/alert relative grid w-full gap-1 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] text-left text-sm has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-[calc(var(--card-padding)+6.5rem)] has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-3 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
@@ -67,7 +67,7 @@ function AlertAction({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="alert-action"
-      className={cn("absolute top-2 right-2", className)}
+      className={cn("absolute top-[var(--card-padding)] right-[var(--card-padding)]", className)}
       {...props}
     />
   )

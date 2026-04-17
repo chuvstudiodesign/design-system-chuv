@@ -65,15 +65,17 @@ function AlertPreview({
   description,
   icon,
   action,
+  className,
 }: {
   tone: AlertTone
   title: string
   description?: string
   icon: React.ReactNode
   action?: React.ReactNode
+  className?: string
 }) {
   return (
-    <Alert variant={tone}>
+    <Alert variant={tone} className={className}>
       {icon}
       <AlertTitle>{title}</AlertTitle>
       {description ? (
@@ -188,36 +190,45 @@ export default function AlertPage() {
             <Typography variant="label-m" className="mb-4 text-muted-foreground">
               Portfolio Notice
             </Typography>
-            <AlertPreview
-              tone="default"
-              title="Case study in progress"
-              description="Screens and metrics are still being refined before public release."
-              icon={<Layers3 className="size-4" />}
-            />
+            <div className="bg-white p-[var(--card-padding)]">
+              <AlertPreview
+                tone="default"
+                title="Case study in progress"
+                description="Screens and metrics are still being refined before public release."
+                icon={<Layers3 className="size-4" />}
+                className="border-0 bg-transparent p-0"
+              />
+            </div>
           </div>
 
           <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
             <Typography variant="label-m" className="mb-4 text-muted-foreground">
               Tooling Status
             </Typography>
-            <AlertPreview
-              tone="default"
-              title="Implementation aligned"
-              description="The component already follows the current tokens, sections, and card rules."
-              icon={<Wrench className="size-4" />}
-            />
+            <div className="bg-white p-[var(--card-padding)]">
+              <AlertPreview
+                tone="default"
+                title="Implementation aligned"
+                description="The component already follows the current tokens, sections, and card rules."
+                icon={<Wrench className="size-4" />}
+                className="border-0 bg-transparent p-0"
+              />
+            </div>
           </div>
 
           <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
             <Typography variant="label-m" className="mb-4 text-muted-foreground">
               Risk Warning
             </Typography>
-            <AlertPreview
-              tone="destructive"
-              title="Preview mismatch detected"
-              description="Validate interactions on Vercel before considering the task complete."
-              icon={<TriangleAlert className="size-4" />}
-            />
+            <div className="bg-white p-[var(--card-padding)]">
+              <AlertPreview
+                tone="destructive"
+                title="Preview mismatch detected"
+                description="Validate interactions on Vercel before considering the task complete."
+                icon={<TriangleAlert className="size-4" />}
+                className="border-0 bg-transparent p-0"
+              />
+            </div>
           </div>
         </div>
 
@@ -338,7 +349,7 @@ export default function AlertPage() {
               </div>
             </div>
 
-            <div className="border border-white bg-white p-5 sm:p-8">
+            <div className="border border-white bg-white p-[var(--card-padding)]">
               <AlertPreview
                 tone={tone}
                 title={

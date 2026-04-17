@@ -63,7 +63,7 @@ function MediaPlaceholder({
   return (
     <div
       className={[
-        "flex h-full w-full flex-col justify-between rounded-none border border-white p-6",
+        "flex h-full w-full flex-col justify-between rounded-none border border-white p-[var(--card-padding)]",
         mode === "dark"
           ? "bg-[#1a1a1a] text-white"
           : mode === "hero"
