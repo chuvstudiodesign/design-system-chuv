@@ -84,7 +84,7 @@ export default function AccordionPage() {
         subtitle='type="single" — apenas um item aberto por vez, collapsible'
       >
         <div className="max-w-xl rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
-          <Accordion type="single" collapsible defaultValue="item-1">
+          <Accordion type="single" collapsible defaultValue={["item-1"]}>
             {faqItems.map((item) => (
               <AccordionItem key={item.value} value={item.value}>
                 <AccordionTrigger>{item.trigger}</AccordionTrigger>
