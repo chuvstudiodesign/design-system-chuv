@@ -42,6 +42,32 @@ export const navigation: NavSection[] = [
     title: "Social Media",
     items: [
       { name: "Vertical Post · 5 Pages", href: "/styleguide/social-media/vertical-post" },
+      { name: "Liquid Glass", href: "/styleguide/social-media/liquid-glass" },
+      {
+        name: "Produtos que ensinam sem tutorial",
+        href: "/styleguide/social-media/produtos-que-ensinam-sem-tutorial",
+      },
+      { name: "Visual Post Creation", href: "/styleguide/social-media/visual-post-creation" },
+      {
+        name: "IA e autoria visual",
+        href: "/styleguide/social-media/ia-e-autoria-visual",
+      },
+      {
+        name: "Motion como linguagem",
+        href: "/styleguide/social-media/motion-como-linguagem",
+      },
+      {
+        name: "O designer que não sabe dizer não",
+        href: "/styleguide/social-media/o-designer-que-nao-sabe-dizer-nao",
+      },
+      {
+        name: "MacBook Neo — Cores e Segmentação",
+        href: "/styleguide/social-media/macbook-neo-cores-e-segmentacao",
+      },
+      {
+        name: "LoveFrom + Ferrari — 5 anos, um interior",
+        href: "/styleguide/social-media/lovefrom-ferrari-5-anos",
+      },
     ],
   },
   {
