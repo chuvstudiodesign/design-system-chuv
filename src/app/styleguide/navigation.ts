@@ -44,4 +44,10 @@ export const navigation: NavSection[] = [
       { name: "Vertical Post · 5 Pages", href: "/styleguide/social-media/vertical-post" },
     ],
   },
+  {
+    title: "Site Sections",
+    items: [
+      { name: "Soluções Completas", href: "/styleguide/site-sections/solucoes-completas" },
+    ],
+  },
 ];
