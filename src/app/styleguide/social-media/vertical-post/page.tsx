@@ -115,6 +115,25 @@ function SocialPage({
   )
 }
 
+function SocialPage45({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <AspectRatio ratio={4 / 5}>
+      <div className="h-full w-full bg-white p-1.5 sm:p-2">
+        <div
+          className="flex h-full w-full flex-col gap-5 overflow-hidden rounded-[10px] px-7 py-7"
+          style={{ backgroundColor: "#efefef" }}
+        >
+          {children}
+        </div>
+      </div>
+    </AspectRatio>
+  )
+}
+
 function PostCard({ children, tone = "neutral" }: { children: React.ReactNode; tone?: "neutral" | "white" }) {
   return (
     <div
@@ -521,6 +540,144 @@ export default function VerticalPostPage() {
           </Typography>
           <Typography variant="body-s" className="mt-4 text-muted-foreground">
             Demo images use Wikimedia Commons sources for Dieter Rams portrait and Braun product photography, only to simulate a real social media use case inside the design system.
+          </Typography>
+        </div>
+      </Section>
+
+      <Section
+        title="Practical Demo · 4:5"
+        subtitle="O mesmo post do Dieter Rams adaptado para o formato 4:5 — layouts mais horizontais compensam o espaço vertical reduzido"
+      >
+        <div className="overflow-x-auto pb-2">
+          <div className="flex min-w-max gap-4">
+            {/* Page 1 — Cover + Context */}
+            <div className="w-[320px] shrink-0">
+              <SocialPage45>
+                <div className="flex items-center justify-between gap-3">
+                  <Badge variant="tool">
+                    <Info className="size-4.5" />
+                    Chuv info
+                  </Badge>
+                  <img
+                    src="/social-media/chuv-symbol-black.svg"
+                    alt="Chuv symbol"
+                    className="h-8 w-8 shrink-0"
+                  />
+                </div>
+
+                <RealImage
+                  fill
+                  src="/social-media/dieter-rams-cover.jpg"
+                  alt="Dieter Rams with his work"
+                />
+
+                <div className="min-w-0">
+                  <Typography variant="h2" className="max-w-[18ch] leading-[0.92]">
+                    A Apple não inventou essa clareza.
+                  </Typography>
+                  <Typography variant="body-s" className="mt-2 max-w-[32ch] text-muted-foreground">
+                    Ela refinou princípios que Dieter Rams já defendia há décadas.
+                  </Typography>
+                </div>
+              </SocialPage45>
+            </div>
+
+            {/* Page 2 — Visual First + Supporting Content */}
+            <div className="w-[320px] shrink-0">
+              <SocialPage45>
+                <div className="min-w-0">
+                  <Typography variant="h4">
+                    Muito do design que hoje parece óbvio nasceu de uma ideia simples:
+                  </Typography>
+                  <Typography variant="body-s" className="mt-2 text-muted-foreground">
+                    menos ruído, mais função.
+                  </Typography>
+                </div>
+
+                <RealImage
+                  fill
+                  src="/social-media/dieter-rams-product.jpg"
+                  alt="Braun SK 4 product associated with Dieter Rams"
+                />
+              </SocialPage45>
+            </div>
+
+            {/* Page 3 — Title + Running Text */}
+            <div className="w-[320px] shrink-0">
+              <SocialPage45>
+                <div className="flex items-center justify-between gap-3">
+                  <Badge variant="tool">Manifesto</Badge>
+                  <MessageSquareQuote className="size-5 shrink-0 text-primary" />
+                </div>
+
+                <div className="flex flex-1 flex-col justify-center min-w-0">
+                  <Typography variant="h3" className="max-w-[20ch] leading-[0.94]">
+                    Dieter Rams resumiu isso em uma frase:
+                  </Typography>
+                  <Typography variant="display-l" className="mt-4 max-w-[9ch] text-balance leading-[0.9]">
+                    Less, but better.
+                  </Typography>
+                </div>
+              </SocialPage45>
+            </div>
+
+            {/* Page 4 — Impact Title + Internal Card */}
+            <div className="w-[320px] shrink-0">
+              <SocialPage45>
+                <Typography variant="h2" className="max-w-[14ch] leading-[0.92]">
+                  Bom design não é exagero.
+                </Typography>
+
+                <PostCard>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <Compass className="size-4 shrink-0 text-primary" />
+                      <Typography variant="h4">Clareza.</Typography>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Target className="size-4 shrink-0 text-primary" />
+                      <Typography variant="h4">Utilidade.</Typography>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Layers2 className="size-4 shrink-0 text-primary" />
+                      <Typography variant="h4">Consistência.</Typography>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <WandSparkles className="size-4 shrink-0 text-primary" />
+                      <Typography variant="h4">Intenção.</Typography>
+                    </div>
+                  </div>
+                </PostCard>
+              </SocialPage45>
+            </div>
+
+            {/* Page 5 — Closing Page + CTA */}
+            <div className="w-[320px] shrink-0">
+              <SocialPage45>
+                <div className="flex items-center justify-between gap-3">
+                  <Badge variant="success">@chuv.studio</Badge>
+                  <WandSparkles className="size-5 shrink-0 text-primary" />
+                </div>
+
+                <div className="min-w-0">
+                  <Typography variant="h3" className="max-w-[16ch] leading-[0.94]">
+                    É por isso que esse tipo de design continua atual.
+                  </Typography>
+                  <Typography variant="body-s" className="mt-3 text-muted-foreground">
+                    E é por isso que nós acreditamos nesses princípios.
+                  </Typography>
+                </div>
+              </SocialPage45>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
+          <Typography variant="label-m" className="text-primary">
+            Adaptation Notes · 4:5
+          </Typography>
+          <Typography variant="body-s" className="mt-4 text-muted-foreground">
+            O formato 4:5 tem menos altura disponível que o 9:16 — a adaptação compensa com layouts side-by-side nas páginas 2, 3 e 4, gap reduzido (gap-5 vs gap-8) e padding vertical menor. O conteúdo e a identidade visual permanecem os mesmos.
           </Typography>
         </div>
       </Section>
