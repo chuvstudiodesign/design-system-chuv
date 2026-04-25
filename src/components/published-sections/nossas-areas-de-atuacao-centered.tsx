@@ -106,34 +106,32 @@ export function NossasAreasDeAtuacaoCentered() {
               return (
                 <div
                   key={`${key}-centered-published`}
-                  className="relative aspect-[5/3] rounded-none border border-white bg-[#f9f9f9]"
+                  className="flex h-[350px] flex-col items-center justify-between overflow-hidden rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] text-center"
                   style={getFadeStyle(index, entered)}
                 >
-                  <div className="absolute inset-0 p-[var(--card-padding)] flex flex-col text-center">
-                    <div className="flex flex-1 items-center justify-center">
-                      <img
-                        src={icon.src}
-                        alt={content[key as ContentKey]}
-                        width={width}
-                        height={height}
-                        style={{
-                          width,
-                          height,
-                          filter: SITE_SECTION_ICON_COLOR_FILTER,
-                        }}
-                      />
-                    </div>
-                    <Typography variant="h4" className="leading-snug text-center">
-                      {content[key as ContentKey]}
-                    </Typography>
+                  <div className="flex flex-1 items-center justify-center">
+                    <img
+                      src={icon.src}
+                      alt={content[key as ContentKey]}
+                      width={width}
+                      height={height}
+                      style={{
+                        width,
+                        height,
+                        filter: SITE_SECTION_ICON_COLOR_FILTER,
+                      }}
+                    />
                   </div>
+                  <Typography variant="h4" className="leading-snug">
+                    {content[key as ContentKey]}
+                  </Typography>
                 </div>
               )
             })}
           </div>
 
           <div
-            className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] xl:col-span-1"
+            className="hidden rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] xl:col-span-1 xl:block"
             style={getFadeStyle(AREAS.length, entered)}
           />
         </div>

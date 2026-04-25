@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function NossasAreasDeAtuacaoCenteredPage() {
   return (
-    <main className="bg-[#efefef] p-4 min-w-[1110px]">
+    <main className="bg-[#efefef] p-4">
       <NossasAreasDeAtuacaoCentered />
     </main>
   )

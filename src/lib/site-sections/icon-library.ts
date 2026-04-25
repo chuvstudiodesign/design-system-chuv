@@ -53,6 +53,10 @@ export const ICON_LIBRARY: IconLibraryEntry[] = [
   { id: "development", name: "Development", src: figmaAsset("1aad00ad-b3c0-4755-b9e3-7ab94536742d"), fw: 373, fh: 297 },
   { id: "ia-aplicada", name: "IA aplicada", src: figmaAsset("1696bebe-c4a3-4bde-bc84-038e5ddd50e9"), fw: 344, fh: 357 },
   { id: "motion-oficial", name: "Motion Oficial", src: figmaAsset("5d8ebcb0-9414-488e-aee8-84803216d55d"), fw: 373, fh: 333 },
+  { id: "3d-light", name: "3D Light", src: figmaAsset("5c371133-2c89-45ef-ac48-e6a2271190c1"), fw: 412.3, fh: 367 },
+  { id: "3d-flat", name: "3D Flat", src: figmaAsset("0ef4d8f5-7552-46f8-94f0-1bff1027c570"), fw: 393, fh: 309 },
+  { id: "3d-motion", name: "3D Motion", src: figmaAsset("313e4c5b-087a-4214-b607-68d8560113ac"), fw: 410.7, fh: 322 },
+  { id: "video-light", name: "Video Light", src: figmaAsset("f8ef451f-1094-484e-af2e-1268ce7b98a2"), fw: 453, fh: 270 },
 ]
 
 export const ICON_LIBRARY_BY_ID = Object.fromEntries(
