@@ -430,7 +430,7 @@ export function PropostaSigoAreasCenteredSection() {
 export function PropostaSigoObjectivesSection() {
   return (
     <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
-      <PublishedSectionHeader title={<>O que queremos <Accent>construir juntos</Accent></>} subtitle={content["s2.subtitle"]} />
+      <PublishedSectionHeader title={<>{c("s2.title.prefix")}<Accent>{c("s2.title.accent")}</Accent></>} subtitle={content["s2.subtitle"]} />
 
       <div className="px-10">
         <Carousel opts={{ align: "start" }} className="w-full">
@@ -471,7 +471,7 @@ export function PropostaSigoObjectivesSection() {
 export function PropostaSigoScopeSection() {
   return (
     <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
-      <PublishedSectionHeader title={<><Accent>Escopo mensal</Accent> de entregas</>} subtitle={content["s3.subtitle"]} />
+      <PublishedSectionHeader title={<><Accent>{c("s3.title.accent")}</Accent>{c("s3.title.suffix")}</>} subtitle={content["s3.subtitle"]} />
 
       <Accordion<string> type="multiple" defaultValue={[]} className="flex flex-col gap-4">
         {ESCOPO_ITEMS.map(({ value, iconKey, labelKey, badgeKey, bodyKey }) => {
@@ -523,7 +523,7 @@ export function PropostaSigoScopeSection() {
 export function PropostaSigoBonusSection() {
   return (
     <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
-      <PublishedSectionHeader title={<><Accent>Cinco bônus</Accent> estratégicos</>} subtitle={content["s5.subtitle"]} />
+      <PublishedSectionHeader title={<><Accent>{c("s5.title.accent")}</Accent>{c("s5.title.suffix")}</>} subtitle={content["s5.subtitle"]} />
 
       <div className="px-10">
         <Carousel opts={{ align: "start" }} className="w-full">
@@ -564,7 +564,7 @@ export function PropostaSigoBonusSection() {
 export function PropostaSigoVolumeSection() {
   return (
     <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
-      <PublishedSectionHeader title={<>Resumo do <Accent>volume mensal</Accent></>} subtitle={content["s4.subtitle"]} />
+      <PublishedSectionHeader title={<>{c("s4.title.prefix")}<Accent>{c("s4.title.accent")}</Accent></>} subtitle={content["s4.subtitle"]} />
 
       <div className="flex flex-col gap-4">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-5">
@@ -634,7 +634,7 @@ export function PropostaSigoVolumeSection() {
 export function PropostaSigoWhyChuvSection() {
   return (
     <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
-      <PublishedSectionHeader title={<><Accent>Seis razões</Accent> para escolher a Chuv Studio</>} subtitle={content["s6.subtitle"]} />
+      <PublishedSectionHeader title={<><Accent>{c("s6.title.accent")}</Accent>{c("s6.title.suffix")}</>} subtitle={content["s6.subtitle"]} />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {POR_QUE_ITEMS.map(({ titleKey, bodyKey }, index) => (
@@ -663,7 +663,7 @@ export function PropostaSigoWhyChuvSection() {
 export function PropostaSigoInvestmentSection() {
   return (
     <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
-      <PublishedSectionHeader title={<>Condições gerais e <Accent>investimento</Accent></>} subtitle={content["s7.subtitle"]} />
+      <PublishedSectionHeader title={<>{c("s7.title.prefix")}<Accent>{c("s7.title.accent")}</Accent></>} subtitle={content["s7.subtitle"]} />
 
       <div className="flex flex-col gap-4">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
