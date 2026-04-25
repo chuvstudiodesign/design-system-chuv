@@ -690,14 +690,14 @@ export default function PropostaSigoPage() {
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
               <div className="flex flex-col gap-4">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-                  Investimento mensal
+                  <EditableText namespace={NS} id="s7.investimento-label">{c("s7.investimento-label")}</EditableText>
                 </p>
                 <div className="flex items-end gap-3 flex-wrap">
                   <Typography variant="display-xl" className="text-primary leading-none">
                     <EditableText namespace={NS} id="s7.valor">{c("s7.valor")}</EditableText>
                   </Typography>
                   <Typography variant="h3" className="text-muted-foreground pb-1">
-                    / mês
+                    <EditableText namespace={NS} id="s7.mes-suffix">{c("s7.mes-suffix")}</EditableText>
                   </Typography>
                 </div>
                 <Typography variant="body-s" className="text-muted-foreground max-w-lg">
@@ -706,13 +706,15 @@ export default function PropostaSigoPage() {
               </div>
 
               <div className="flex flex-col gap-3 lg:items-end">
-                <Badge variant="success" size="sm">Pacote completo</Badge>
+                <Badge variant="success" size="sm">
+                  <EditableText namespace={NS} id="s7.badge-pacote">{c("s7.badge-pacote")}</EditableText>
+                </Badge>
                 <div className="flex flex-col gap-1 lg:text-right">
                   <Typography variant="caption" className="text-muted-foreground">
-                    Fidelidade mínima de 3 meses
+                    <EditableText namespace={NS} id="s7.caption1">{c("s7.caption1")}</EditableText>
                   </Typography>
                   <Typography variant="caption" className="text-muted-foreground">
-                    Início mediante contrato assinado
+                    <EditableText namespace={NS} id="s7.caption2">{c("s7.caption2")}</EditableText>
                   </Typography>
                 </div>
               </div>

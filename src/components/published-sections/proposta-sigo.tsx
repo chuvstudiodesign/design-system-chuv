@@ -693,14 +693,14 @@ export function PropostaSigoInvestmentSection() {
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="flex flex-col gap-4">
               <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-                Investimento mensal
+                {c("s7.investimento-label")}
               </p>
               <div className="flex flex-wrap items-end gap-3">
                 <Typography variant="display-xl" className="text-primary leading-none">
                   {content["s7.valor"]}
                 </Typography>
                 <Typography variant="h3" className="text-muted-foreground pb-1">
-                  / mês
+                  {c("s7.mes-suffix")}
                 </Typography>
               </div>
               <Typography variant="body-s" className="max-w-lg text-muted-foreground">
@@ -710,14 +710,14 @@ export function PropostaSigoInvestmentSection() {
 
             <div className="flex flex-col gap-3 lg:items-end">
               <Badge variant="success" size="sm">
-                Pacote completo
+                {c("s7.badge-pacote")}
               </Badge>
               <div className="flex flex-col gap-1 lg:text-right">
                 <Typography variant="caption" className="text-muted-foreground">
-                  Fidelidade mínima de 3 meses
+                  {c("s7.caption1")}
                 </Typography>
                 <Typography variant="caption" className="text-muted-foreground">
-                  Início mediante contrato assinado
+                  {c("s7.caption2")}
                 </Typography>
               </div>
             </div>
