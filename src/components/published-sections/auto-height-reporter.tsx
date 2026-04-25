@@ -36,6 +36,15 @@ export function AutoHeightReporter() {
     document.documentElement.style.overflow = "hidden"
     document.body.style.overflow = "hidden"
 
+    // Suppress all scrollbars — prevents the flash that appears for a split
+    // second when accordion content grows before Framer resizes the iframe.
+    const noScrollbarStyle = document.createElement("style")
+    noScrollbarStyle.textContent = `
+      * { scrollbar-width: none !important; }
+      *::-webkit-scrollbar { display: none !important; }
+    `
+    document.head.appendChild(noScrollbarStyle)
+
     // Observe the content container — fires when accordion opens or closes
     const resizeObserver = new ResizeObserver(() => {
       sendHeight()
@@ -73,6 +82,7 @@ export function AutoHeightReporter() {
       mutationObserver.disconnect()
       document.documentElement.style.overflow = previousHtmlOverflow
       document.body.style.overflow = previousBodyOverflow
+      noScrollbarStyle.remove()
     }
   }, [])
 
