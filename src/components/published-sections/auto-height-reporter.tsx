@@ -4,12 +4,12 @@ import { useEffect } from "react"
 
 const EMBED_RESIZE_MESSAGE_TYPE = "chuv:embed-resize"
 
-function getDocumentHeight() {
-  return document.body.scrollHeight
-}
-
 export function AutoHeightReporter() {
   useEffect(() => {
+    // Measure the <main> element directly — its height is content-based, not
+    // affected by the iframe viewport height that Framer sets.
+    const container = document.querySelector<HTMLElement>("main") ?? document.body
+
     let frameId = 0
     let postAnimationTimerId = 0
     const previousHtmlOverflow = document.documentElement.style.overflow
@@ -20,7 +20,7 @@ export function AutoHeightReporter() {
         window.parent.postMessage(
           {
             type: EMBED_RESIZE_MESSAGE_TYPE,
-            height: getDocumentHeight(),
+            height: Math.ceil(container.getBoundingClientRect().height),
             path: window.location.pathname,
           },
           "*"
@@ -28,21 +28,26 @@ export function AutoHeightReporter() {
       })
     }
 
+    const schedulePostAnimation = () => {
+      window.clearTimeout(postAnimationTimerId)
+      postAnimationTimerId = window.setTimeout(sendHeight, 350)
+    }
+
     document.documentElement.style.overflow = "hidden"
     document.body.style.overflow = "hidden"
 
+    // Observe the content container — fires when accordion opens or closes
     const resizeObserver = new ResizeObserver(() => {
       sendHeight()
-      // Send again after accordion/animation completes to capture final settled height
-      window.clearTimeout(postAnimationTimerId)
-      postAnimationTimerId = window.setTimeout(sendHeight, 350)
+      schedulePostAnimation()
     })
 
-    resizeObserver.observe(document.documentElement)
-    resizeObserver.observe(document.body)
+    resizeObserver.observe(container)
 
+    // MutationObserver as backup trigger for any DOM change
     const mutationObserver = new MutationObserver(() => {
       sendHeight()
+      schedulePostAnimation()
     })
 
     mutationObserver.observe(document.body, {
@@ -61,10 +66,7 @@ export function AutoHeightReporter() {
     window.setTimeout(sendHeight, 600)
 
     return () => {
-      if (frameId) {
-        window.cancelAnimationFrame(frameId)
-      }
-
+      if (frameId) window.cancelAnimationFrame(frameId)
       window.clearTimeout(postAnimationTimerId)
       window.removeEventListener("resize", sendHeight)
       resizeObserver.disconnect()
