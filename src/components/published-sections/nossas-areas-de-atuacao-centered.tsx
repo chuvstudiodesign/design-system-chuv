@@ -57,19 +57,6 @@ export function NossasAreasDeAtuacaoCentered() {
   const [entered, setEntered] = useState(false)
 
   useEffect(() => {
-    const previousHtmlOverflow = document.documentElement.style.overflow
-    const previousBodyOverflow = document.body.style.overflow
-
-    document.documentElement.style.overflow = "hidden"
-    document.body.style.overflow = "hidden"
-
-    return () => {
-      document.documentElement.style.overflow = previousHtmlOverflow
-      document.body.style.overflow = previousBodyOverflow
-    }
-  }, [])
-
-  useEffect(() => {
     const node = sectionRef.current
 
     if (!node || entered) {
@@ -100,7 +87,7 @@ export function NossasAreasDeAtuacaoCentered() {
   return (
     <>
       <AutoHeightReporter />
-      <section ref={sectionRef} className="ds-section flex h-full flex-col overflow-hidden" style={{ backgroundColor: "#efefef" }}>
+      <section ref={sectionRef} className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
         <div className="mb-[45px] flex flex-col items-center text-center">
           <Typography variant="h1" className="max-w-3xl">
             {content["s1.title"]}
