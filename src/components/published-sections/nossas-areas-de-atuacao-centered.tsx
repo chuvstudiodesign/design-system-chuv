@@ -87,7 +87,11 @@ export function NossasAreasDeAtuacaoCentered() {
   return (
     <>
       <AutoHeightReporter />
-      <section ref={sectionRef} className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
+      <section
+        ref={sectionRef}
+        className="w-full max-w-[1078px] mx-auto flex flex-col rounded-[10px] p-14"
+        style={{ backgroundColor: "#efefef" }}
+      >
         <div className="mb-[45px] flex flex-col items-center text-center">
           <Typography variant="h1" className="max-w-3xl">
             {content["s1.title"]}
@@ -97,43 +101,41 @@ export function NossasAreasDeAtuacaoCentered() {
           </Typography>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 xl:grid-cols-4">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:col-span-3 xl:grid-cols-3">
-            {AREAS.map(({ key, iconKey }, index) => {
-              const iconId = content[iconKey as ContentKey] as string
-              const { icon, width, height } = getIconDisplay(iconId)
+        <div className="grid grid-cols-2 gap-4">
+          {AREAS.map(({ key, iconKey }, index) => {
+            const iconId = content[iconKey as ContentKey] as string
+            const { icon, width, height } = getIconDisplay(iconId)
 
-              return (
-                <div
-                  key={`${key}-centered-published`}
-                  className="aspect-[5/3] rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
-                  style={getFadeStyle(index, entered)}
-                >
-                  <div className="flex h-full flex-col text-center">
-                    <div className="flex flex-1 items-center justify-center">
-                      <img
-                        src={icon.src}
-                        alt={content[key as ContentKey]}
-                        width={width}
-                        height={height}
-                        style={{
-                          width,
-                          height,
-                          filter: SITE_SECTION_ICON_COLOR_FILTER,
-                        }}
-                      />
-                    </div>
-                    <Typography variant="h4" className="leading-snug text-center">
-                      {content[key as ContentKey]}
-                    </Typography>
+            return (
+              <div
+                key={`${key}-centered-published`}
+                className="aspect-[5/3] overflow-hidden rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
+                style={getFadeStyle(index, entered)}
+              >
+                <div className="flex h-full flex-col text-center">
+                  <div className="flex flex-1 items-center justify-center">
+                    <img
+                      src={icon.src}
+                      alt={content[key as ContentKey]}
+                      width={width}
+                      height={height}
+                      style={{
+                        width,
+                        height,
+                        filter: SITE_SECTION_ICON_COLOR_FILTER,
+                      }}
+                    />
                   </div>
+                  <Typography variant="h4" className="leading-snug text-center">
+                    {content[key as ContentKey]}
+                  </Typography>
                 </div>
-              )
-            })}
-          </div>
+              </div>
+            )
+          })}
 
           <div
-            className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] xl:col-span-1"
+            className="aspect-[5/3] rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
             style={getFadeStyle(AREAS.length, entered)}
           />
         </div>
