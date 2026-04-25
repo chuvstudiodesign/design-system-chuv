@@ -87,7 +87,7 @@ export function NossasAreasDeAtuacaoCentered() {
   return (
     <>
       <AutoHeightReporter />
-      <section ref={sectionRef} className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
+      <section ref={sectionRef} className="w-full rounded-[10px] p-20 flex flex-col" style={{ backgroundColor: "#efefef" }}>
         <div className="mb-[45px] flex flex-col items-center text-center">
           <Typography variant="h1" className="max-w-3xl">
             {content["s1.title"]}
@@ -97,8 +97,8 @@ export function NossasAreasDeAtuacaoCentered() {
           </Typography>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 xl:grid-cols-4">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:col-span-3 xl:grid-cols-3">
+        <div className="grid grid-cols-4 gap-4">
+          <div className="col-span-3 grid grid-cols-3 gap-4">
             {AREAS.map(({ key, iconKey }, index) => {
               const iconId = content[iconKey as ContentKey] as string
               const { icon, width, height } = getIconDisplay(iconId)
@@ -106,7 +106,7 @@ export function NossasAreasDeAtuacaoCentered() {
               return (
                 <div
                   key={`${key}-centered-published`}
-                  className="aspect-[5/3] rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
+                  className="aspect-[5/3] overflow-hidden rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
                   style={getFadeStyle(index, entered)}
                 >
                   <div className="flex h-full flex-col text-center">
@@ -133,7 +133,7 @@ export function NossasAreasDeAtuacaoCentered() {
           </div>
 
           <div
-            className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] xl:col-span-1"
+            className="col-span-1 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
             style={getFadeStyle(AREAS.length, entered)}
           />
         </div>
