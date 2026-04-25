@@ -106,10 +106,10 @@ export function NossasAreasDeAtuacaoCentered() {
               return (
                 <div
                   key={`${key}-centered-published`}
-                  className="aspect-[5/3] rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
+                  className="relative aspect-[5/3] rounded-none border border-white bg-[#f9f9f9]"
                   style={getFadeStyle(index, entered)}
                 >
-                  <div className="flex h-full flex-col text-center">
+                  <div className="absolute inset-0 p-[var(--card-padding)] flex flex-col text-center">
                     <div className="flex flex-1 items-center justify-center">
                       <img
                         src={icon.src}
