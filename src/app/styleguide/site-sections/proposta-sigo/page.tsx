@@ -1,7 +1,7 @@
 "use client"
 
-import type { CSSProperties } from "react"
-import { useEffect, useRef, useState } from "react"
+import type { CSSProperties, ReactNode } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import {
   ChevronDown,
   ChevronUp,
@@ -203,6 +203,10 @@ const condicoesItems = [
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
+function Accent({ children }: { children: React.ReactNode }) {
+  return <span className="text-primary">{children}</span>
+}
+
 type ContentKey = keyof typeof content
 
 function c(key: ContentKey) {
@@ -397,7 +401,7 @@ export default function PropostaSigoPage() {
       <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
         <div className="mb-[45px] flex flex-col items-center text-center">
           <Typography variant="h1" className="max-w-3xl">
-            <EditableText namespace={NS} id="s2.title">{c("s2.title")}</EditableText>
+            O que queremos <Accent>construir juntos</Accent>
           </Typography>
           <Typography variant="body-m" className="mt-3 max-w-2xl text-muted-foreground">
             <EditableText namespace={NS} id="s2.subtitle">{c("s2.subtitle")}</EditableText>
@@ -441,7 +445,7 @@ export default function PropostaSigoPage() {
       <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
         <div className="mb-[45px] flex flex-col items-center text-center">
           <Typography variant="h1" className="max-w-3xl">
-            <EditableText namespace={NS} id="s3.title">{c("s3.title")}</EditableText>
+            <Accent>Escopo mensal</Accent> de entregas
           </Typography>
           <Typography variant="body-m" className="mt-3 max-w-2xl text-muted-foreground">
             <EditableText namespace={NS} id="s3.subtitle">{c("s3.subtitle")}</EditableText>
@@ -500,7 +504,7 @@ export default function PropostaSigoPage() {
       <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
         <div className="mb-[45px] flex flex-col items-center text-center">
           <Typography variant="h1" className="max-w-3xl">
-            <EditableText namespace={NS} id="s5.title">{c("s5.title")}</EditableText>
+            <Accent>Cinco bônus</Accent> estratégicos
           </Typography>
           <Typography variant="body-m" className="mt-3 max-w-2xl text-muted-foreground">
             <EditableText namespace={NS} id="s5.subtitle">{c("s5.subtitle")}</EditableText>
@@ -543,7 +547,7 @@ export default function PropostaSigoPage() {
       <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
         <div className="mb-[45px] flex flex-col items-center text-center">
           <Typography variant="h1" className="max-w-3xl">
-            <EditableText namespace={NS} id="s4.title">{c("s4.title")}</EditableText>
+            Resumo do <Accent>volume mensal</Accent>
           </Typography>
           <Typography variant="body-m" className="mt-3 max-w-2xl text-muted-foreground">
             <EditableText namespace={NS} id="s4.subtitle">{c("s4.subtitle")}</EditableText>
@@ -611,7 +615,7 @@ export default function PropostaSigoPage() {
       <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
         <div className="mb-[45px] flex flex-col items-center text-center">
           <Typography variant="h1" className="max-w-3xl">
-            <EditableText namespace={NS} id="s6.title">{c("s6.title")}</EditableText>
+            <Accent>Seis razões</Accent> para escolher a Chuv Studio
           </Typography>
           <Typography variant="body-m" className="mt-3 max-w-2xl text-muted-foreground">
             <EditableText namespace={NS} id="s6.subtitle">{c("s6.subtitle")}</EditableText>
@@ -644,7 +648,7 @@ export default function PropostaSigoPage() {
       <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
         <div className="mb-[45px] flex flex-col items-center text-center">
           <Typography variant="h1" className="max-w-3xl">
-            <EditableText namespace={NS} id="s7.title">{c("s7.title")}</EditableText>
+            Condições gerais e <Accent>investimento</Accent>
           </Typography>
           <Typography variant="body-m" className="mt-3 max-w-2xl text-muted-foreground">
             <EditableText namespace={NS} id="s7.subtitle">{c("s7.subtitle")}</EditableText>
