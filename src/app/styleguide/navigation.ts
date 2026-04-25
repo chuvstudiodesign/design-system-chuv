@@ -1,6 +1,9 @@
+import { PROPOSTA_SIGO_PUBLISHED_SECTIONS, type PublishedSectionLink } from "@/lib/published-sections";
+
 export interface NavItem {
   name: string;
   href: string;
+  publishedLinks?: readonly PublishedSectionLink[];
 }
 
 export interface NavSection {
@@ -31,6 +34,7 @@ export const navigation: NavSection[] = [
       { name: "Carousel", href: "/styleguide/components/carousel" },
       { name: "Checkbox", href: "/styleguide/components/checkbox" },
       { name: "Hover Card", href: "/styleguide/components/hover-card" },
+      { name: "Ícones", href: "/styleguide/components/icons" },
       { name: "Tabs", href: "/styleguide/components/tabs" },
       { name: "Toggle", href: "/styleguide/components/toggle" },
       { name: "Toggle Group", href: "/styleguide/components/toggle-group" },
@@ -182,6 +186,11 @@ export const navigation: NavSection[] = [
     title: "Site Sections",
     items: [
       { name: "Soluções Completas", href: "/styleguide/site-sections/solucoes-completas" },
+      {
+        name: "Proposta Comercial — Sigo",
+        href: "/styleguide/site-sections/proposta-sigo",
+        publishedLinks: PROPOSTA_SIGO_PUBLISHED_SECTIONS,
+      },
     ],
   },
 ];

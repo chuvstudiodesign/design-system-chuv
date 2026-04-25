@@ -214,9 +214,18 @@
   }
 }
 
+/* Oculta scrollbar visualmente mantendo scroll funcional */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 @layer components {
   .ds-page {
-    @apply flex flex-col gap-3 py-3 sm:gap-4 sm:py-4 lg:pr-4;
+    @apply flex flex-col gap-3 py-3 sm:gap-4 sm:py-4;
   }
 
   .ds-page-header {

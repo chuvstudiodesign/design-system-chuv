@@ -2,6 +2,8 @@
 
 import { CalendarDays } from "lucide-react"
 import { Badge } from "@/components/badge"
+import { EditableText } from "@/components/editable-text"
+import { EditableIcon } from "@/components/site-sections/editable-icon"
 import { Button } from "@/components/ui/button"
 import { Typography } from "@/components/typography"
 import { Separator } from "@/components/ui/separator"
@@ -17,6 +19,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import content from "./content.json"
+
+const NS = "solucoes-completas"
 
 function IconOlho({ className }: { className?: string }) {
   return (
@@ -100,41 +105,47 @@ function IconSino({ className }: { className?: string }) {
 const cards = [
   {
     id: "olhar-macro",
-    icon: IconOlho,
-    title: "Olhar macro do design da sua empresa",
-    body: "Mapeamos identidade, comunicação e experiência para revelar onde o design pode transformar os seus resultados.",
+    iconKey: "cards.olhar-macro.icon",
+    titleKey: "cards.olhar-macro.title",
+    bodyKey: "cards.olhar-macro.body",
   },
   {
     id: "consultoria",
-    icon: IconBalaoTexto,
-    title: "Consultoria de design e tecnologia",
-    body: "Uma conversa estratégica gratuita. Diagnóstico claro e caminhos concretos, sem compromisso — por agendamento.",
+    iconKey: "cards.consultoria.icon",
+    titleKey: "cards.consultoria.title",
+    bodyKey: "cards.consultoria.body",
   },
   {
     id: "escala",
-    icon: IconGrafico,
-    title: "Escala de produção",
-    body: "Entregamos volume sem abrir mão da qualidade — do projeto pontual ao contrato contínuo, crescemos com sua demanda.",
+    iconKey: "cards.escala.icon",
+    titleKey: "cards.escala.title",
+    bodyKey: "cards.escala.body",
   },
   {
     id: "possibilidades",
-    icon: IconLupa,
-    title: "Reconhecimento de possibilidades",
-    body: "Identificamos onde design e tecnologia geram mais valor: interfaces, sistemas internos, automações e além.",
+    iconKey: "cards.possibilidades.icon",
+    titleKey: "cards.possibilidades.title",
+    bodyKey: "cards.possibilidades.body",
   },
   {
     id: "multidisciplinar",
-    icon: IconPasta,
-    title: "Aplicação multidisciplinar",
-    body: "Design, desenvolvimento e estratégia de marca em um único parceiro. Entregas integradas que maximizam resultado.",
+    iconKey: "cards.multidisciplinar.icon",
+    titleKey: "cards.multidisciplinar.title",
+    bodyKey: "cards.multidisciplinar.body",
   },
   {
     id: "entrega",
-    icon: IconSino,
-    title: "Entrega rápida e disponibilidade",
-    body: "Prazos enxutos e comunicação direta. Disponíveis para ajustar e iterar em cada etapa do projeto.",
+    iconKey: "cards.entrega.icon",
+    titleKey: "cards.entrega.title",
+    bodyKey: "cards.entrega.body",
   },
 ]
+
+type ContentKey = keyof typeof content
+
+function c(key: ContentKey) {
+  return content[key]
+}
 
 export default function SolucoesCompletasPage() {
   return (
@@ -143,18 +154,21 @@ export default function SolucoesCompletasPage() {
         <p className="text-xs font-bold tracking-widest text-primary uppercase mb-2">
           04 — SITE SECTIONS
         </p>
-        <h1 className="ds-page-title">Soluções Completas</h1>
+        <h1 className="ds-page-title">
+          <EditableText namespace={NS} id="header.title">{c("header.title")}</EditableText>
+        </h1>
         <p className="ds-page-description max-w-xl">
-          Seção oficial do site com os seis diferenciais comerciais do Chuv Studio.
-          Cards quadrados em carrossel com ícones do design system e texto direto ao ponto.
+          <EditableText namespace={NS} id="header.description">{c("header.description")}</EditableText>
         </p>
       </div>
 
       <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
         <div className="mb-5">
-          <h2 className="ds-section-title">Preview da seção</h2>
+          <h2 className="ds-section-title">
+            <EditableText namespace={NS} id="preview.title">{c("preview.title")}</EditableText>
+          </h2>
           <p className="ds-section-subtitle">
-            Cards quadrados em carrossel — arraste ou use as setas para navegar.
+            <EditableText namespace={NS} id="preview.subtitle">{c("preview.subtitle")}</EditableText>
           </p>
         </div>
         <Separator className="mb-8 bg-black/10" />
@@ -162,7 +176,7 @@ export default function SolucoesCompletasPage() {
         <div className="px-10">
           <Carousel opts={{ align: "start" }} className="w-full">
             <CarouselContent>
-              {cards.map(({ id, icon: Icon, title, body }) => (
+              {cards.map(({ id, iconKey, titleKey, bodyKey }) => (
                 <CarouselItem
                   key={id}
                   className="basis-full sm:basis-1/2 lg:basis-1/3"
@@ -173,7 +187,7 @@ export default function SolucoesCompletasPage() {
                         <HoverCard>
                           <HoverCardTrigger className="cursor-pointer">
                             <Badge variant="success" size="sm" className="font-bold">
-                              Agende grátis
+                              <EditableText namespace={NS} id="cards.consultoria.badge">{c("cards.consultoria.badge")}</EditableText>
                             </Badge>
                           </HoverCardTrigger>
                           <HoverCardContent
@@ -184,23 +198,23 @@ export default function SolucoesCompletasPage() {
                             <div className="flex flex-col gap-4">
                               <div>
                                 <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary mb-2">
-                                  Consultoria gratuita
+                                  <EditableText namespace={NS} id="cards.consultoria.hover.label">{c("cards.consultoria.hover.label")}</EditableText>
                                 </p>
                                 <Typography variant="h4">
-                                  Análise completa para a sua empresa
+                                  <EditableText namespace={NS} id="cards.consultoria.hover.title">{c("cards.consultoria.hover.title")}</EditableText>
                                 </Typography>
                               </div>
                               <Typography variant="body-s" className="text-muted-foreground">
-                                Uma análise gratuita de tudo que pode ser implementado na sua empresa em design e tecnologia digital — entregue pelo nosso time.
+                                <EditableText namespace={NS} id="cards.consultoria.hover.body">{c("cards.consultoria.hover.body")}</EditableText>
                               </Typography>
                               <div className="flex items-center gap-2 text-muted-foreground">
                                 <CalendarDays className="h-3.5 w-3.5 shrink-0" />
                                 <Typography variant="caption">
-                                  Disponível até 27 de abril
+                                  <EditableText namespace={NS} id="cards.consultoria.hover.deadline">{c("cards.consultoria.hover.deadline")}</EditableText>
                                 </Typography>
                               </div>
                               <Button size="sm" className="self-start bg-[#22c55e] text-white hover:bg-[#16a34a]">
-                                Agendar agora
+                                <EditableText namespace={NS} id="cards.consultoria.hover.button">{c("cards.consultoria.hover.button")}</EditableText>
                               </Button>
                             </div>
                           </HoverCardContent>
@@ -208,14 +222,20 @@ export default function SolucoesCompletasPage() {
                       </div>
                     )}
 
-                    <Icon className="h-[82px] w-[82px] shrink-0 text-primary" />
+                    <EditableIcon
+                      namespace={NS}
+                      id={iconKey}
+                      fallbackIconId={c(iconKey as ContentKey)}
+                      alt={c(titleKey as ContentKey)}
+                      strategy={{ kind: "frameHeight", frameHeight: 410, targetHeight: 82 }}
+                    />
 
                     <div className="flex flex-col gap-3">
                       <Typography variant="h1" className="leading-tight">
-                        {title}
+                        <EditableText namespace={NS} id={titleKey}>{c(titleKey as ContentKey)}</EditableText>
                       </Typography>
                       <Typography variant="body-m" className="text-muted-foreground leading-relaxed">
-                        {body}
+                        <EditableText namespace={NS} id={bodyKey}>{c(bodyKey as ContentKey)}</EditableText>
                       </Typography>
                     </div>
                   </div>
@@ -230,35 +250,63 @@ export default function SolucoesCompletasPage() {
 
       <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
         <div className="mb-5">
-          <h2 className="ds-section-title">Especificações</h2>
-          <p className="ds-section-subtitle">Tokens e estrutura utilizados nesta seção.</p>
+          <h2 className="ds-section-title">
+            <EditableText namespace={NS} id="specs.title">{c("specs.title")}</EditableText>
+          </h2>
+          <p className="ds-section-subtitle">
+            <EditableText namespace={NS} id="specs.subtitle">{c("specs.subtitle")}</EditableText>
+          </p>
         </div>
         <Separator className="mb-8 bg-black/10" />
 
         <div className="ds-card-grid-2">
           <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-3">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">Card</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+              <EditableText namespace={NS} id="specs.card.label">{c("specs.card.label")}</EditableText>
+            </p>
             <Typography variant="body-s" className="text-muted-foreground">
-              Proporção: <span className="font-mono">aspect-square (1:1)</span>
+              <EditableText namespace={NS} id="specs.card.line1">{c("specs.card.line1")}</EditableText>{" "}
+              <span className="font-mono">
+                <EditableText namespace={NS} id="specs.card.value1">{c("specs.card.value1")}</EditableText>
+              </span>
             </Typography>
             <Typography variant="body-s" className="text-muted-foreground">
-              Background: <span className="font-mono">#f9f9f9</span> · Border: <span className="font-mono">1px solid white</span>
+              <EditableText namespace={NS} id="specs.card.line2">{c("specs.card.line2")}</EditableText>{" "}
+              <span className="font-mono">
+                <EditableText namespace={NS} id="specs.card.value2">{c("specs.card.value2")}</EditableText>
+              </span>{" "}
+              · <EditableText namespace={NS} id="specs.card.line2b">{c("specs.card.line2b")}</EditableText>{" "}
+              <span className="font-mono">
+                <EditableText namespace={NS} id="specs.card.value2b">{c("specs.card.value2b")}</EditableText>
+              </span>
             </Typography>
             <Typography variant="body-s" className="text-muted-foreground">
-              Padding: <span className="font-mono">var(--card-padding) = 45px</span>
+              <EditableText namespace={NS} id="specs.card.line3">{c("specs.card.line3")}</EditableText>{" "}
+              <span className="font-mono">
+                <EditableText namespace={NS} id="specs.card.value3">{c("specs.card.value3")}</EditableText>
+              </span>
             </Typography>
           </div>
 
           <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-3">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">Consultoria — HoverCard</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+              <EditableText namespace={NS} id="specs.hover.label">{c("specs.hover.label")}</EditableText>
+            </p>
             <Typography variant="body-s" className="text-muted-foreground">
-              Trigger: <span className="font-mono">Badge variant="service"</span> · "Agende consultoria grátis"
+              <EditableText namespace={NS} id="specs.hover.line1">{c("specs.hover.line1")}</EditableText>{" "}
+              <span className="font-mono">
+                <EditableText namespace={NS} id="specs.hover.value1">{c("specs.hover.value1")}</EditableText>
+              </span>
             </Typography>
             <Typography variant="body-s" className="text-muted-foreground">
-              Conteúdo: título, descrição, data limite e botão de agendamento
+              <EditableText namespace={NS} id="specs.hover.line2">{c("specs.hover.line2")}</EditableText>{" "}
+              <EditableText namespace={NS} id="specs.hover.value2">{c("specs.hover.value2")}</EditableText>
             </Typography>
             <Typography variant="body-s" className="text-muted-foreground">
-              Disponível até: <span className="font-mono">27 de abril</span>
+              <EditableText namespace={NS} id="specs.hover.line3">{c("specs.hover.line3")}</EditableText>{" "}
+              <span className="font-mono">
+                <EditableText namespace={NS} id="specs.hover.value3">{c("specs.hover.value3")}</EditableText>
+              </span>
             </Typography>
           </div>
         </div>
@@ -266,8 +314,11 @@ export default function SolucoesCompletasPage() {
 
       <div className="px-1 pt-2 pb-4">
         <p className="text-xs text-muted-foreground">
-          Chuv Studio Design System · Site Section:{" "}
-          <span className="font-mono">solucoes-completas</span> · 6 diferenciais comerciais
+          <EditableText namespace={NS} id="footer.description">{c("footer.description")}</EditableText>{" "}
+          <span className="font-mono">
+            <EditableText namespace={NS} id="footer.namespace">{c("footer.namespace")}</EditableText>
+          </span>{" "}
+          <EditableText namespace={NS} id="footer.summary">{c("footer.summary")}</EditableText>
         </p>
       </div>
     </div>

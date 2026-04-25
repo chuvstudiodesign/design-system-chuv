@@ -55,3 +55,10 @@ When the user asks for design or component changes, follow this order:
   - use body variants for reading content
   - use label and caption variants for metadata and support text
 - Visual experimentation is allowed, but it must not break the documented typographic hierarchy of the system.
+
+## Site Sections Editing Pattern
+
+- Every page created inside `src/app/styleguide/site-sections/` must ship with inline text editing enabled by default.
+- Site section copy must live in a local `content.json` file inside that page folder.
+- Visible copy in site section pages must be rendered through `EditableText` using the folder name as the namespace.
+- The editing controls are scoped to the `site-sections` layout, so new site section pages must follow the same `content.json` + `EditableText` pattern instead of hardcoding final copy in `page.tsx`.
