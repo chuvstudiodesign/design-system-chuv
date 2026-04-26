@@ -2,6 +2,10 @@
 
 Este documento registra o padrão oficial para levar as `Site Sections` do style guide para o Framer da Chuv Studio.
 
+Leitura complementar obrigatória para sections reutilizáveis:
+
+- `docs/site-sections-publishing-standard.md`
+
 ## Fonte de verdade
 
 - O style guide local é a fonte de verdade para estrutura, tokens e hierarquia visual.
@@ -83,12 +87,23 @@ Para cards quadrados como `Soluções completas`:
 
 1. Ler a page da section no style guide local.
 2. Confirmar tokens e hierarquia em `Section System` e `Card System`.
-3. Abrir a página alvo do Framer e localizar `Main`.
-4. Identificar se já existe uma section com estrutura compatível para reaproveitamento.
-5. Duplicar essa section quando houver carrossel, botões ou comportamento estrutural já resolvido.
-6. Reordenar a cópia para a posição final correta dentro de `Main`.
-7. Substituir título, conteúdo e cards sem quebrar o padrão do Framer.
-8. Preservar fundo branco da página, `gap: 10px` entre sections, `#efefef` na section e `#f9f9f9` nos cards.
+3. Confirmar se a section também precisa virar página publicada em `/sections/...` para embed.
+4. Se for reutilizável, fechar primeiro o fluxo de publicação no design system antes da etapa de embed no Framer.
+5. Abrir a página alvo do Framer e localizar `Main`.
+6. Identificar se já existe uma section com estrutura compatível para reaproveitamento.
+7. Duplicar essa section quando houver carrossel, botões ou comportamento estrutural já resolvido.
+8. Reordenar a cópia para a posição final correta dentro de `Main`.
+9. Substituir título, conteúdo e cards sem quebrar o padrão do Framer.
+10. Preservar fundo branco da página, `gap: 10px` entre sections, `#efefef` na section e `#f9f9f9` nos cards.
+
+## Regra adicional para sections publicadas via embed
+
+Quando a entrega envolver embed:
+
+- a section deve existir como página limpa no Vercel
+- a rota publicada deve responder com altura dinâmica correta
+- o embed final deve apontar para a URL de produção, não para preview temporária
+- a entrega deve incluir o HTML completo do iframe já pronto para colar
 
 ## Regra específica para carrosséis
 

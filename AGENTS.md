@@ -62,3 +62,11 @@ When the user asks for design or component changes, follow this order:
 - Site section copy must live in a local `content.json` file inside that page folder.
 - Visible copy in site section pages must be rendered through `EditableText` using the folder name as the namespace.
 - The editing controls are scoped to the `site-sections` layout, so new site section pages must follow the same `content.json` + `EditableText` pattern instead of hardcoding final copy in `page.tsx`.
+- Every site section that is meant to be reused outside the style guide must also be published as a clean standalone page under `src/app/sections/`.
+- Published site section pages must use the project's auto-resizing embed shell so the Vercel page reports the real section height to iframe embeds without leaving extra white space.
+- When a new reusable site section is created, the implementation is only complete after these outputs exist together:
+  - the editable source page inside `src/app/styleguide/site-sections/`
+  - the standalone published route inside `/sections/...`
+  - the production Vercel URL for that route
+  - the ready-to-paste embed HTML snippet pointing to the production URL
+- This publication-and-embed requirement applies to `site-sections` only. It does not automatically apply to unrelated style guide pages or generic component pages.

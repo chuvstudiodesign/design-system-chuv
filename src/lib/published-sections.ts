@@ -8,6 +8,14 @@ export interface PublishedSectionLink {
   description: string
 }
 
+function toEmbedId(value: string) {
+  return value
+    .replace(/^\/+/, "")
+    .replace(/[^a-zA-Z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .toLowerCase()
+}
+
 export const PROPOSTA_SIGO_PUBLISHED_SECTIONS = [
   {
     name: "Nossas áreas de atuação",
@@ -76,4 +84,40 @@ export const PROPOSTA_SIGO_PUBLISHED_SECTION_BY_SLUG = Object.fromEntries(
 
 export function getPublishedSectionVercelUrl(href: string) {
   return `${VERCEL_PRODUCTION_BASE_URL}${href}`
+}
+
+export function getPublishedSectionEmbedCode({
+  href,
+  title,
+  iframeId = toEmbedId(href),
+}: {
+  href: string
+  title: string
+  iframeId?: string
+}) {
+  const src = getPublishedSectionVercelUrl(href)
+
+  return `<div style="width:100%;">
+  <iframe
+    id="${iframeId}"
+    src="${src}"
+    title="${title}"
+    style="width:100%;height:10px;border:0;display:block;overflow:hidden;background:transparent;"
+    scrolling="no"
+  ></iframe>
+</div>
+<script>
+(function () {
+  const iframe = document.getElementById("${iframeId}");
+  const expectedPath = "${href}";
+
+  window.addEventListener("message", function (event) {
+    const data = event.data;
+    if (!data || data.type !== "chuv:embed-resize" || data.path !== expectedPath) return;
+    if (typeof data.height === "number" && data.height > 0) {
+      iframe.style.height = data.height + "px";
+    }
+  });
+})();
+</script>`
 }
