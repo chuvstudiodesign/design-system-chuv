@@ -10,8 +10,7 @@ export interface IconLibraryEntry {
   fh: number
 }
 
-export const SITE_SECTION_ICON_COLOR_FILTER =
-  "brightness(0) saturate(100%) invert(22%) sepia(88%) saturate(6150%) hue-rotate(248deg) brightness(96%)"
+export const SITE_SECTION_ICON_COLOR_FILTER = "none"
 
 export const ICON_LIBRARY: IconLibraryEntry[] = [
   { id: "calendar", name: "Calendar", src: figmaAsset("557b4eeb-8553-43e3-a5d3-5643ef6d6e53"), fw: 374.1, fh: 348.3 },
