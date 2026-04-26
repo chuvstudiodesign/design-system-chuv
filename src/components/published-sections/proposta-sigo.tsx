@@ -566,7 +566,7 @@ export function PropostaSigoBonusSection() {
             {BONUS_CARDS.map(({ id, badge, titleKey, bodyKey }, index) => {
               return (
                 <CarouselItem key={id} className="basis-full sm:basis-1/2 lg:basis-1/3">
-                  <div className="aspect-square rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-between">
+                  <div className="aspect-square overflow-hidden rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-between">
                     <div className="flex items-center justify-start gap-2">
                       <Typography variant="display-l" className="text-primary leading-none">
                         {BONUS_ORDINALS[index]}
