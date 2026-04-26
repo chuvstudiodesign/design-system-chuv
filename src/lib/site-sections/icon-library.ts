@@ -59,6 +59,8 @@ export const ICON_LIBRARY: IconLibraryEntry[] = [
   { id: "3d-motion", name: "3D Motion", src: figmaAsset("313e4c5b-087a-4214-b607-68d8560113ac"), fw: 410.7, fh: 322 },
   { id: "video-light", name: "Video Light", src: figmaAsset("f8ef451f-1094-484e-af2e-1268ce7b98a2"), fw: 453, fh: 270 },
   { id: "site", name: "Site", src: figmaAsset("257fb67d-25d0-4274-aeff-1e0c48bf0d43"), fw: 393.5, fh: 249.1 },
+  { id: "infinito", name: "Infinito / Ilimitado", src: figmaAsset("84031676-2017-430e-82d1-7f42e8cb0c93"), fw: 373, fh: 294 },
+  { id: "infinito-flat", name: "Infinito / Ilimitado Flat", src: figmaAsset("fe8b69ce-5f39-47e9-885c-4f5226da749f"), fw: 348, fh: 145 },
 ]
 
 export const ICON_LIBRARY_BY_ID = Object.fromEntries(

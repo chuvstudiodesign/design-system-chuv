@@ -16,6 +16,51 @@ function toEmbedId(value: string) {
     .toLowerCase()
 }
 
+export const PROPOSTA_WEBSITE_SIGO_PUBLISHED_SECTIONS = [
+  {
+    name: "Nossas áreas de atuação",
+    slug: "nossas-areas-de-atuacao",
+    href: "/sections/proposta-website-sigo/nossas-areas-de-atuacao",
+    title: "Nossas Áreas de Atuação",
+    description: "Section de áreas de atuação da Chuv Studio na proposta de website da Sigo.",
+  },
+  {
+    name: "Objetivos do projeto",
+    slug: "objetivos-do-projeto",
+    href: "/sections/proposta-website-sigo/objetivos-do-projeto",
+    title: "Objetivos do Projeto",
+    description: "Section de objetivos do projeto de website da Sigo.",
+  },
+  {
+    name: "Escopo do projeto",
+    slug: "escopo-do-projeto",
+    href: "/sections/proposta-website-sigo/escopo-do-projeto",
+    title: "Escopo do Projeto",
+    description: "Section de escopo do projeto de website da Sigo.",
+  },
+  {
+    name: "Resumo do pacote",
+    slug: "resumo-do-pacote",
+    href: "/sections/proposta-website-sigo/resumo-do-pacote",
+    title: "Resumo do Pacote",
+    description: "Section de resumo do pacote Start Web da Sigo.",
+  },
+  {
+    name: "Condições gerais e investimento",
+    slug: "condicoes-gerais-e-investimento",
+    href: "/sections/proposta-website-sigo/condicoes-gerais-e-investimento",
+    title: "Condições Gerais e Investimento",
+    description: "Section de condições gerais e investimento da proposta de website da Sigo.",
+  },
+] as const satisfies readonly PublishedSectionLink[]
+
+export type PropostaWebsiteSigoPublishedSectionSlug =
+  (typeof PROPOSTA_WEBSITE_SIGO_PUBLISHED_SECTIONS)[number]["slug"]
+
+export const PROPOSTA_WEBSITE_SIGO_PUBLISHED_SECTION_BY_SLUG = Object.fromEntries(
+  PROPOSTA_WEBSITE_SIGO_PUBLISHED_SECTIONS.map((section) => [section.slug, section])
+) as Record<PropostaWebsiteSigoPublishedSectionSlug, (typeof PROPOSTA_WEBSITE_SIGO_PUBLISHED_SECTIONS)[number]>
+
 export const PROPOSTA_SIGO_PUBLISHED_SECTIONS = [
   {
     name: "Nossas áreas de atuação",

@@ -1,4 +1,4 @@
-import { PROPOSTA_SIGO_PUBLISHED_SECTIONS, type PublishedSectionLink } from "@/lib/published-sections";
+import { PROPOSTA_SIGO_PUBLISHED_SECTIONS, PROPOSTA_WEBSITE_SIGO_PUBLISHED_SECTIONS, type PublishedSectionLink } from "@/lib/published-sections";
 
 export interface NavItem {
   name: string;
@@ -57,6 +57,11 @@ export const navigation: NavSection[] = [
         name: "Proposta Comercial — Sigo",
         href: "/styleguide/site-sections/proposta-sigo",
         publishedLinks: PROPOSTA_SIGO_PUBLISHED_SECTIONS,
+      },
+      {
+        name: "Proposta Website — Sigo",
+        href: "/styleguide/site-sections/proposta-website-sigo",
+        publishedLinks: PROPOSTA_WEBSITE_SIGO_PUBLISHED_SECTIONS,
       },
     ],
   },
