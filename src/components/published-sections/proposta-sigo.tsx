@@ -30,6 +30,32 @@ import {
 import type { PropostaSigoPublishedSectionSlug } from "@/lib/published-sections"
 import { AutoHeightReporter } from "@/components/published-sections/auto-height-reporter"
 
+function SplineViewer({ url }: { url: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    if (!document.querySelector("[data-spline-loader]")) {
+      const s = document.createElement("script")
+      s.type = "module"
+      s.src = "https://unpkg.com/@splinetool/viewer@1.12.88/build/spline-viewer.js"
+      s.dataset.splineLoader = "1"
+      document.head.appendChild(s)
+    }
+
+    const viewer = document.createElement("spline-viewer")
+    viewer.setAttribute("url", url)
+    viewer.style.cssText = "display:block;width:100%;height:100%"
+    el.appendChild(viewer)
+
+    return () => { el.innerHTML = "" }
+  }, [url])
+
+  return <div ref={ref} style={{ flex: 1, minWidth: 0 }} />
+}
+
 const AREAS = [
   { key: "s1.design-grafico", iconKey: "s1.design-grafico.icon" },
   { key: "s1.identidade-visual", iconKey: "s1.identidade-visual.icon" },
@@ -373,9 +399,11 @@ export function PropostaSigoAreasSection() {
         </div>
 
         <div
-          className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] xl:col-span-1"
+          className="rounded-none border border-white bg-[#f9f9f9] p-[3px] xl:col-span-1 flex overflow-hidden"
           style={getFadeStyle(AREAS.length, entered)}
-        />
+        >
+          <SplineViewer url="https://prod.spline.design/S-9NtNJpkF44Kli3/scene.splinecode" />
+        </div>
       </div>
     </section>
   )
