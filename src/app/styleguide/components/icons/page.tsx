@@ -1,6 +1,6 @@
 import {
+  ICON_COLOR,
   ICON_LIBRARY,
-  SITE_SECTION_ICON_COLOR_FILTER,
 } from "@/lib/site-sections/icon-library"
 import { Separator } from "@/components/ui/separator";
 
@@ -70,11 +70,23 @@ function IconCard({ icon }: { icon: (typeof ICON_LIBRARY)[number] }) {
         className="flex items-end justify-center w-full"
         style={{ height: ICON_AREA_H, flexShrink: 0 }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={icon.src}
-          alt={icon.name}
-          style={{ width: w, height: h, display: "block", filter: SITE_SECTION_ICON_COLOR_FILTER }}
+        <div
+          role="img"
+          aria-label={icon.name}
+          style={{
+            width: w,
+            height: h,
+            flexShrink: 0,
+            backgroundColor: ICON_COLOR,
+            maskImage: `url(${icon.src})`,
+            WebkitMaskImage: `url(${icon.src})`,
+            maskSize: "contain",
+            WebkitMaskSize: "contain",
+            maskRepeat: "no-repeat",
+            WebkitMaskRepeat: "no-repeat",
+            maskPosition: "center",
+            WebkitMaskPosition: "center",
+          }}
         />
       </div>
 

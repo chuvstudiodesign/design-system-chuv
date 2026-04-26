@@ -10,6 +10,8 @@ export interface IconLibraryEntry {
   fh: number
 }
 
+export const ICON_COLOR = "#4820CC"
+
 export const SITE_SECTION_ICON_COLOR_FILTER = "none"
 
 export const ICON_LIBRARY: IconLibraryEntry[] = [

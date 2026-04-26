@@ -12,9 +12,9 @@ import {
 import { cn } from "@/lib/utils"
 import { useEditMode } from "@/lib/edit-mode/context"
 import {
+  ICON_COLOR,
   ICON_LIBRARY,
   ICON_LIBRARY_BY_ID,
-  SITE_SECTION_ICON_COLOR_FILTER,
 } from "@/lib/site-sections/icon-library"
 
 type IconScaleStrategy =
@@ -87,16 +87,23 @@ export function EditableIcon({
           className
         )}
       >
-        <img
-          src={icon.src}
-          alt={alt}
-          width={width}
-          height={height}
+        <div
+          role="img"
+          aria-label={alt}
           className={cn("shrink-0", imgClassName)}
           style={{
             width,
             height,
-            filter: SITE_SECTION_ICON_COLOR_FILTER,
+            flexShrink: 0,
+            backgroundColor: ICON_COLOR,
+            maskImage: `url(${icon.src})`,
+            WebkitMaskImage: `url(${icon.src})`,
+            maskSize: "contain",
+            WebkitMaskSize: "contain",
+            maskRepeat: "no-repeat",
+            WebkitMaskRepeat: "no-repeat",
+            maskPosition: "center",
+            WebkitMaskPosition: "center",
           }}
         />
 
@@ -140,15 +147,22 @@ export function EditableIcon({
                   )}
                 >
                   <div className="flex h-20 items-end justify-center">
-                    <img
-                      src={candidate.src}
-                      alt={candidate.name}
-                      width={candidateSize.width}
-                      height={candidateSize.height}
+                    <div
+                      role="img"
+                      aria-label={candidate.name}
                       style={{
                         width: candidateSize.width,
                         height: candidateSize.height,
-                        filter: SITE_SECTION_ICON_COLOR_FILTER,
+                        flexShrink: 0,
+                        backgroundColor: ICON_COLOR,
+                        maskImage: `url(${candidate.src})`,
+                        WebkitMaskImage: `url(${candidate.src})`,
+                        maskSize: "contain",
+                        WebkitMaskSize: "contain",
+                        maskRepeat: "no-repeat",
+                        WebkitMaskRepeat: "no-repeat",
+                        maskPosition: "center",
+                        WebkitMaskPosition: "center",
                       }}
                     />
                   </div>

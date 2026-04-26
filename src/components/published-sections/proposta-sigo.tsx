@@ -24,8 +24,8 @@ import {
 } from "@/components/ui/carousel"
 import content from "@/app/styleguide/site-sections/proposta-sigo/content.json"
 import {
+  ICON_COLOR,
   ICON_LIBRARY_BY_ID,
-  SITE_SECTION_ICON_COLOR_FILTER,
 } from "@/lib/site-sections/icon-library"
 import type { PropostaSigoPublishedSectionSlug } from "@/lib/published-sections"
 import { AutoHeightReporter } from "@/components/published-sections/auto-height-reporter"
@@ -291,16 +291,23 @@ function StaticIcon({
   const icon = getIconById(iconId)
 
   return (
-    <img
-      src={icon.src}
-      alt={alt}
-      width={width}
-      height={height}
+    <div
+      role="img"
+      aria-label={alt}
       className={className}
       style={{
         width,
         height,
-        filter: SITE_SECTION_ICON_COLOR_FILTER,
+        flexShrink: 0,
+        backgroundColor: ICON_COLOR,
+        maskImage: `url(${icon.src})`,
+        WebkitMaskImage: `url(${icon.src})`,
+        maskSize: "contain",
+        WebkitMaskSize: "contain",
+        maskRepeat: "no-repeat",
+        WebkitMaskRepeat: "no-repeat",
+        maskPosition: "center",
+        WebkitMaskPosition: "center",
       }}
     />
   )

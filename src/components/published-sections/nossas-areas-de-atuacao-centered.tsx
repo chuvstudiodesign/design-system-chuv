@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from "react"
 import { Typography } from "@/components/typography"
 import content from "@/app/styleguide/site-sections/proposta-sigo/content.json"
 import {
+  ICON_COLOR,
   ICON_LIBRARY_BY_ID,
-  SITE_SECTION_ICON_COLOR_FILTER,
 } from "@/lib/site-sections/icon-library"
 import { AutoHeightReporter } from "@/components/published-sections/auto-height-reporter"
 
@@ -110,15 +110,22 @@ export function NossasAreasDeAtuacaoCentered() {
                   style={getFadeStyle(index, entered)}
                 >
                   <div className="flex flex-1 items-center justify-center">
-                    <img
-                      src={icon.src}
-                      alt={content[key as ContentKey]}
-                      width={width}
-                      height={height}
+                    <div
+                      role="img"
+                      aria-label={content[key as ContentKey]}
                       style={{
                         width,
                         height,
-                        filter: SITE_SECTION_ICON_COLOR_FILTER,
+                        flexShrink: 0,
+                        backgroundColor: ICON_COLOR,
+                        maskImage: `url(${icon.src})`,
+                        WebkitMaskImage: `url(${icon.src})`,
+                        maskSize: "contain",
+                        WebkitMaskSize: "contain",
+                        maskRepeat: "no-repeat",
+                        WebkitMaskRepeat: "no-repeat",
+                        maskPosition: "center",
+                        WebkitMaskPosition: "center",
                       }}
                     />
                   </div>
