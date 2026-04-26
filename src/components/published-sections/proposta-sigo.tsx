@@ -149,37 +149,37 @@ const ESCOPO_ITEMS = [
 const BONUS_CARDS = [
   {
     id: "linguagem",
-    badge: "Branding",
+    badgeKey: "s5.linguagem.badge",
     titleKey: "s5.linguagem.title",
     bodyKey: "s5.linguagem.body",
   },
   {
     id: "analise",
-    badge: "Estratégia",
+    badgeKey: "s5.analise.badge",
     titleKey: "s5.analise.title",
     bodyKey: "s5.analise.body",
   },
   {
     id: "design-system",
-    badge: "Sistema",
+    badgeKey: "s5.sistema.badge",
     titleKey: "s5.sistema.title",
     bodyKey: "s5.sistema.body",
   },
   {
     id: "destaques",
-    badge: "Storytelling",
+    badgeKey: "s5.destaques.badge",
     titleKey: "s5.destaques.title",
     bodyKey: "s5.destaques.body",
   },
   {
     id: "carroseis",
-    badge: "Conteúdo",
+    badgeKey: "s5.carroseis.badge",
     titleKey: "s5.carroseis.title",
     bodyKey: "s5.carroseis.body",
   },
 ] as const
 
-const BONUS_ORDINALS = ["1º", "2º", "3º", "4º", "5º"] as const
+const BONUS_ORDINALS = ["s5.ord.1", "s5.ord.2", "s5.ord.3", "s5.ord.4", "s5.ord.5"] as const
 
 const VOLUME_ITEMS = {
   deliverables: [
@@ -207,7 +207,7 @@ const POR_QUE_ITEMS = [
   { titleKey: "s6.biblioteca.title", bodyKey: "s6.biblioteca.body" },
 ] as const
 
-const POR_QUE_ORDINALS = ["1º", "2º", "3º", "4º", "5º", "6º"] as const
+const POR_QUE_ORDINALS = ["s6.ord.1", "s6.ord.2", "s6.ord.3", "s6.ord.4", "s6.ord.5", "s6.ord.6"] as const
 
 const CONDICOES_ITEMS = [
   {
@@ -563,16 +563,16 @@ export function PropostaSigoBonusSection() {
       <div className="px-10">
         <Carousel opts={{ align: "start" }} className="w-full">
           <CarouselContent>
-            {BONUS_CARDS.map(({ id, badge, titleKey, bodyKey }, index) => {
+            {BONUS_CARDS.map(({ id, badgeKey, titleKey, bodyKey }, index) => {
               return (
                 <CarouselItem key={id} className="basis-full sm:basis-1/2 lg:basis-1/3">
                   <div className="aspect-square overflow-hidden rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-between">
                     <div className="flex items-center justify-start gap-2">
                       <Typography variant="display-l" className="text-primary leading-none">
-                        {BONUS_ORDINALS[index]}
+                        {c(BONUS_ORDINALS[index])}
                       </Typography>
                       <Badge variant="service" size="sm">
-                        {badge}
+                        {c(badgeKey as ContentKey)}
                       </Badge>
                     </div>
                     <div className="flex flex-col gap-3">
@@ -636,17 +636,17 @@ export function PropostaSigoVolumeSection() {
                   </Typography>
                   {showBonusBadge ? (
                     <Badge variant="service" size="sm" className="self-end mb-1">
-                      Bônus
+                      {c("s4.bonus.badge")}
                     </Badge>
                   ) : null}
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
                   <Typography variant="display-l" className="text-primary leading-none">
-                    +1
+                    {c("s4.bonus.default-number")}
                   </Typography>
                   <Badge variant="service" size="sm" className="self-end mb-1">
-                    Bônus
+                    {c("s4.bonus.badge")}
                   </Badge>
                 </div>
               )}
@@ -678,7 +678,7 @@ export function PropostaSigoWhyChuvSection() {
             className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-6"
           >
             <Typography variant="display-l" className="text-primary leading-none">
-              {POR_QUE_ORDINALS[index]}
+              {c(POR_QUE_ORDINALS[index])}
             </Typography>
             <div className="flex flex-col gap-2">
               <Typography variant="h3">
@@ -744,7 +744,7 @@ export function PropostaSigoInvestmentSection() {
             </div>
 
             <div className="flex flex-col gap-3 lg:items-end">
-              <Badge variant="success" size="sm">
+              <Badge variant="success" size="sm" className="font-bold">
                 {c("s7.badge-pacote")}
               </Badge>
               <div className="flex flex-col gap-1 lg:text-right">
