@@ -6,6 +6,11 @@ export default function SectionsLayout({
   return (
     <>
       <style>{`
+        html, body {
+          height: auto !important;
+          min-height: 0 !important;
+          background: #efefef !important;
+        }
         html, body, * { scrollbar-width: none !important; -ms-overflow-style: none !important; }
         *::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
       `}</style>

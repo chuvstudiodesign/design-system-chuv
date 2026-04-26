@@ -317,7 +317,7 @@ function PublishedSectionShell({ children }: { children: ReactNode }) {
   return (
     <main className="bg-[#efefef] p-3 sm:p-4">
       <AutoHeightReporter />
-      {children}
+      <div data-published-section-root>{children}</div>
     </main>
   )
 }

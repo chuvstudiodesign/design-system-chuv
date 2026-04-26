@@ -6,9 +6,20 @@ const EMBED_RESIZE_MESSAGE_TYPE = "chuv:embed-resize"
 
 export function AutoHeightReporter() {
   useEffect(() => {
-    // Measure the <main> element directly — its height is content-based, not
-    // affected by the iframe viewport height that Framer sets.
-    const container = document.querySelector<HTMLElement>("main") ?? document.body
+    const getContainer = () =>
+      document.querySelector<HTMLElement>("main > section[data-published-section-root]") ??
+      document.querySelector<HTMLElement>("main > section") ??
+      document.querySelector<HTMLElement>("main") ??
+      document.body
+
+    const getMeasuredHeight = (element: HTMLElement) =>
+      Math.ceil(
+        Math.max(
+          element.getBoundingClientRect().height,
+          element.scrollHeight,
+          element.offsetHeight,
+        )
+      )
 
     let frameId = 0
     let postAnimationTimerId = 0
@@ -17,10 +28,12 @@ export function AutoHeightReporter() {
 
     const sendHeight = () => {
       frameId = window.requestAnimationFrame(() => {
+        const container = getContainer()
+
         window.parent.postMessage(
           {
             type: EMBED_RESIZE_MESSAGE_TYPE,
-            height: Math.ceil(container.getBoundingClientRect().height),
+            height: getMeasuredHeight(container),
             path: window.location.pathname,
           },
           "*"
@@ -51,7 +64,11 @@ export function AutoHeightReporter() {
       schedulePostAnimation()
     })
 
-    resizeObserver.observe(container)
+    resizeObserver.observe(document.documentElement)
+    resizeObserver.observe(document.body)
+
+    const initialContainer = getContainer()
+    resizeObserver.observe(initialContainer)
 
     // MutationObserver as backup trigger for any DOM change
     const mutationObserver = new MutationObserver(() => {
