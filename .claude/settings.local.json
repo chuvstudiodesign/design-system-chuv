@@ -18,7 +18,20 @@
       "Bash(npx shadcn@latest mcp init --client claude)",
       "mcp__figma__get_figma_data",
       "Bash(git add *)",
-      "Bash(git rebase *)"
+      "Bash(git rebase *)",
+      "Bash(git push *)",
+      "Bash(git rm *)",
+      "Bash(git commit -m ' *)",
+      "WebFetch(domain:design-system-chuv.vercel.app)",
+      "Bash(git checkout *)",
+      "Bash(git show *)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(curl -s http://localhost:3000/sections/nossas-areas-de-atuacao-centered -o /dev/null -w \"%{http_code}\")",
+      "Bash(curl -s http://localhost:3000/sections/nossas-areas-de-atuacao-centered)",
+      "Bash(git commit *)",
+      "Bash(cat)",
+      "Read(//tmp/**)",
+      "Bash(npx tsc *)"
     ]
   }
 }

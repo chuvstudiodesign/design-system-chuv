@@ -223,8 +223,8 @@ export default function PropostaWebsiteSigoPage() {
       <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
         <div className="mb-[45px] flex flex-col items-center text-center">
           <Typography variant="h1" className="max-w-3xl">
-            <EditableText namespace={NS} id="s2.title.prefix">{c("s2.title.prefix")}</EditableText>
-            <Accent><EditableText namespace={NS} id="s2.title.accent">{c("s2.title.accent")}</EditableText></Accent>
+            <Accent><EditableText namespace={NS} id="s2.title.prefix">{c("s2.title.prefix")}</EditableText></Accent>
+            <EditableText namespace={NS} id="s2.title.accent">{c("s2.title.accent")}</EditableText>
           </Typography>
           <Typography variant="body-m" className="mt-3 max-w-2xl text-muted-foreground">
             <EditableText namespace={NS} id="s2.subtitle">{c("s2.subtitle")}</EditableText>

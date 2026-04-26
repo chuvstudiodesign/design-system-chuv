@@ -230,7 +230,7 @@ export function PropostaWebsiteSigoObjectivesSection() {
   return (
     <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
       <PublishedSectionHeader
-        title={<>{c("s2.title.prefix")}<Accent>{c("s2.title.accent")}</Accent></>}
+        title={<><Accent>{c("s2.title.prefix")}</Accent>{c("s2.title.accent")}</>}
         subtitle={content["s2.subtitle"]}
       />
 
