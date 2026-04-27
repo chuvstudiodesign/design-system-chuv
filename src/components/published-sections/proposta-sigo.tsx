@@ -228,8 +228,8 @@ const CONDICOES_ITEMS = [
   },
 ] as const
 
-const SECTION_FADE_DURATION_MS = 1000
-const SECTION_STAGGER_MS = 500
+const SECTION_FADE_DURATION_MS = 500
+const SECTION_STAGGER_MS = 250
 const FIGMA_FRAME_HEIGHT = 410
 
 type ContentKey = keyof typeof content
