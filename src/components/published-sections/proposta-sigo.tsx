@@ -407,7 +407,7 @@ export function PropostaSigoAreasSection() {
 
         <div
           className="rounded-none border border-white bg-[#f9f9f9] p-[3px] xl:col-span-1 overflow-hidden"
-          style={{ ...getFadeStyle(AREAS.length, entered), height: 400 }}
+          style={getFadeStyle(AREAS.length, entered)}
         >
           <SplineViewer url="https://prod.spline.design/S-9NtNJpkF44Kli3/scene.splinecode" />
         </div>
