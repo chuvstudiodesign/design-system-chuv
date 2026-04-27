@@ -6,100 +6,73 @@ const EMBED_RESIZE_MESSAGE_TYPE = "chuv:embed-resize"
 
 export function AutoHeightReporter() {
   useEffect(() => {
-    const getContainer = () =>
-      document.querySelector<HTMLElement>("main > section[data-published-section-root]") ??
-      document.querySelector<HTMLElement>("main > section") ??
+    // Prefer the published section root div; fall back to main.
+    // Never measure html/body — they inherit the iframe viewport height set by
+    // Framer and would create a feedback loop (measure → report → Framer resizes
+    // iframe → viewport changes → html/body resize → measure again → ...).
+    const getContainer = (): HTMLElement =>
+      document.querySelector<HTMLElement>("[data-published-section-root]") ??
       document.querySelector<HTMLElement>("main") ??
       document.body
 
-    const getMeasuredHeight = (element: HTMLElement) =>
-      Math.ceil(
-        Math.max(
-          element.getBoundingClientRect().height,
-          element.scrollHeight,
-          element.offsetHeight,
-        )
-      )
-
-    let frameId = 0
-    let postAnimationTimerId = 0
-    const previousHtmlOverflow = document.documentElement.style.overflow
-    const previousBodyOverflow = document.body.style.overflow
+    let lastSentHeight = -1
+    let rafId = 0
+    let debounceId = 0
 
     const sendHeight = () => {
-      frameId = window.requestAnimationFrame(() => {
-        const container = getContainer()
+      cancelAnimationFrame(rafId)
+      rafId = requestAnimationFrame(() => {
+        const el = getContainer()
+        // offsetHeight: rendered box height (content + padding), unaffected by
+        // the iframe viewport size. getBoundingClientRect().height is
+        // viewport-relative and changes when Framer resizes the iframe.
+        const height = el.offsetHeight
+
+        // Guard: only postMessage when height actually changed.
+        // Without this, floating-point differences across DPR values (e.g. 1.25×
+        // on Windows) cause each round-trip to add 1–2 px indefinitely.
+        if (height < 1 || height === lastSentHeight) return
+        lastSentHeight = height
 
         window.parent.postMessage(
-          {
-            type: EMBED_RESIZE_MESSAGE_TYPE,
-            height: getMeasuredHeight(container),
-            path: window.location.pathname,
-          },
+          { type: EMBED_RESIZE_MESSAGE_TYPE, height, path: window.location.pathname },
           "*"
         )
       })
     }
 
-    const schedulePostAnimation = () => {
-      window.clearTimeout(postAnimationTimerId)
-      postAnimationTimerId = window.setTimeout(sendHeight, 350)
+    const scheduleDebounce = () => {
+      clearTimeout(debounceId)
+      debounceId = window.setTimeout(sendHeight, 350)
     }
 
+    // Suppress scrollbar flash before any measurement.
     document.documentElement.style.overflow = "hidden"
     document.body.style.overflow = "hidden"
 
-    // Suppress all scrollbars — prevents the flash that appears for a split
-    // second when accordion content grows before Framer resizes the iframe.
-    const noScrollbarStyle = document.createElement("style")
-    noScrollbarStyle.textContent = `
-      * { scrollbar-width: none !important; }
-      *::-webkit-scrollbar { display: none !important; }
-    `
-    document.head.appendChild(noScrollbarStyle)
-
-    // Observe the content container — fires when accordion opens or closes
-    const resizeObserver = new ResizeObserver(() => {
+    // Only observe the content container — not html or body.
+    const container = getContainer()
+    const ro = new ResizeObserver(() => {
       sendHeight()
-      schedulePostAnimation()
+      scheduleDebounce()
     })
+    ro.observe(container)
 
-    resizeObserver.observe(document.documentElement)
-    resizeObserver.observe(document.body)
-
-    const initialContainer = getContainer()
-    resizeObserver.observe(initialContainer)
-
-    // MutationObserver as backup trigger for any DOM change
-    const mutationObserver = new MutationObserver(() => {
-      sendHeight()
-      schedulePostAnimation()
-    })
-
-    mutationObserver.observe(document.body, {
-      attributes: true,
-      childList: true,
-      subtree: true,
-      characterData: true,
-    })
-
-    window.addEventListener("resize", sendHeight)
-
+    // Fire a few timed shots to catch deferred renders (fonts, images, Spline).
     sendHeight()
-    window.setTimeout(sendHeight, 50)
-    window.setTimeout(sendHeight, 150)
-    window.setTimeout(sendHeight, 300)
-    window.setTimeout(sendHeight, 600)
+    const t1 = setTimeout(sendHeight, 100)
+    const t2 = setTimeout(sendHeight, 400)
+    const t3 = setTimeout(sendHeight, 900)
 
     return () => {
-      if (frameId) window.cancelAnimationFrame(frameId)
-      window.clearTimeout(postAnimationTimerId)
-      window.removeEventListener("resize", sendHeight)
-      resizeObserver.disconnect()
-      mutationObserver.disconnect()
-      document.documentElement.style.overflow = previousHtmlOverflow
-      document.body.style.overflow = previousBodyOverflow
-      noScrollbarStyle.remove()
+      cancelAnimationFrame(rafId)
+      clearTimeout(debounceId)
+      clearTimeout(t1)
+      clearTimeout(t2)
+      clearTimeout(t3)
+      ro.disconnect()
+      document.documentElement.style.overflow = ""
+      document.body.style.overflow = ""
     }
   }, [])
 
