@@ -6,12 +6,11 @@ const EMBED_RESIZE_MESSAGE_TYPE = "chuv:embed-resize"
 
 export function AutoHeightReporter() {
   useEffect(() => {
-    // Prefer the published section root div; fall back to main.
+    // Measure <main> so the reported height includes its padding.
     // Never measure html/body — they inherit the iframe viewport height set by
     // Framer and would create a feedback loop (measure → report → Framer resizes
     // iframe → viewport changes → html/body resize → measure again → ...).
     const getContainer = (): HTMLElement =>
-      document.querySelector<HTMLElement>("[data-published-section-root]") ??
       document.querySelector<HTMLElement>("main") ??
       document.body
 
