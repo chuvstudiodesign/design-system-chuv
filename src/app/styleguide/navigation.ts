@@ -1,4 +1,4 @@
-import { PROPOSTA_KITO_PUBLISHED_SECTIONS, PROPOSTA_SIGO_PUBLISHED_SECTIONS, PROPOSTA_WEBSITE_SIGO_PUBLISHED_SECTIONS, type PublishedSectionLink } from "@/lib/published-sections";
+import { PROPOSTA_KITO_PUBLISHED_SECTIONS, PROPOSTA_SIGO_PUBLISHED_SECTIONS, PROPOSTA_WEBSITE_BLACKBELLS_PUBLISHED_SECTIONS, PROPOSTA_WEBSITE_SIGO_PUBLISHED_SECTIONS, type PublishedSectionLink } from "@/lib/published-sections";
 
 export interface NavItem {
   name: string;
@@ -62,6 +62,11 @@ export const navigation: NavSection[] = [
         name: "Proposta Website — Sigo",
         href: "/styleguide/site-sections/proposta-website-sigo",
         publishedLinks: PROPOSTA_WEBSITE_SIGO_PUBLISHED_SECTIONS,
+      },
+      {
+        name: "Proposta Website — Black Bells",
+        href: "/styleguide/site-sections/proposta-website-blackbells",
+        publishedLinks: PROPOSTA_WEBSITE_BLACKBELLS_PUBLISHED_SECTIONS,
       },
       {
         name: "Proposta Comercial — Kito",
