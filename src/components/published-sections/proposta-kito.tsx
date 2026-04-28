@@ -39,6 +39,12 @@ const AREAS = [
   { key: "s03.pecas", iconKey: "s03.pecas.icon" },
 ] as const
 
+const S05_ITEMS = [
+  { value: "entregas",    iconKey: "s05.entregas.icon",    labelKey: "s05.entregas.label",    bodyKey: "s05.entregas.body"    },
+  { value: "exemplo",     iconKey: "s05.exemplo.icon",     labelKey: "s05.exemplo.label",     bodyKey: "s05.exemplo.body"     },
+  { value: "consultoria", iconKey: "s05.consultoria.icon", labelKey: "s05.consultoria.label", badgeKey: "s05.consultoria.badge", bodyKey: "s05.consultoria.body" },
+] as const
+
 const S04_ITEMS = [
   { value: "usabilidade", iconKey: "s04.usabilidade.icon", labelKey: "s04.usabilidade.label", bodyKey: "s04.usabilidade.body" },
   { value: "fluxos", iconKey: "s04.fluxos.icon", labelKey: "s04.fluxos.label", bodyKey: "s04.fluxos.body" },
@@ -561,53 +567,14 @@ export function PropostaKitoFrente1Section() {
 
 export function PropostaKitoFrente2Section() {
   return (
-    <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
-      <PublishedSectionHeader
-        eyebrow={c("s05.badge")}
-        title={
-          <>
-            {c("s05.title.prefix")}
-            <Accent>{c("s05.title.accent")}</Accent>
-          </>
-        }
-        subtitle={c("s05.subtitle")}
-      />
-      <div className="flex flex-col gap-4">
-        <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]">
-          <Typography variant="body-m" className="max-w-3xl text-muted-foreground leading-relaxed">
-            {c("s05.intro")}
-          </Typography>
-        </div>
-        {(["entregas", "exemplo"] as const).map((block) => {
-          const labelKey = `s05.${block}.label` as ContentKey
-          const bodyKey = `s05.${block}.body` as ContentKey
-
-          return (
-            <div key={block} className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-4">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-                {c(labelKey)}
-              </p>
-              <Typography variant="body-s" className="max-w-3xl text-muted-foreground leading-relaxed">
-                {c(bodyKey)}
-              </Typography>
-            </div>
-          )
-        })}
-        <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-4">
-          <div className="flex items-center gap-3">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-              {c("s05.consultoria.label")}
-            </p>
-            <Badge variant="service" size="sm">
-              {c("s05.consultoria.badge")}
-            </Badge>
-          </div>
-          <Typography variant="body-s" className="max-w-3xl text-muted-foreground leading-relaxed">
-            {c("s05.consultoria.body")}
-          </Typography>
-        </div>
-      </div>
-    </section>
+    <FrenteSection
+      badgeKey="s05.badge"
+      titlePrefixKey="s05.title.prefix"
+      titleAccentKey="s05.title.accent"
+      subtitleKey="s05.subtitle"
+      introKey="s05.intro"
+      items={S05_ITEMS}
+    />
   )
 }
 
@@ -1005,6 +972,21 @@ export function PropostaKitoComparativoSection() {
               </div>
             </div>
           ))}
+          {/* Linha de preços */}
+          <div className="grid grid-cols-4 gap-2 mt-2">
+            <div className="rounded-none border border-white bg-[#f9f9f9] p-4 flex items-center">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+                {c("s15.price.label")}
+              </p>
+            </div>
+            {(["s15.price.start", "s15.price.pro", "s15.price.insane"] as const).map((key, i) => (
+              <div key={key} className="rounded-none border border-white bg-[#f9f9f9] p-4 flex items-center justify-center">
+                <Typography variant="h4" className={i === 1 ? "text-primary font-bold" : "text-foreground/60"}>
+                  {c(key)}
+                </Typography>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
