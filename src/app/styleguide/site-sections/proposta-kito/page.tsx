@@ -296,15 +296,21 @@ export default function PropostaKitoPage() {
               <EditableText namespace={NS} id="s01.badge">{c("s01.badge")}</EditableText>
             </Badge>
             <div className="flex flex-col gap-4 max-w-3xl">
-              <Typography variant="body-m" className="text-muted-foreground leading-relaxed">
-                <EditableText namespace={NS} id="s01.body1">{c("s01.body1")}</EditableText>
-              </Typography>
-              <Typography variant="body-m" className="text-muted-foreground leading-relaxed">
-                <EditableText namespace={NS} id="s01.body2">{c("s01.body2")}</EditableText>
-              </Typography>
-              <Typography variant="body-m" className="text-muted-foreground leading-relaxed">
-                <EditableText namespace={NS} id="s01.body3">{c("s01.body3")}</EditableText>
-              </Typography>
+              {c("s01.body1") && (
+                <Typography variant="body-m" className="text-muted-foreground leading-relaxed">
+                  <EditableText namespace={NS} id="s01.body1">{c("s01.body1")}</EditableText>
+                </Typography>
+              )}
+              {c("s01.body2") && (
+                <Typography variant="body-m" className="text-muted-foreground leading-relaxed">
+                  <EditableText namespace={NS} id="s01.body2">{c("s01.body2")}</EditableText>
+                </Typography>
+              )}
+              {c("s01.body3") && (
+                <Typography variant="body-m" className="text-muted-foreground leading-relaxed">
+                  <EditableText namespace={NS} id="s01.body3">{c("s01.body3")}</EditableText>
+                </Typography>
+              )}
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

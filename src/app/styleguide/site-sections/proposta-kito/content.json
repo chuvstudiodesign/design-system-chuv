@@ -2,20 +2,18 @@
   "header.eyebrow": "04 — SITE SECTIONS",
   "header.title": "Proposta Comercial — Black Bells",
   "header.description": "Proposta completa de marca, produto digital e comunicação para o Black Bells. Chuv Studio · Abril 2026.",
-
   "s01.badge": "Proposta Comercial · Chuv Studio · Abril 2026",
   "s01.title": "Sobre esta proposta",
-  "s01.subtitle": "O escopo completo de atuação da Chuv Studio para o Black Bells, três pacotes, sete frentes.",
-  "s01.body1": "Esta proposta apresenta o escopo completo de atuação da Chuv Studio para o Black Bells, uma evolução integrada de marca, produto digital e comunicação.",
+  "s01.subtitle": "O escopo completo de atuação da Chuv Studio para o \nBlack Bells, três pacotes, sete frentes.",
+  "s01.body1": "",
   "s01.body2": "O objetivo não é apenas melhorar a aparência do aplicativo. É preparar a marca e o produto para uma nova fase de crescimento: com mais consistência visual, maior capacidade comercial, estrutura para receber usuários, estabelecimentos, parceiros e campanhas futuras.",
   "s01.body3": "A proposta está organizada em frentes estratégicas e dividida em três pacotes de contratação: Start, Pro e Insane.",
   "s01.tag1": "Marca",
   "s01.tag2": "Produto digital",
   "s01.tag3": "Comunicação",
-
   "s02.title.prefix": "Contexto e ",
   "s02.title.accent": "objetivos do projeto",
-  "s02.subtitle": "O Black Bells conecta estabelecimentos e usuários em Ouro Preto. Três frentes simultâneas: identidade, experiência e tecnologia.",
+  "s02.subtitle": "O Black Bells conecta estabelecimentos e usuários em Ouro Preto. \nTrês frentes simultâneas: identidade, experiência e tecnologia.",
   "s02.intro": "O Black Bells é uma plataforma que conecta estabelecimentos e usuários finais em Ouro Preto, hotéis, restaurantes, bares, comércios, eventos e turistas que chegam na cidade. O produto já existe, mas precisa evoluir em três frentes simultâneas: identidade, experiência e tecnologia.",
   "s02.usuario.icon": "celular",
   "s02.usuario.label": "Usuário final",
@@ -31,7 +29,6 @@
   "s02.obj.5": "Expandir para iOS",
   "s02.obj.6": "Desenvolver novas funcionalidades competitivas",
   "s02.obj.7": "Estruturar comunicação para dois públicos distintos",
-
   "s03.title": "Como trabalhamos",
   "s03.subtitle": "Um estúdio multidisciplinar que une comunicação visual, branding e desenvolvimento de software em uma única frente integrada.",
   "s03.filosofia": "Transformar as pequenas coisas em simplesmente inesquecíveis.",
@@ -53,7 +50,6 @@
   "s03.social": "Social media",
   "s03.pecas.icon": "imagem",
   "s03.pecas": "Peças publicitárias",
-
   "s04.badge": "Frente 1",
   "s04.title.prefix": "Análise e melhoria ",
   "s04.title.accent": "do aplicativo",
@@ -74,7 +70,6 @@
   "s04.bugs.icon": "lupa",
   "s04.bugs.label": "Análise de bugs visuais e funcionais",
   "s04.bugs.body": "Análise de possíveis falhas no aplicativo: quebras visuais, desalinhamentos, botões com comportamento incorreto, telas inconsistentes, problemas de navegação, elementos sobrepostos, comportamentos inesperados e falhas simples de funcionamento.",
-
   "s05.badge": "Frente 2",
   "s05.title.prefix": "Desenvolvimento ",
   "s05.title.accent": "e evolução do aplicativo",
@@ -90,7 +85,6 @@
   "s05.consultoria.badge": "Pro + Insane",
   "s05.consultoria.label": "Consultoria de novas funcionalidades",
   "s05.consultoria.body": "Sessões de alinhamento estratégico para definir roadmap de funcionalidades: ideias de novas features, priorização por impacto e viabilidade, análise de concorrência, estrutura para parceiros, melhorias para retenção e monetização.",
-
   "s06.badge": "Frente 3 · iOS",
   "s06.title.prefix": "Desenvolvimento ",
   "s06.title.accent": "para iOS",
@@ -117,7 +111,6 @@
   "s06.submissao.icon": "link",
   "s06.submissao.label": "Submissão e acompanhamento",
   "s06.submissao.body": "Suporte no processo de envio para revisão da Apple. A aprovação final depende exclusivamente da Apple.",
-
   "s07.badge": "Frente 4 · Branding",
   "s07.title.prefix": "Atualização de marca ",
   "s07.title.accent": "e Brand System",
@@ -138,7 +131,6 @@
   "s07.brandsystem.icon": "design-system",
   "s07.brandsystem.label": "Brand System",
   "s07.brandsystem.body": "O Brand System organiza como a marca se comporta em diferentes contextos. Ele garante escala em qualquer mídia futura: posts, vídeos, flyers, eventos, banners, materiais comerciais, apresentações, campanhas, peças para parceiros, ativações físicas e materiais digitais. Com o Brand System, qualquer peça criada, mesmo sem a Chuv Studio, vai estar consistente com a marca.",
-
   "s08.badge": "Frente 5 · Design System",
   "s08.title.prefix": "Design ",
   "s08.title.accent": "System",
@@ -164,7 +156,6 @@
   "s08.b7": "Facilidade para escalar campanhas",
   "s08.b8": "Percepção mais profissional da marca",
   "s08.b9": "Base para autonomia da equipe interna",
-
   "s09.badge": "Frente 6 · Website",
   "s09.title.prefix": "Website e ",
   "s09.title.accent": "landing pages",
@@ -175,7 +166,6 @@
   "s09.lp-estab.body": "Página direcionada ao comércio. Benefícios de estar no Black Bells, como aparecer na plataforma, possibilidades de campanha, exposição para usuários, argumentos comerciais e formulário de interesse.",
   "s09.entregas.title": "Entregáveis em todos os níveis",
   "s09.entregas.body": "Design completo no Figma · desenvolvimento e publicação · responsivo para desktop e mobile · performance otimizada · conexão de domínio",
-
   "s10.badge": "Frente 7 · Comunicação",
   "s10.title.prefix": "Mídia, Instagram ",
   "s10.title.accent": "e peças publicitárias",
@@ -194,7 +184,6 @@
   "s10.content.badge": "Pro + Insane",
   "s10.content.label": "Content System",
   "s10.content.body": "Estrutura replicável de conteúdo: templates, frequência de posts, tipos de peça por objetivo. A equipe interna do Black Bells consegue produzir conteúdo com autonomia a partir desse sistema.",
-
   "s11.title.prefix": "Estrutura ",
   "s11.title.accent": "por níveis",
   "s11.subtitle": "As entregas são divididas em três níveis para organizar o escopo e facilitar a contratação.",
@@ -210,7 +199,6 @@
   "s11.n3.badge": "Nível 3 · Insane",
   "s11.n3.title": "Atuação robusta",
   "s11.n3.body": "Entrega robusta, com maior dedicação, equipe mais envolvida, suporte mais completo e desenvolvimento mais amplo. Serve para o cliente que quer uma evolução mais agressiva, completa e com visão de produto, marca e crescimento.",
-
   "s12.badge": "Start",
   "s12.preco": "R$ 25.000",
   "s12.title.prefix": "Pacote ",
@@ -241,7 +229,6 @@
   "s12.dev.label": "Desenvolvimento do aplicativo, Nível 1",
   "s12.dev.badge": "Ajustes simples",
   "s12.dev.body": "Correções simples de bugs identificados · ajustes técnicos pontuais · pequenas melhorias de telas existentes · pequenas alterações de componentes · implementação básica de elementos visuais · ajustes de navegação simples. Não inclui desenvolvimento iOS. Não inclui funcionalidades complexas. Não inclui grandes integrações.",
-
   "s13.badge": "Pro · Mais recomendado",
   "s13.preco": "R$ 35.000",
   "s13.title.prefix": "Pacote ",
@@ -280,7 +267,6 @@
   "s13.ios.label": "Desenvolvimento para iOS",
   "s13.ios.badge": "iOS",
   "s13.ios.body": "Desenvolvimento completo para iOS · adequação às Human Interface Guidelines · configuração de ambiente Apple · suporte à conta Apple Developer · certificados e provisioning · geração de builds · testes em iOS · preparação para submissão · suporte no envio para App Store",
-
   "s14.badge": "Insane",
   "s14.preco": "R$ 45.000",
   "s14.title.prefix": "Pacote ",
@@ -323,7 +309,6 @@
   "s14.dedicacao.label": "Maior dedicação da equipe",
   "s14.dedicacao.badge": "Máximo",
   "s14.dedicacao.body": "O pacote Insane contempla maior dedicação estratégica e operacional, com envolvimento ampliado da equipe nas frentes de design, marca, produto, desenvolvimento e comunicação. Sprints semanais, reuniões de alinhamento e entregas contínuas com visibilidade total do progresso.",
-
   "s15.title.prefix": "Comparativo ",
   "s15.title.accent": "dos pacotes",
   "s15.subtitle": "Todas as frentes e o que está incluído em cada nível de contratação.",
@@ -378,7 +363,6 @@
   "s15.dedicacao.start": "Enxuta",
   "s15.dedicacao.pro": "Ampliada",
   "s15.dedicacao.insane": "Mais robusta",
-
   "s16.title.prefix": "Condições gerais ",
   "s16.title.accent": "e contrato",
   "s16.subtitle": "Tudo o que você precisa saber antes de fechar.",
@@ -395,7 +379,6 @@
   "s16.custos.item1": "Apple Developer (U$ 99/ano) · hospedagem · domínio · APIs externas · plugins · integrações pagas · licenças de software · banco de imagens · fontes pagas · mídia · anúncios · servidores · taxas de publicação · custos de terceiros",
   "s16.escopo.title": "Escopo de desenvolvimento",
   "s16.escopo.item1": "As funcionalidades serão desenvolvidas conforme o escopo contratado. Funcionalidades adicionais, integrações complexas ou mudanças estruturais não previstas podem ser orçadas separadamente.",
-
   "s17.title.prefix": "Formas de ",
   "s17.title.accent": "pagamento",
   "s17.subtitle": "No estúdio, seguimos sempre o modelo pagamento antes, entrega depois.",
@@ -417,7 +400,6 @@
   "s17.insane.item2": "30% na etapa de marca e design",
   "s17.insane.item3": "25% na etapa de desenvolvimento",
   "s17.insane.item4": "15% na entrega e publicação",
-
   "s18.title.prefix": "Valores e ",
   "s18.title.accent": "investimento",
   "s18.subtitle": "Valores por projeto fechado. Demandas adicionais são orçadas separadamente antes da execução.",
@@ -440,7 +422,6 @@
   "s18.insane.descricao": "Atuação máxima em marca, produto, design, tecnologia e comunicação. Equipe dedicada e suporte estratégico completo.",
   "s18.insane.caption1": "Prazo estimado: 120 dias",
   "s18.insane.caption2": "30% · 30% · 25% · 15%",
-
   "footer.prefix": "Chuv Studio Design System · Site Section:",
   "footer.slug": "proposta-kito",
   "footer.suffix": "· Proposta comercial completa, 18 sections"
