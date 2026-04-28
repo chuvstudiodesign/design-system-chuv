@@ -499,6 +499,7 @@ export default function PropostaKitoPage() {
           subtitle="s08.subtitle"
         />
         <div className="flex flex-col gap-4">
+          {/* Linha 1: intro ≠ Brand System | Foundations */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-2">
               <Typography variant="h4" className="font-bold">
@@ -510,19 +511,6 @@ export default function PropostaKitoPage() {
             </div>
             <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-4">
               <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-                <EditableText namespace={NS} id="s08.patterns.label">{c("s08.patterns.label")}</EditableText>
-              </p>
-              <Typography variant="body-s" className="text-muted-foreground">
-                <EditableText namespace={NS} id="s08.patterns.sublabel">{c("s08.patterns.sublabel")}</EditableText>
-              </Typography>
-              <Typography variant="body-s" className="text-muted-foreground leading-relaxed">
-                <EditableText namespace={NS} id="s08.patterns.body">{c("s08.patterns.body")}</EditableText>
-              </Typography>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-4">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
                 <EditableText namespace={NS} id="s08.foundations.label">{c("s08.foundations.label")}</EditableText>
               </p>
               <Typography variant="body-s" className="text-muted-foreground">
@@ -532,6 +520,9 @@ export default function PropostaKitoPage() {
                 <EditableText namespace={NS} id="s08.foundations.body">{c("s08.foundations.body")}</EditableText>
               </Typography>
             </div>
+          </div>
+          {/* Linha 2: Componentes | Patterns */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-4">
               <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
                 <EditableText namespace={NS} id="s08.componentes.label">{c("s08.componentes.label")}</EditableText>
@@ -541,6 +532,17 @@ export default function PropostaKitoPage() {
               </Typography>
               <Typography variant="body-s" className="text-muted-foreground leading-relaxed">
                 <EditableText namespace={NS} id="s08.componentes.body">{c("s08.componentes.body")}</EditableText>
+              </Typography>
+            </div>
+            <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-4">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+                <EditableText namespace={NS} id="s08.patterns.label">{c("s08.patterns.label")}</EditableText>
+              </p>
+              <Typography variant="body-s" className="text-muted-foreground">
+                <EditableText namespace={NS} id="s08.patterns.sublabel">{c("s08.patterns.sublabel")}</EditableText>
+              </Typography>
+              <Typography variant="body-s" className="text-muted-foreground leading-relaxed">
+                <EditableText namespace={NS} id="s08.patterns.body">{c("s08.patterns.body")}</EditableText>
               </Typography>
             </div>
           </div>
