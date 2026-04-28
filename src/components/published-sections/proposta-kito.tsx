@@ -72,15 +72,15 @@ const S07_ITEMS = [
 ] as const
 
 const S08_BENEFITS = [
-  "s08.b1",
-  "s08.b2",
-  "s08.b3",
-  "s08.b4",
-  "s08.b5",
-  "s08.b6",
-  "s08.b7",
-  "s08.b8",
-  "s08.b9",
+  { id: "b1", iconKey: "s08.b1.icon", labelKey: "s08.b1", bodyKey: "s08.b1.body" },
+  { id: "b2", iconKey: "s08.b2.icon", labelKey: "s08.b2", bodyKey: "s08.b2.body" },
+  { id: "b3", iconKey: "s08.b3.icon", labelKey: "s08.b3", bodyKey: "s08.b3.body" },
+  { id: "b4", iconKey: "s08.b4.icon", labelKey: "s08.b4", bodyKey: "s08.b4.body" },
+  { id: "b5", iconKey: "s08.b5.icon", labelKey: "s08.b5", bodyKey: "s08.b5.body" },
+  { id: "b6", iconKey: "s08.b6.icon", labelKey: "s08.b6", bodyKey: "s08.b6.body" },
+  { id: "b7", iconKey: "s08.b7.icon", labelKey: "s08.b7", bodyKey: "s08.b7.body" },
+  { id: "b8", iconKey: "s08.b8.icon", labelKey: "s08.b8", bodyKey: "s08.b8.body" },
+  { id: "b9", iconKey: "s08.b9.icon", labelKey: "s08.b9", bodyKey: "s08.b9.body" },
 ] as const
 
 const S10_ITEMS = [
@@ -367,15 +367,9 @@ export function PropostaKitoSobreSection() {
             {c("s01.badge")}
           </Badge>
           <div className="flex max-w-3xl flex-col gap-4">
-            <Typography variant="body-m" className="text-muted-foreground leading-relaxed">
-              {c("s01.body1")}
-            </Typography>
-            <Typography variant="body-m" className="text-muted-foreground leading-relaxed">
-              {c("s01.body2")}
-            </Typography>
-            <Typography variant="body-m" className="text-muted-foreground leading-relaxed">
-              {c("s01.body3")}
-            </Typography>
+            {c("s01.body1") && <Typography variant="body-m" className="text-muted-foreground leading-relaxed">{c("s01.body1")}</Typography>}
+            {c("s01.body2") && <Typography variant="body-m" className="text-muted-foreground leading-relaxed">{c("s01.body2")}</Typography>}
+            {c("s01.body3") && <Typography variant="body-m" className="text-muted-foreground leading-relaxed">{c("s01.body3")}</Typography>}
           </div>
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -423,7 +417,7 @@ export function PropostaKitoContextoObjetivosSection() {
             return (
               <div
                 key={audience}
-                className="flex min-h-[200px] flex-col justify-between rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
+                className="flex min-h-[200px] flex-col gap-6 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
               >
                 <StaticIcon
                   iconId={c(iconKey)}
@@ -618,68 +612,64 @@ export function PropostaKitoFrente5Section() {
         subtitle={c("s08.subtitle")}
       />
       <div className="flex flex-col gap-4">
+        {/* Linha 1: intro ≠ Brand System | Foundations */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-2">
-            <Typography variant="h4" className="font-bold">
-              {c("s08.intro1")}
-            </Typography>
-            <Typography variant="body-s" className="text-muted-foreground leading-relaxed">
-              {c("s08.intro2")}
-            </Typography>
+            <Typography variant="h4" className="font-bold">{c("s08.intro1")}</Typography>
+            <Typography variant="body-s" className="text-muted-foreground leading-relaxed">{c("s08.intro2")}</Typography>
           </div>
           <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-4">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-              {c("s08.patterns.label")}
-            </p>
-            <Typography variant="body-s" className="text-muted-foreground">
-              {c("s08.patterns.sublabel")}
-            </Typography>
-            <Typography variant="body-s" className="text-muted-foreground leading-relaxed">
-              {c("s08.patterns.body")}
-            </Typography>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">{c("s08.foundations.label")}</p>
+            <Typography variant="body-s" className="text-muted-foreground">{c("s08.foundations.sublabel")}</Typography>
+            <Typography variant="body-s" className="text-muted-foreground leading-relaxed">{c("s08.foundations.body")}</Typography>
           </div>
         </div>
+        {/* Linha 2: Componentes | Patterns */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-4">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-              {c("s08.foundations.label")}
-            </p>
-            <Typography variant="body-s" className="text-muted-foreground">
-              {c("s08.foundations.sublabel")}
-            </Typography>
-            <Typography variant="body-s" className="text-muted-foreground leading-relaxed">
-              {c("s08.foundations.body")}
-            </Typography>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">{c("s08.componentes.label")}</p>
+            <Typography variant="body-s" className="text-muted-foreground">{c("s08.componentes.sublabel")}</Typography>
+            <Typography variant="body-s" className="text-muted-foreground leading-relaxed">{c("s08.componentes.body")}</Typography>
           </div>
           <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-4">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-              {c("s08.componentes.label")}
-            </p>
-            <Typography variant="body-s" className="text-muted-foreground">
-              {c("s08.componentes.sublabel")}
-            </Typography>
-            <Typography variant="body-s" className="text-muted-foreground leading-relaxed">
-              {c("s08.componentes.body")}
-            </Typography>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">{c("s08.patterns.label")}</p>
+            <Typography variant="body-s" className="text-muted-foreground">{c("s08.patterns.sublabel")}</Typography>
+            <Typography variant="body-s" className="text-muted-foreground leading-relaxed">{c("s08.patterns.body")}</Typography>
           </div>
         </div>
-        <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-6">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-            {c("s08.beneficios.title")}
-          </p>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {S08_BENEFITS.map((key, index) => (
-              <div key={key} className="flex items-start gap-3">
-                <Typography variant="display-l" className="shrink-0 -translate-y-1 text-primary leading-none">
-                  {index + 1}
-                </Typography>
-                <Typography variant="body-s" className="text-muted-foreground leading-relaxed">
-                  {c(key)}
-                </Typography>
-              </div>
-            ))}
-          </div>
-        </div>
+      </div>
+    </section>
+  )
+}
+
+export function PropostaKitoBeneficiosSection() {
+  return (
+    <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
+      <PublishedSectionHeader
+        title={c("s08.beneficios.title")}
+        subtitle={c("s08.beneficios.subtitle")}
+      />
+      <div className="px-10">
+        <Carousel opts={{ align: "start" }} className="w-full">
+          <CarouselContent>
+            {S08_BENEFITS.map(({ id, iconKey, labelKey, bodyKey }) => {
+              const iconDisplay = getFrameHeightIconDisplay(c(iconKey as ContentKey), 74)
+              return (
+                <CarouselItem key={id} className="basis-full sm:basis-1/2 lg:basis-1/3">
+                  <div className="aspect-square rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-between">
+                    <StaticIcon iconId={c(iconKey as ContentKey)} alt={c(labelKey as ContentKey)} width={iconDisplay.width} height={iconDisplay.height} />
+                    <div className="flex flex-col gap-3">
+                      <Typography variant="h1" className="leading-tight">{c(labelKey as ContentKey)}</Typography>
+                      <Typography variant="body-m" className="text-muted-foreground leading-relaxed">{c(bodyKey as ContentKey)}</Typography>
+                    </div>
+                  </div>
+                </CarouselItem>
+              )
+            })}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
     </section>
   )
@@ -749,7 +739,7 @@ export function PropostaKitoFrente7Section() {
           return (
             <div
               key={id}
-              className="flex min-h-[200px] flex-col justify-between rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
+              className="flex min-h-[200px] flex-col gap-6 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
             >
               <div className="flex items-start justify-between gap-4">
                 <StaticIcon
@@ -1153,6 +1143,7 @@ const PUBLISHED_SECTION_COMPONENTS: Record<
   "pacote-pro": { render: () => <PropostaKitoPacoteProSection /> },
   "pacote-insane": { render: () => <PropostaKitoPacoteInsaneSection /> },
   "comparativo-dos-pacotes": { render: () => <PropostaKitoComparativoSection /> },
+  "beneficios-do-design-system": { render: () => <PropostaKitoBeneficiosSection /> },
 }
 
 export function getPropostaKitoPublishedSectionEntry(

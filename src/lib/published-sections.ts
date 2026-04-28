@@ -278,6 +278,13 @@ export const PROPOSTA_KITO_PUBLISHED_SECTIONS = [
     title: "Comparativo dos Pacotes",
     description: "Section de comparativo entre os pacotes Start, Pro e Insane do Kito.",
   },
+  {
+    name: "Benefícios do Design System",
+    slug: "beneficios-do-design-system",
+    href: "/sections/proposta-kito/beneficios-do-design-system",
+    title: "Benefícios do Design System",
+    description: "Section de benefícios do Design System da proposta Black Bells.",
+  },
 ] as const satisfies readonly PublishedSectionLink[]
 
 export type PropostaKitoPublishedSectionSlug =
