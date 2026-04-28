@@ -559,40 +559,43 @@ export default function PropostaKitoPage() {
               </Typography>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary px-1">
-              <EditableText namespace={NS} id="s08.beneficios.title">{c("s08.beneficios.title")}</EditableText>
-            </p>
-            <div className="px-10">
-              <Carousel opts={{ align: "start" }} className="w-full">
-                <CarouselContent>
-                  {s08Benefits.map(({ id, iconKey, labelKey, bodyKey }) => (
-                    <CarouselItem key={id} className="basis-full sm:basis-1/2 lg:basis-1/3">
-                      <div className="aspect-square rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-between">
-                        <EditableIcon
-                          namespace={NS}
-                          id={iconKey as ContentKey}
-                          fallbackIconId={c(iconKey as ContentKey)}
-                          alt={c(labelKey as ContentKey)}
-                          strategy={{ kind: "frameHeight", frameHeight: 410, targetHeight: 74 }}
-                        />
-                        <div className="flex flex-col gap-3">
-                          <Typography variant="h1" className="leading-tight">
-                            <EditableText namespace={NS} id={labelKey as ContentKey}>{c(labelKey as ContentKey)}</EditableText>
-                          </Typography>
-                          <Typography variant="body-m" className="text-muted-foreground leading-relaxed">
-                            <EditableText namespace={NS} id={bodyKey as ContentKey}>{c(bodyKey as ContentKey)}</EditableText>
-                          </Typography>
-                        </div>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
-            </div>
-          </div>
+        </div>
+      </section>
+
+      {/* ── Benefícios do Design System (section separada, sem badge de frente) */}
+      <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
+        <SectionHeader
+          title={<EditableText namespace={NS} id="s08.beneficios.title">{c("s08.beneficios.title")}</EditableText>}
+          subtitle="s08.beneficios.subtitle"
+        />
+        <div className="px-10">
+          <Carousel opts={{ align: "start" }} className="w-full">
+            <CarouselContent>
+              {s08Benefits.map(({ id, iconKey, labelKey, bodyKey }) => (
+                <CarouselItem key={id} className="basis-full sm:basis-1/2 lg:basis-1/3">
+                  <div className="aspect-square rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-between">
+                    <EditableIcon
+                      namespace={NS}
+                      id={iconKey as ContentKey}
+                      fallbackIconId={c(iconKey as ContentKey)}
+                      alt={c(labelKey as ContentKey)}
+                      strategy={{ kind: "frameHeight", frameHeight: 410, targetHeight: 74 }}
+                    />
+                    <div className="flex flex-col gap-3">
+                      <Typography variant="h1" className="leading-tight">
+                        <EditableText namespace={NS} id={labelKey as ContentKey}>{c(labelKey as ContentKey)}</EditableText>
+                      </Typography>
+                      <Typography variant="body-m" className="text-muted-foreground leading-relaxed">
+                        <EditableText namespace={NS} id={bodyKey as ContentKey}>{c(bodyKey as ContentKey)}</EditableText>
+                      </Typography>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </section>
 
