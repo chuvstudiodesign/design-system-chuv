@@ -13,6 +13,13 @@ import {
 } from "@/components/ui/accordion"
 import { EditableText } from "@/components/editable-text"
 import { EditableIcon } from "@/components/site-sections/editable-icon"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 import content from "./content.json"
 import propostaSigoContent from "@/app/styleguide/site-sections/proposta-sigo/content.json"
 
@@ -546,19 +553,29 @@ export default function PropostaKitoPage() {
               </Typography>
             </div>
           </div>
-          <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-6">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+          <div className="flex flex-col gap-4">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary px-1">
               <EditableText namespace={NS} id="s08.beneficios.title">{c("s08.beneficios.title")}</EditableText>
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {s08Benefits.map((key, i) => (
-                <div key={key} className="flex items-start gap-3">
-                  <Typography variant="display-l" className="text-primary leading-none shrink-0 -translate-y-1">{i + 1}</Typography>
-                  <Typography variant="body-s" className="text-muted-foreground leading-relaxed">
-                    <EditableText namespace={NS} id={key}>{c(key)}</EditableText>
-                  </Typography>
-                </div>
-              ))}
+            <div className="px-10">
+              <Carousel opts={{ align: "start" }} className="w-full">
+                <CarouselContent>
+                  {s08Benefits.map((key, i) => (
+                    <CarouselItem key={key} className="basis-full sm:basis-1/2 lg:basis-1/3">
+                      <div className="aspect-square rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-between">
+                        <Typography variant="display-l" className="text-primary leading-none">
+                          {i + 1}
+                        </Typography>
+                        <Typography variant="h4" className="leading-snug">
+                          <EditableText namespace={NS} id={key}>{c(key)}</EditableText>
+                        </Typography>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
             </div>
           </div>
         </div>
