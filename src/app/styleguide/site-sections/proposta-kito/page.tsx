@@ -413,7 +413,7 @@ export default function PropostaKitoPage() {
 
       {/* ── Bloco: Aplicativo ────────────────────────────────────────────── */}
       <div className="px-1 pt-10 pb-4">
-        <p className="text-[10px] font-bold tracking-widest text-primary uppercase mb-2">Frentes</p>
+        <p className="text-[10px] font-bold tracking-widest text-primary uppercase mb-2">Parte 1</p>
         <Typography variant="h1" className="text-foreground">Aplicativo</Typography>
       </div>
 
@@ -470,7 +470,7 @@ export default function PropostaKitoPage() {
 
       {/* ── Bloco: A Marca ───────────────────────────────────────────────── */}
       <div className="px-1 pt-10 pb-4">
-        <p className="text-[10px] font-bold tracking-widest text-primary uppercase mb-2">Frentes</p>
+        <p className="text-[10px] font-bold tracking-widest text-primary uppercase mb-2">Parte 2</p>
         <Typography variant="h1" className="text-foreground">A Marca</Typography>
       </div>
 
