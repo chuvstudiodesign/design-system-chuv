@@ -278,27 +278,6 @@ export const PROPOSTA_KITO_PUBLISHED_SECTIONS = [
     title: "Comparativo dos Pacotes",
     description: "Section de comparativo entre os pacotes Start, Pro e Insane do Kito.",
   },
-  {
-    name: "Condições gerais",
-    slug: "condicoes-gerais",
-    href: "/sections/proposta-kito/condicoes-gerais",
-    title: "Condições Gerais",
-    description: "Section de condições gerais e observações contratuais do Kito.",
-  },
-  {
-    name: "Formas de pagamento",
-    slug: "formas-de-pagamento",
-    href: "/sections/proposta-kito/formas-de-pagamento",
-    title: "Formas de Pagamento",
-    description: "Section das formas de pagamento da proposta comercial do Kito.",
-  },
-  {
-    name: "Investimento",
-    slug: "investimento",
-    href: "/sections/proposta-kito/investimento",
-    title: "Investimento",
-    description: "Section de investimento final da proposta comercial do Kito.",
-  },
 ] as const satisfies readonly PublishedSectionLink[]
 
 export type PropostaKitoPublishedSectionSlug =

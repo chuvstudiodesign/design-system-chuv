@@ -69,7 +69,7 @@ export const navigation: NavSection[] = [
         publishedLinks: PROPOSTA_WEBSITE_BLACKBELLS_PUBLISHED_SECTIONS,
       },
       {
-        name: "Proposta Comercial — Kito",
+        name: "Proposta Comercial — Black Bells",
         href: "/styleguide/site-sections/proposta-kito",
         publishedLinks: PROPOSTA_KITO_PUBLISHED_SECTIONS,
       },

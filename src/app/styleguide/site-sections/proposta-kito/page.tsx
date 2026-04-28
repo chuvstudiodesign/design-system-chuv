@@ -14,21 +14,32 @@ import {
 import { EditableText } from "@/components/editable-text"
 import { EditableIcon } from "@/components/site-sections/editable-icon"
 import content from "./content.json"
+import propostaSigoContent from "@/app/styleguide/site-sections/proposta-sigo/content.json"
 
 const NS = "proposta-kito"
+const NS_SIGO = "proposta-sigo"
+type SigoContentKey = keyof typeof propostaSigoContent
+function cs(key: SigoContentKey) { return propostaSigoContent[key] }
 
 // ── Dados ────────────────────────────────────────────────────────────────────
 
+// S03 — usa exatamente as áreas da proposta-sigo
 const areas = [
-  { key: "s03.identidade", iconKey: "s03.identidade.icon" },
-  { key: "s03.type",       iconKey: "s03.type.icon"       },
-  { key: "s03.motion",     iconKey: "s03.motion.icon"     },
-  { key: "s03.brand",      iconKey: "s03.brand.icon"      },
-  { key: "s03.ds",         iconKey: "s03.ds.icon"         },
-  { key: "s03.apps",       iconKey: "s03.apps.icon"       },
-  { key: "s03.sites",      iconKey: "s03.sites.icon"      },
-  { key: "s03.social",     iconKey: "s03.social.icon"     },
-  { key: "s03.pecas",      iconKey: "s03.pecas.icon"      },
+  { key: "s1.design-grafico",    iconKey: "s1.design-grafico.icon"    },
+  { key: "s1.identidade-visual", iconKey: "s1.identidade-visual.icon" },
+  { key: "s1.type-design",       iconKey: "s1.type-design.icon"       },
+  { key: "s1.motion-3d",         iconKey: "s1.motion-3d.icon"         },
+  { key: "s1.motion-2d",         iconKey: "s1.motion-2d.icon"         },
+  { key: "s1.edicao-video",      iconKey: "s1.edicao-video.icon"      },
+  { key: "s1.web-design",        iconKey: "s1.web-design.icon"        },
+  { key: "s1.development",       iconKey: "s1.development.icon"       },
+  { key: "s1.ia-aplicada",       iconKey: "s1.ia-aplicada.icon"       },
+]
+
+const s05Items = [
+  { value: "entregas",    iconKey: "s05.entregas.icon",    labelKey: "s05.entregas.label",    bodyKey: "s05.entregas.body"    },
+  { value: "exemplo",     iconKey: "s05.exemplo.icon",     labelKey: "s05.exemplo.label",     bodyKey: "s05.exemplo.body"     },
+  { value: "consultoria", iconKey: "s05.consultoria.icon", labelKey: "s05.consultoria.label", badgeKey: "s05.consultoria.badge", bodyKey: "s05.consultoria.body" },
 ]
 
 const s04Items = [
@@ -362,35 +373,43 @@ export default function PropostaKitoPage() {
         </div>
       </section>
 
-      {/* ── S03 — Como trabalhamos ──────────────────────────────────────── */}
+      {/* ── S03 — Nossas áreas de atuação (idêntico à proposta-sigo S1) ──── */}
       <section ref={areasRef} className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
-        <SectionHeader
-          title={<EditableText namespace={NS} id="s03.title">{c("s03.title")}</EditableText>}
-          subtitle="s03.subtitle"
-        />
+        <div className="mb-[45px] flex flex-col items-center text-center">
+          <Typography variant="h1" className="max-w-3xl">
+            <EditableText namespace={NS_SIGO} id="s1.title">{cs("s1.title")}</EditableText>
+          </Typography>
+          <Typography variant="body-m" className="mt-3 max-w-2xl text-muted-foreground">
+            <EditableText namespace={NS_SIGO} id="s1.subtitle">{cs("s1.subtitle")}</EditableText>
+          </Typography>
+        </div>
         <div className="grid grid-cols-1 gap-4 xl:grid-cols-4">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:col-span-3 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:col-span-3 xl:grid-cols-3">
             {areas.map(({ key, iconKey }, index) => (
               <div
                 key={key}
                 className="aspect-[5/3] rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-between"
                 style={getFadeStyle(index, areasEntered)}
               >
-                <EditableIcon namespace={NS} id={iconKey} fallbackIconId={c(iconKey as ContentKey)} alt={c(key as ContentKey)} strategy={{ kind: "frameHeight", frameHeight: 410, targetHeight: 47.0448 }} />
+                <EditableIcon namespace={NS_SIGO} id={iconKey} fallbackIconId={cs(iconKey as SigoContentKey)} alt={cs(key as SigoContentKey)} strategy={{ kind: "frameHeight", frameHeight: 410, targetHeight: 47.0448 }} />
                 <Typography variant="h4" className="leading-snug">
-                  <EditableText namespace={NS} id={key as ContentKey}>{c(key as ContentKey)}</EditableText>
+                  <EditableText namespace={NS_SIGO} id={key}>{cs(key as SigoContentKey)}</EditableText>
                 </Typography>
               </div>
             ))}
           </div>
-          <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-end gap-4 xl:col-span-1" style={getFadeStyle(areas.length, areasEntered)}>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">Filosofia</p>
-            <Typography variant="body-s" className="text-muted-foreground italic">
-              <EditableText namespace={NS} id="s03.filosofia">{c("s03.filosofia")}</EditableText>
-            </Typography>
-          </div>
+          <div
+            className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] xl:col-span-1"
+            style={getFadeStyle(areas.length, areasEntered)}
+          />
         </div>
       </section>
+
+      {/* ── Bloco: Aplicativo ────────────────────────────────────────────── */}
+      <div className="px-1 pt-10 pb-4">
+        <p className="text-[10px] font-bold tracking-widest text-primary uppercase mb-2">Frentes</p>
+        <Typography variant="h1" className="text-foreground">Aplicativo</Typography>
+      </div>
 
       {/* ── S04 — Frente 1: UX/UI ───────────────────────────────────────── */}
       <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
@@ -422,35 +441,7 @@ export default function PropostaKitoPage() {
               <EditableText namespace={NS} id="s05.intro">{c("s05.intro")}</EditableText>
             </Typography>
           </div>
-          <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-4">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-              <EditableText namespace={NS} id="s05.entregas.label">{c("s05.entregas.label")}</EditableText>
-            </p>
-            <Typography variant="body-s" className="text-muted-foreground leading-relaxed">
-              <EditableText namespace={NS} id="s05.entregas.body">{c("s05.entregas.body")}</EditableText>
-            </Typography>
-          </div>
-          <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-4">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-              <EditableText namespace={NS} id="s05.exemplo.label">{c("s05.exemplo.label")}</EditableText>
-            </p>
-            <Typography variant="body-s" className="text-muted-foreground leading-relaxed max-w-3xl">
-              <EditableText namespace={NS} id="s05.exemplo.body">{c("s05.exemplo.body")}</EditableText>
-            </Typography>
-          </div>
-          <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-4">
-            <div className="flex items-center gap-3">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-                <EditableText namespace={NS} id="s05.consultoria.label">{c("s05.consultoria.label")}</EditableText>
-              </p>
-              <Badge variant="service" size="sm">
-                <EditableText namespace={NS} id="s05.consultoria.badge">{c("s05.consultoria.badge")}</EditableText>
-              </Badge>
-            </div>
-            <Typography variant="body-s" className="text-muted-foreground leading-relaxed max-w-3xl">
-              <EditableText namespace={NS} id="s05.consultoria.body">{c("s05.consultoria.body")}</EditableText>
-            </Typography>
-          </div>
+          <FrenteAccordion items={s05Items} />
         </div>
       </section>
 
@@ -470,6 +461,12 @@ export default function PropostaKitoPage() {
           <FrenteAccordion items={s06Items} />
         </div>
       </section>
+
+      {/* ── Bloco: A Marca ───────────────────────────────────────────────── */}
+      <div className="px-1 pt-10 pb-4">
+        <p className="text-[10px] font-bold tracking-widest text-primary uppercase mb-2">Frentes</p>
+        <Typography variant="h1" className="text-foreground">A Marca</Typography>
+      </div>
 
       {/* ── S07 — Frente 4: Marca + Brand System ────────────────────────── */}
       <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
@@ -771,123 +768,22 @@ export default function PropostaKitoPage() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── S16 — Condições gerais ──────────────────────────────────────── */}
-      <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
-        <SectionHeader
-          title={<><EditableText namespace={NS} id="s16.title.prefix">{c("s16.title.prefix")}</EditableText><Accent><EditableText namespace={NS} id="s16.title.accent">{c("s16.title.accent")}</EditableText></Accent></>}
-          subtitle="s16.subtitle"
-        />
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {s16Items.map(({ titleKey, itemKeys }) => (
-            <div key={titleKey} className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-5">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-                <EditableText namespace={NS} id={titleKey as ContentKey}>{c(titleKey as ContentKey)}</EditableText>
-              </p>
-              <ul className="flex flex-col gap-2.5">
-                {itemKeys.map((itemKey) => (
-                  <li key={itemKey} className="flex items-start gap-3">
-                    <span className="mt-[7px] h-1 w-1 shrink-0 bg-primary" />
-                    <Typography variant="body-s" className="text-muted-foreground">
-                      <EditableText namespace={NS} id={itemKey}>{c(itemKey as ContentKey)}</EditableText>
-                    </Typography>
-                  </li>
-                ))}
-              </ul>
+            {/* Linha de preços no final da tabela */}
+            <div className="grid grid-cols-4 gap-2 mt-2">
+              <div className="rounded-none border border-white bg-[#f9f9f9] p-4 flex items-center">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+                  <EditableText namespace={NS} id="s15.price.label">{c("s15.price.label")}</EditableText>
+                </p>
+              </div>
+              {(["s15.price.start","s15.price.pro","s15.price.insane"] as const).map((key, i) => (
+                <div key={key} className="rounded-none border border-white bg-[#f9f9f9] p-4 flex items-center justify-center">
+                  <Typography variant="h4" className={i === 1 ? "text-primary font-bold" : "text-foreground/60"}>
+                    <EditableText namespace={NS} id={key}>{c(key)}</EditableText>
+                  </Typography>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── S17 — Formas de pagamento ────────────────────────────────────── */}
-      <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
-        <SectionHeader
-          title={<><EditableText namespace={NS} id="s17.title.prefix">{c("s17.title.prefix")}</EditableText><Accent><EditableText namespace={NS} id="s17.title.accent">{c("s17.title.accent")}</EditableText></Accent></>}
-          subtitle="s17.subtitle"
-        />
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {(["start","pro","insane"] as const).map((pkg) => {
-            const ordKey = `s17.${pkg}.ord` as ContentKey
-            const badgeKey = `s17.${pkg}.badge` as ContentKey
-            const titleKey = `s17.${pkg}.title` as ContentKey
-            const items = pkg === "start"
-              ? ["s17.start.item1","s17.start.item2"] as const
-              : pkg === "pro"
-              ? ["s17.pro.item1","s17.pro.item2","s17.pro.item3"] as const
-              : ["s17.insane.item1","s17.insane.item2","s17.insane.item3","s17.insane.item4"] as const
-            const bv = pkg === "pro" ? "success" : "service"
-            return (
-              <div key={pkg} className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-6">
-                <div className="flex items-center gap-3">
-                  <Typography variant="display-l" className="text-primary leading-none">
-                    <EditableText namespace={NS} id={ordKey}>{c(ordKey)}</EditableText>
-                  </Typography>
-                  <Badge variant={bv as "service" | "success"} size="sm">
-                    <EditableText namespace={NS} id={badgeKey}>{c(badgeKey)}</EditableText>
-                  </Badge>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <Typography variant="h3">
-                    <EditableText namespace={NS} id={titleKey}>{c(titleKey)}</EditableText>
-                  </Typography>
-                  <ul className="flex flex-col gap-2">
-                    {(items as readonly ContentKey[]).map((ik) => (
-                      <li key={ik} className="flex items-start gap-3">
-                        <span className="mt-[7px] h-1 w-1 shrink-0 bg-primary" />
-                        <Typography variant="body-s" className="text-muted-foreground">
-                          <EditableText namespace={NS} id={ik}>{c(ik)}</EditableText>
-                        </Typography>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      </section>
-
-      {/* ── S18 — Investimento ──────────────────────────────────────────── */}
-      <section className="ds-section" style={{ backgroundColor: "#efefef" }}>
-        <SectionHeader
-          title={<><EditableText namespace={NS} id="s18.title.prefix">{c("s18.title.prefix")}</EditableText><Accent><EditableText namespace={NS} id="s18.title.accent">{c("s18.title.accent")}</EditableText></Accent></>}
-          subtitle="s18.subtitle"
-        />
-        <div className="flex flex-col gap-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {s18Cards.map(({ id, labelKey, valorKey, badgeKey, descKey, cap1Key, cap2Key, variant }) => (
-              <div key={id} className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-6">
-                <div className="flex flex-col gap-4">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-                    <EditableText namespace={NS} id={labelKey as ContentKey}>{c(labelKey as ContentKey)}</EditableText>
-                  </p>
-                  <Typography variant="display-xl" className="text-primary leading-none">
-                    <EditableText namespace={NS} id={valorKey as ContentKey}>{c(valorKey as ContentKey)}</EditableText>
-                  </Typography>
-                  <Typography variant="body-s" className="text-muted-foreground">
-                    <EditableText namespace={NS} id={descKey as ContentKey}>{c(descKey as ContentKey)}</EditableText>
-                  </Typography>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Badge variant={variant} size="sm" className="self-start font-bold">
-                    <EditableText namespace={NS} id={badgeKey as ContentKey}>{c(badgeKey as ContentKey)}</EditableText>
-                  </Badge>
-                  <Typography variant="caption" className="text-muted-foreground">
-                    <EditableText namespace={NS} id={cap1Key as ContentKey}>{c(cap1Key as ContentKey)}</EditableText>
-                  </Typography>
-                  <Typography variant="caption" className="text-muted-foreground">
-                    <EditableText namespace={NS} id={cap2Key as ContentKey}>{c(cap2Key as ContentKey)}</EditableText>
-                  </Typography>
-                </div>
-              </div>
-            ))}
           </div>
-          <Typography variant="caption" className="text-muted-foreground px-1">
-            <EditableText namespace={NS} id="s18.footnote">{c("s18.footnote")}</EditableText>
-          </Typography>
         </div>
       </section>
 

@@ -25,6 +25,7 @@ import {
 } from "@/lib/site-sections/icon-library"
 import type { PropostaKitoPublishedSectionSlug } from "@/lib/published-sections"
 import { AutoHeightReporter } from "@/components/published-sections/auto-height-reporter"
+import { PropostaSigoAreasSection } from "@/components/published-sections/proposta-sigo"
 
 const AREAS = [
   { key: "s03.identidade", iconKey: "s03.identidade.icon" },
@@ -1157,7 +1158,7 @@ const PUBLISHED_SECTION_COMPONENTS: Record<
 > = {
   "sobre-a-proposta": { render: () => <PropostaKitoSobreSection /> },
   "contexto-e-objetivos-do-projeto": { render: () => <PropostaKitoContextoObjetivosSection /> },
-  "como-trabalhamos": { render: () => <PropostaKitoComoTrabalhamosSection /> },
+  "como-trabalhamos": { render: () => <PropostaSigoAreasSection /> },
   "frente-1-analise-e-melhoria-do-aplicativo": { render: () => <PropostaKitoFrente1Section /> },
   "frente-2-desenvolvimento-e-evolucao-do-aplicativo": { render: () => <PropostaKitoFrente2Section /> },
   "frente-3-desenvolvimento-para-ios": { render: () => <PropostaKitoFrente3Section /> },
@@ -1170,9 +1171,6 @@ const PUBLISHED_SECTION_COMPONENTS: Record<
   "pacote-pro": { render: () => <PropostaKitoPacoteProSection /> },
   "pacote-insane": { render: () => <PropostaKitoPacoteInsaneSection /> },
   "comparativo-dos-pacotes": { render: () => <PropostaKitoComparativoSection /> },
-  "condicoes-gerais": { render: () => <PropostaKitoCondicoesSection /> },
-  "formas-de-pagamento": { render: () => <PropostaKitoPagamentoSection /> },
-  investimento: { render: () => <PropostaKitoInvestimentoSection /> },
 }
 
 export function getPropostaKitoPublishedSectionEntry(
