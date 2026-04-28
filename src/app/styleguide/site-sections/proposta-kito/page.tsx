@@ -338,7 +338,7 @@ export default function PropostaKitoPage() {
             </Typography>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-between min-h-[200px]">
+            <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-6 min-h-[200px]">
               <EditableIcon namespace={NS} id="s02.usuario.icon" fallbackIconId={c("s02.usuario.icon")} alt={c("s02.usuario.label")} strategy={{ kind: "frameHeight", frameHeight: 410, targetHeight: 47 }} />
               <div className="flex flex-col gap-2">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
@@ -349,7 +349,7 @@ export default function PropostaKitoPage() {
                 </Typography>
               </div>
             </div>
-            <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-between min-h-[200px]">
+            <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-6 min-h-[200px]">
               <EditableIcon namespace={NS} id="s02.estabelecimento.icon" fallbackIconId={c("s02.estabelecimento.icon")} alt={c("s02.estabelecimento.label")} strategy={{ kind: "frameHeight", frameHeight: 410, targetHeight: 47 }} />
               <div className="flex flex-col gap-2">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
@@ -608,7 +608,7 @@ export default function PropostaKitoPage() {
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {s10Items.map(({ id, iconKey, labelKey, bodyKey, badge }) => (
-            <div key={id} className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-between min-h-[200px]">
+            <div key={id} className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col gap-6 min-h-[200px]">
               <div className="flex items-start justify-between gap-4">
                 <EditableIcon namespace={NS} id={iconKey} fallbackIconId={c(iconKey as ContentKey)} alt={c(labelKey as ContentKey)} strategy={{ kind: "frameHeight", frameHeight: 410, targetHeight: 47 }} />
                 {badge && (
