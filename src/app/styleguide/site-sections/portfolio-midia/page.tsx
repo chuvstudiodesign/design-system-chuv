@@ -45,6 +45,8 @@ const MOTION_VIDEOS = [
   { src: `${GITHUB_RAW}/MOTION%202D%20E%203D/Motion%202D%20e%203D.MP4`, label: "Motion 2D e 3D" },
 ]
 
+const MOTION_EXTRA_VIDEO_SRC = `${GITHUB_RAW}/mn2.MP4`
+
 const POSTS_IA_VIDEOS = [
   { src: `${GITHUB_RAW}/POST%20COM%20IA/IA%20POST.MP4`,          label: "IA Post" },
   { src: `${GITHUB_RAW}/POST%20COM%20IA/Steve%20mais%20som.MP4`, label: "Steve + som" },
@@ -451,7 +453,9 @@ export default function PortfolioMidiaPage() {
               <VideoPlayer src={src} videoClassName="mb-[-5px]" />
             </div>
           ))}
-          <div className="rounded-none border border-white bg-[#f9f9f9]" />
+          <div className="rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
+            <VideoPlayer src={MOTION_EXTRA_VIDEO_SRC} videoClassName="mb-[-5px]" />
+          </div>
         </div>
         <InfoCards keys={[
           ["s5.c1.label", "s5.c1.title", "s5.c1.body"],
@@ -486,11 +490,14 @@ export default function PortfolioMidiaPage() {
             </div>
           ))}
           <div className="col-span-2 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-between gap-6">
-            <Typography variant="h4" className="leading-tight">
-              <EditableText namespace={NS} id="s7.placeholder.title">{c("s7.placeholder.title")}</EditableText>
+            <Typography variant="h4" className="text-center leading-tight">
+              <EditableText namespace={NS} id="s7.placeholder.title.prefix">{c("s7.placeholder.title.prefix")}</EditableText>
+              <span className="text-primary">
+                <EditableText namespace={NS} id="s7.placeholder.title.accent">{c("s7.placeholder.title.accent")}</EditableText>
+              </span>
             </Typography>
             <div className="flex flex-1 min-h-0 items-center justify-center overflow-hidden rounded-none">
-              <img src={AGENTICA_IMAGE_SRC} alt="Agêntica" className="block max-h-[220px] w-auto max-w-full" />
+              <img src={AGENTICA_IMAGE_SRC} alt="Agêntica" className="block h-auto w-full" />
             </div>
           </div>
         </div>
