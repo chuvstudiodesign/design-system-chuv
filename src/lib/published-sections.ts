@@ -294,6 +294,79 @@ export const PROPOSTA_KITO_PUBLISHED_SECTION_BY_SLUG = Object.fromEntries(
   PROPOSTA_KITO_PUBLISHED_SECTIONS.map((section) => [section.slug, section])
 ) as Record<PropostaKitoPublishedSectionSlug, (typeof PROPOSTA_KITO_PUBLISHED_SECTIONS)[number]>
 
+export const PORTFOLIO_MIDIA_PUBLISHED_SECTIONS = [
+  {
+    name: "Disciplinas de mídia social",
+    slug: "disciplinas",
+    href: "/sections/portfolio-midia/disciplinas",
+    title: "Disciplinas de Mídia Social",
+    description: "Section de áreas de atuação aplicadas em mídia social do Chuv Studio.",
+  },
+  {
+    name: "Mídias acompanhadas atualmente",
+    slug: "midias-atuais",
+    href: "/sections/portfolio-midia/midias-atuais",
+    title: "Mídias Acompanhadas Atualmente",
+    description: "Section com os clientes ativos de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Reels virais",
+    slug: "reels-virais",
+    href: "/sections/portfolio-midia/reels-virais",
+    title: "Reels com Potencial Viral",
+    description: "Section de reels virais do portfólio de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Reels com VFX",
+    slug: "vfx",
+    href: "/sections/portfolio-midia/vfx",
+    title: "Reels com Efeitos Visuais",
+    description: "Section de reels com VFX do portfólio de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Motion 2D e 3D",
+    slug: "motion-2d-3d",
+    href: "/sections/portfolio-midia/motion-2d-3d",
+    title: "Motion 2D e 3D",
+    description: "Section de animações motion do portfólio de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Posts virais",
+    slug: "posts-virais",
+    href: "/sections/portfolio-midia/posts-virais",
+    title: "Posts de Alta Performance",
+    description: "Section de posts virais do portfólio de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Posts com IA",
+    slug: "posts-com-ia",
+    href: "/sections/portfolio-midia/posts-com-ia",
+    title: "Posts Criados com IA",
+    description: "Section de posts criados com inteligência artificial do Chuv Studio.",
+  },
+  {
+    name: "Valorização do produto",
+    slug: "valorizacao-produto",
+    href: "/sections/portfolio-midia/valorizacao-produto",
+    title: "Valorização do Produto",
+    description: "Section de valorização de produto do portfólio de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Feed harmônico",
+    slug: "feed-harmonico",
+    href: "/sections/portfolio-midia/feed-harmonico",
+    title: "Feed Harmônico",
+    description: "Section de feed harmônico do portfólio de mídia social do Chuv Studio.",
+  },
+] as const satisfies readonly PublishedSectionLink[]
+
+export type PortfolioMidiaPublishedSectionSlug =
+  (typeof PORTFOLIO_MIDIA_PUBLISHED_SECTIONS)[number]["slug"]
+
+export const PORTFOLIO_MIDIA_PUBLISHED_SECTION_BY_SLUG = Object.fromEntries(
+  PORTFOLIO_MIDIA_PUBLISHED_SECTIONS.map((section) => [section.slug, section])
+) as Record<PortfolioMidiaPublishedSectionSlug, (typeof PORTFOLIO_MIDIA_PUBLISHED_SECTIONS)[number]>
+
 export function getPublishedSectionVercelUrl(href: string) {
   return `${VERCEL_PRODUCTION_BASE_URL}${href}`
 }
