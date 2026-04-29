@@ -50,6 +50,8 @@ const POSTS_IA_VIDEOS = [
   { src: `${GITHUB_RAW}/POST%20COM%20IA/Steve%20mais%20som.MP4`, label: "Steve + som" },
 ]
 
+const AGENTICA_IMAGE_SRC = rawAssetPath("Agentica.png")
+
 const VALORIZACAO_IMAGES = [
   { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/POST%20PARA%20MIDIA%20MELANCIA.png`, alt: "Post mídia — Melancia" },
   { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/POST%20PARA%20MIDIA%20MEL%C3%83O.png`,  alt: "Post mídia — Melão" },
@@ -71,11 +73,11 @@ const IDENTIDADE_VISUAL_IMAGES = [
 ]
 
 const IDENTIDADE_DIVERSAS_AREAS_IMAGES = [
-  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.06.png"), alt: "Seguimento de identidade em diversas áreas 1" },
-  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.16.png"), alt: "Seguimento de identidade em diversas áreas 2" },
-  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.25.png"), alt: "Seguimento de identidade em diversas áreas 3" },
-  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.36.png"), alt: "Seguimento de identidade em diversas áreas 4" },
-  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.42.png"), alt: "Seguimento de identidade em diversas áreas 5" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.06.png"), alt: "Seguimento de identidade em diversas áreas 1" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.16.png"), alt: "Seguimento de identidade em diversas áreas 2" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.25.png"), alt: "Seguimento de identidade em diversas áreas 3" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.36.png"), alt: "Seguimento de identidade em diversas áreas 4" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.42.png"), alt: "Seguimento de identidade em diversas áreas 5" },
 ]
 
 const FEED_HARMONICO_SRC = `${GITHUB_RAW}/Feed%20Harmonico.png`
@@ -176,6 +178,38 @@ function ImageGrid({ images }: { images: { src: string; alt: string }[] }) {
       {images.map(({ src, alt }) => (
         <div key={src} className="relative min-h-[340px] rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
           <img src={src} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function ImageStack({ images }: { images: { src: string; alt: string }[] }) {
+  return (
+    <div className="flex flex-col gap-4">
+      {images.map(({ src, alt }) => (
+        <div key={src} className="rounded-none border border-white/8 bg-[#111111] overflow-hidden">
+          <img src={src} alt={alt} className="block h-auto w-full" />
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function DarkInfoCards({ keys }: { keys: [ContentKey, ContentKey, ContentKey][] }) {
+  return (
+    <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-3">
+      {keys.map(([labelKey, titleKey, bodyKey]) => (
+        <div key={labelKey} className="rounded-none border border-white/8 bg-[#111111] p-[var(--card-padding)] flex flex-col gap-4">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+            <EditableText namespace={NS} id={labelKey}>{c(labelKey)}</EditableText>
+          </p>
+          <Typography variant="h4" className="text-white">
+            <EditableText namespace={NS} id={titleKey}>{c(titleKey)}</EditableText>
+          </Typography>
+          <Typography variant="body-s" className="text-[#b3b3b3]">
+            <EditableText namespace={NS} id={bodyKey}>{c(bodyKey)}</EditableText>
+          </Typography>
         </div>
       ))}
     </div>
@@ -322,7 +356,7 @@ export default function PortfolioMidiaPage() {
             <img
               src={MARCAS_SRC}
               alt="Marcas atendidas pela Chuv Studio"
-              className="mx-auto w-full h-auto block"
+              className="mx-auto block h-auto w-[85%]"
             />
           </div>
         </div>
@@ -370,28 +404,6 @@ export default function PortfolioMidiaPage() {
           ["s9.c1.label", "s9.c1.title", "s9.c1.body"],
           ["s9.c2.label", "s9.c2.title", "s9.c2.body"],
           ["s9.c3.label", "s9.c3.title", "s9.c3.body"],
-        ]} />
-      </section>
-
-      {/* ── S10 — Seguimento de Identidade Visual ────────────────────────── */}
-      <section className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
-        <SectionHeader titleId="s10.title" subtitleId="s10.subtitle" />
-        <ImageGrid images={IDENTIDADE_VISUAL_IMAGES} />
-        <InfoCards keys={[
-          ["s10.c1.label", "s10.c1.title", "s10.c1.body"],
-          ["s10.c2.label", "s10.c2.title", "s10.c2.body"],
-          ["s10.c3.label", "s10.c3.title", "s10.c3.body"],
-        ]} />
-      </section>
-
-      {/* ── S11 — Seguimento de Identidade em Diversas Áreas ─────────────── */}
-      <section className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
-        <SectionHeader titleId="s11.title" subtitleId="s11.subtitle" />
-        <ImageGrid images={IDENTIDADE_DIVERSAS_AREAS_IMAGES} />
-        <InfoCards keys={[
-          ["s11.c1.label", "s11.c1.title", "s11.c1.body"],
-          ["s11.c2.label", "s11.c2.title", "s11.c2.body"],
-          ["s11.c3.label", "s11.c3.title", "s11.c3.body"],
         ]} />
       </section>
 
@@ -477,15 +489,51 @@ export default function PortfolioMidiaPage() {
             <Typography variant="h4" className="leading-tight">
               <EditableText namespace={NS} id="s7.placeholder.title">{c("s7.placeholder.title")}</EditableText>
             </Typography>
-            <Typography variant="body-s" className="text-muted-foreground">
-              <EditableText namespace={NS} id="s7.placeholder.body">{c("s7.placeholder.body")}</EditableText>
-            </Typography>
+            <div className="flex flex-1 min-h-0 items-center justify-center overflow-hidden rounded-none">
+              <img src={AGENTICA_IMAGE_SRC} alt="Agêntica" className="block max-h-[220px] w-auto max-w-full" />
+            </div>
           </div>
         </div>
         <InfoCards keys={[
           ["s7.c1.label", "s7.c1.title", "s7.c1.body"],
           ["s7.c2.label", "s7.c2.title", "s7.c2.body"],
           ["s7.c3.label", "s7.c3.title", "s7.c3.body"],
+        ]} />
+      </section>
+
+      {/* ── S10 — Seguimento de Identidade Visual ────────────────────────── */}
+      <section className="ds-section flex flex-col" style={{ backgroundColor: "#000000" }}>
+        <div className="mb-[45px] flex flex-col items-center text-center">
+          <Typography variant="h1" className="max-w-3xl text-white">
+            <EditableText namespace={NS} id="s10.title">{c("s10.title")}</EditableText>
+          </Typography>
+          <Typography variant="body-m" className="mt-3 max-w-2xl text-[#c7c7c7]">
+            <EditableText namespace={NS} id="s10.subtitle">{c("s10.subtitle")}</EditableText>
+          </Typography>
+        </div>
+        <ImageStack images={IDENTIDADE_VISUAL_IMAGES} />
+        <DarkInfoCards keys={[
+          ["s10.c1.label", "s10.c1.title", "s10.c1.body"],
+          ["s10.c2.label", "s10.c2.title", "s10.c2.body"],
+          ["s10.c3.label", "s10.c3.title", "s10.c3.body"],
+        ]} />
+      </section>
+
+      {/* ── S11 — Seguimento de Identidade em Diversas Áreas ─────────────── */}
+      <section className="ds-section flex flex-col" style={{ backgroundColor: "#000000" }}>
+        <div className="mb-[45px] flex flex-col items-center text-center">
+          <Typography variant="h1" className="max-w-3xl text-white">
+            <EditableText namespace={NS} id="s11.title">{c("s11.title")}</EditableText>
+          </Typography>
+          <Typography variant="body-m" className="mt-3 max-w-2xl text-[#c7c7c7]">
+            <EditableText namespace={NS} id="s11.subtitle">{c("s11.subtitle")}</EditableText>
+          </Typography>
+        </div>
+        <ImageStack images={IDENTIDADE_DIVERSAS_AREAS_IMAGES} />
+        <DarkInfoCards keys={[
+          ["s11.c1.label", "s11.c1.title", "s11.c1.body"],
+          ["s11.c2.label", "s11.c2.title", "s11.c2.body"],
+          ["s11.c3.label", "s11.c3.title", "s11.c3.body"],
         ]} />
       </section>
 

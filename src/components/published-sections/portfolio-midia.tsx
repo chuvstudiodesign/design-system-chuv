@@ -46,6 +46,8 @@ const POSTS_IA_VIDEOS = [
   { src: `${GITHUB_RAW}/POST%20COM%20IA/Steve%20mais%20som.MP4`, label: "Steve + som" },
 ]
 
+const AGENTICA_IMAGE_SRC = rawAssetPath("Agentica.png")
+
 const VALORIZACAO_IMAGES = [
   { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/POST%20PARA%20MIDIA%20MELANCIA.png`, alt: "Post mídia — Melancia" },
   { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/POST%20PARA%20MIDIA%20MEL%C3%83O.png`,  alt: "Post mídia — Melão"    },
@@ -67,11 +69,11 @@ const IDENTIDADE_VISUAL_IMAGES = [
 ]
 
 const IDENTIDADE_DIVERSAS_AREAS_IMAGES = [
-  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.06.png"), alt: "Seguimento de identidade em diversas áreas 1" },
-  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.16.png"), alt: "Seguimento de identidade em diversas áreas 2" },
-  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.25.png"), alt: "Seguimento de identidade em diversas áreas 3" },
-  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.36.png"), alt: "Seguimento de identidade em diversas áreas 4" },
-  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.42.png"), alt: "Seguimento de identidade em diversas áreas 5" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.06.png"), alt: "Seguimento de identidade em diversas áreas 1" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.16.png"), alt: "Seguimento de identidade em diversas áreas 2" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.25.png"), alt: "Seguimento de identidade em diversas áreas 3" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.36.png"), alt: "Seguimento de identidade em diversas áreas 4" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.42.png"), alt: "Seguimento de identidade em diversas áreas 5" },
 ]
 
 const FEED_HARMONICO_SRC = `${GITHUB_RAW}/Feed%20Harmonico.png`
@@ -191,6 +193,32 @@ function ImageGrid({ images }: { images: { src: string; alt: string }[] }) {
   )
 }
 
+function ImageStack({ images }: { images: { src: string; alt: string }[] }) {
+  return (
+    <div className="flex flex-col gap-4">
+      {images.map(({ src, alt }) => (
+        <div key={src} className="rounded-none border border-white/8 bg-[#111111] overflow-hidden">
+          <img src={src} alt={alt} className="block h-auto w-full" />
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function DarkInfoCards({ cards }: { cards: { label: string; title: string; body: string }[] }) {
+  return (
+    <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-3">
+      {cards.map(({ label, title, body }) => (
+        <div key={label} className="rounded-none border border-white/8 bg-[#111111] p-[var(--card-padding)] flex flex-col gap-4">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">{label}</p>
+          <Typography variant="h4" className="text-white">{title}</Typography>
+          <Typography variant="body-s" className="text-[#b3b3b3]">{body}</Typography>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 function PublishedSectionShell({ children }: { children: ReactNode }) {
   return (
     <main className="bg-[#efefef] p-3 sm:p-4">
@@ -286,7 +314,7 @@ export function PortfolioMidiaMidiasAtuaisSection() {
           <img
             src={MARCAS_SRC}
             alt="Marcas atendidas pela Chuv Studio"
-            className="mx-auto w-full h-auto block"
+            className="mx-auto block h-auto w-[85%]"
           />
         </div>
       </div>
@@ -386,7 +414,9 @@ export function PortfolioMidiaPostsIASection() {
         ))}
         <div className="col-span-2 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-between gap-6">
           <Typography variant="h4" className="leading-tight">{content["s7.placeholder.title"]}</Typography>
-          <Typography variant="body-s" className="text-muted-foreground">{content["s7.placeholder.body"]}</Typography>
+          <div className="flex flex-1 min-h-0 items-center justify-center overflow-hidden rounded-none">
+            <img src={AGENTICA_IMAGE_SRC} alt="Agêntica" className="block max-h-[220px] w-auto max-w-full" />
+          </div>
         </div>
       </div>
       <InfoCards cards={[
@@ -451,10 +481,13 @@ export function PortfolioMidiaFeedHarmonicoSection() {
 
 export function PortfolioMidiaIdentidadeVisualSection() {
   return (
-    <section className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
-      <SectionHeader title={content["s10.title"]} subtitle={content["s10.subtitle"]} />
-      <ImageGrid images={IDENTIDADE_VISUAL_IMAGES} />
-      <InfoCards cards={[
+    <section className="ds-section flex flex-col" style={{ backgroundColor: "#000000" }}>
+      <div className="mb-[45px] flex flex-col items-center text-center">
+        <Typography variant="h1" className="max-w-3xl text-white">{content["s10.title"]}</Typography>
+        <Typography variant="body-m" className="mt-3 max-w-2xl text-[#c7c7c7]">{content["s10.subtitle"]}</Typography>
+      </div>
+      <ImageStack images={IDENTIDADE_VISUAL_IMAGES} />
+      <DarkInfoCards cards={[
         { label: content["s10.c1.label"], title: content["s10.c1.title"], body: content["s10.c1.body"] },
         { label: content["s10.c2.label"], title: content["s10.c2.title"], body: content["s10.c2.body"] },
         { label: content["s10.c3.label"], title: content["s10.c3.title"], body: content["s10.c3.body"] },
@@ -465,10 +498,13 @@ export function PortfolioMidiaIdentidadeVisualSection() {
 
 export function PortfolioMidiaIdentidadeDiversasAreasSection() {
   return (
-    <section className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
-      <SectionHeader title={content["s11.title"]} subtitle={content["s11.subtitle"]} />
-      <ImageGrid images={IDENTIDADE_DIVERSAS_AREAS_IMAGES} />
-      <InfoCards cards={[
+    <section className="ds-section flex flex-col" style={{ backgroundColor: "#000000" }}>
+      <div className="mb-[45px] flex flex-col items-center text-center">
+        <Typography variant="h1" className="max-w-3xl text-white">{content["s11.title"]}</Typography>
+        <Typography variant="body-m" className="mt-3 max-w-2xl text-[#c7c7c7]">{content["s11.subtitle"]}</Typography>
+      </div>
+      <ImageStack images={IDENTIDADE_DIVERSAS_AREAS_IMAGES} />
+      <DarkInfoCards cards={[
         { label: content["s11.c1.label"], title: content["s11.c1.title"], body: content["s11.c1.body"] },
         { label: content["s11.c2.label"], title: content["s11.c2.title"], body: content["s11.c2.body"] },
         { label: content["s11.c3.label"], title: content["s11.c3.title"], body: content["s11.c3.body"] },
@@ -484,13 +520,13 @@ const SECTION_RENDER: Record<PortfolioMidiaPublishedSectionSlug, () => ReactNode
   "midias-atuais":        () => <PortfolioMidiaMidiasAtuaisSection />,
   "valorizacao-produto":  () => <PortfolioMidiaValorizacaoSection />,
   "feed-harmonico":       () => <PortfolioMidiaFeedHarmonicoSection />,
-  "seguimento-identidade-visual": () => <PortfolioMidiaIdentidadeVisualSection />,
-  "seguimento-identidade-diversas-areas": () => <PortfolioMidiaIdentidadeDiversasAreasSection />,
   "vfx":                  () => <PortfolioMidiaVFXSection />,
   "reels-virais":         () => <PortfolioMidiaReelsViraisSection />,
   "motion-2d-3d":         () => <PortfolioMidiaMotionSection />,
   "posts-virais":         () => <PortfolioMidiaPostsViraisSection />,
   "posts-com-ia":         () => <PortfolioMidiaPostsIASection />,
+  "seguimento-identidade-visual": () => <PortfolioMidiaIdentidadeVisualSection />,
+  "seguimento-identidade-diversas-areas": () => <PortfolioMidiaIdentidadeDiversasAreasSection />,
 }
 
 export function PortfolioMidiaPublishedSectionPage({ slug }: { slug: PortfolioMidiaPublishedSectionSlug }) {
