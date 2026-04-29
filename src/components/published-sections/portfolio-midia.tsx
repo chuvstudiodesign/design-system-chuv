@@ -93,6 +93,7 @@ const AREAS = [
 ] as const
 
 type SigoKey = keyof typeof sigoContent
+const FIGMA_FRAME_HEIGHT = 410
 
 // ── Shared helpers ────────────────────────────────────────────────────────────
 
@@ -102,8 +103,10 @@ function getIconById(id: string) {
 
 function getFrameHeightIconDisplay(iconId: string, targetHeight: number) {
   const icon = getIconById(iconId)
-  const scale = targetHeight / icon.fh
-  return { width: Math.round(icon.fw * scale), height: Math.round(icon.fh * scale) }
+  return {
+    width: Math.round((icon.fw / FIGMA_FRAME_HEIGHT) * targetHeight),
+    height: Math.round((icon.fh / FIGMA_FRAME_HEIGHT) * targetHeight),
+  }
 }
 
 function StaticIcon({ iconId, alt, width, height }: { iconId: string; alt: string; width: number; height: number }) {
@@ -271,9 +274,14 @@ export function PortfolioMidiaAreasSection() {
   const { ref, entered } = useEnterOnce()
   return (
     <section ref={ref} className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
-      <SectionHeader title={content["s1.title"]} subtitle={content["s1.subtitle"]} />
-      <div className="grid grid-cols-1 gap-4 xl:grid-cols-4">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:col-span-3 xl:grid-cols-3">
+      <div className="mb-[45px] flex flex-col items-center text-center">
+        <Typography variant="h1" className="max-w-3xl">{content["s1.title"]}</Typography>
+        <Typography variant="body-m" className="mt-3 max-w-2xl text-muted-foreground">
+          {content["s1.subtitle"]}
+        </Typography>
+      </div>
+      <div className="grid grid-cols-4 gap-4">
+        <div className="col-span-3 grid grid-cols-3 gap-4">
           {AREAS.map(({ key, iconKey }, index) => {
             const iconId = sigoContent[iconKey as SigoKey]
             const { width, height } = getFrameHeightIconDisplay(iconId, 47.0448)
@@ -289,7 +297,7 @@ export function PortfolioMidiaAreasSection() {
             )
           })}
         </div>
-        <div className="rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] xl:col-span-1" style={getFadeStyle(AREAS.length, entered)} />
+        <div className="col-span-1 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]" style={getFadeStyle(AREAS.length, entered)} />
       </div>
     </section>
   )

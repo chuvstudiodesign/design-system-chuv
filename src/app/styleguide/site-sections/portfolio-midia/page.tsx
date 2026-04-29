@@ -98,6 +98,8 @@ const areas = [
   { key: "s1.ia-aplicada",       iconKey: "s1.ia-aplicada.icon"       },
 ]
 
+const FIGMA_FRAME_HEIGHT = 410
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 const FADE_DURATION_MS = 1000
@@ -286,7 +288,14 @@ export default function PortfolioMidiaPage() {
 
       {/* ── S1 — Disciplinas ──────────────────────────────────────────────── */}
       <section ref={areasRef} className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
-        <SectionHeader titleId="s1.title" subtitleId="s1.subtitle" />
+        <div className="mb-[45px] flex flex-col items-center text-center">
+          <Typography variant="h1" className="max-w-3xl">
+            <EditableText namespace={NS} id="s1.title">{c("s1.title")}</EditableText>
+          </Typography>
+          <Typography variant="body-m" className="mt-3 max-w-2xl text-muted-foreground">
+            <EditableText namespace={NS} id="s1.subtitle">{c("s1.subtitle")}</EditableText>
+          </Typography>
+        </div>
 
         <div className="grid grid-cols-4 gap-4">
           <div className="col-span-3 grid grid-cols-3 gap-4">
@@ -301,7 +310,7 @@ export default function PortfolioMidiaPage() {
                   id={iconKey}
                   fallbackIconId={cs(iconKey as SigoKey)}
                   alt={cs(key as SigoKey)}
-                  strategy={{ kind: "frameHeight", frameHeight: 410, targetHeight: 47.0448 }}
+                  strategy={{ kind: "frameHeight", frameHeight: FIGMA_FRAME_HEIGHT, targetHeight: 47.0448 }}
                 />
                 <Typography variant="h4" className="leading-snug">
                   <EditableText namespace={NS_SIGO} id={key}>{cs(key as SigoKey)}</EditableText>
