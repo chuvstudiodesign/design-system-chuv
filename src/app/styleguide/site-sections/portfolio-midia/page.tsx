@@ -11,6 +11,7 @@ import propostaSigoContent from "@/app/styleguide/site-sections/proposta-sigo/co
 
 const NS = "portfolio-midia"
 const NS_SIGO = "proposta-sigo"
+const AREAS_SPLINE_URL = "https://prod.spline.design/S-9NtNJpkF44Kli3/scene.splinecode"
 
 const GITHUB_RAW = "https://raw.githubusercontent.com/chuvstudiodesign/portfolio-midia/master"
 
@@ -128,6 +129,34 @@ function c(key: ContentKey)  { return content[key] }
 
 function Accent({ children }: { children: React.ReactNode }) {
   return <span className="text-primary">{children}</span>
+}
+
+function SplineViewer({ url }: { url: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    if (!document.querySelector("[data-spline-loader]")) {
+      const script = document.createElement("script")
+      script.type = "module"
+      script.src = "https://unpkg.com/@splinetool/viewer@1.12.88/build/spline-viewer.js"
+      script.dataset.splineLoader = "1"
+      document.head.appendChild(script)
+    }
+
+    const viewer = document.createElement("spline-viewer")
+    viewer.setAttribute("url", url)
+    viewer.style.cssText = "display:block;width:100%;height:100%"
+    el.appendChild(viewer)
+
+    return () => {
+      el.innerHTML = ""
+    }
+  }, [url])
+
+  return <div ref={ref} style={{ width: "100%", height: "100%" }} />
 }
 
 function SectionHeader({
@@ -321,9 +350,11 @@ export default function PortfolioMidiaPage() {
             ))}
           </div>
           <div
-            className="col-span-1 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)]"
+            className="col-span-1 rounded-none border border-white bg-[#f9f9f9] p-[3px] overflow-hidden"
             style={getAreaFadeStyle(areas.length, areasEntered)}
-          />
+          >
+            <SplineViewer url={AREAS_SPLINE_URL} />
+          </div>
         </div>
       </section>
 
