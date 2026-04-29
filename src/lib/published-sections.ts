@@ -310,6 +310,34 @@ export const PORTFOLIO_MIDIA_PUBLISHED_SECTIONS = [
     description: "Section com os clientes ativos de mídia social do Chuv Studio.",
   },
   {
+    name: "Valorização do produto",
+    slug: "valorizacao-produto",
+    href: "/sections/portfolio-midia/valorizacao-produto",
+    title: "Valorização do Produto",
+    description: "Section de valorização de produto do portfólio de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Feed harmônico",
+    slug: "feed-harmonico",
+    href: "/sections/portfolio-midia/feed-harmonico",
+    title: "Feed Harmônico",
+    description: "Section de feed harmônico do portfólio de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Seguimento de identidade visual",
+    slug: "seguimento-identidade-visual",
+    href: "/sections/portfolio-midia/seguimento-identidade-visual",
+    title: "Seguimento de Identidade Visual",
+    description: "Section sobre preservação e segmentação da identidade visual no portfólio de mídia social da Chuv Studio.",
+  },
+  {
+    name: "Seguimento de identidade em diversas áreas",
+    slug: "seguimento-identidade-diversas-areas",
+    href: "/sections/portfolio-midia/seguimento-identidade-diversas-areas",
+    title: "Seguimento de Identidade em Diversas Áreas",
+    description: "Section sobre adaptação da identidade visual para segmentos diversos no portfólio de mídia social da Chuv Studio.",
+  },
+  {
     name: "Reels virais",
     slug: "reels-virais",
     href: "/sections/portfolio-midia/reels-virais",
@@ -343,20 +371,6 @@ export const PORTFOLIO_MIDIA_PUBLISHED_SECTIONS = [
     href: "/sections/portfolio-midia/posts-com-ia",
     title: "Posts Criados com IA",
     description: "Section de posts criados com inteligência artificial do Chuv Studio.",
-  },
-  {
-    name: "Valorização do produto",
-    slug: "valorizacao-produto",
-    href: "/sections/portfolio-midia/valorizacao-produto",
-    title: "Valorização do Produto",
-    description: "Section de valorização de produto do portfólio de mídia social do Chuv Studio.",
-  },
-  {
-    name: "Feed harmônico",
-    slug: "feed-harmonico",
-    href: "/sections/portfolio-midia/feed-harmonico",
-    title: "Feed Harmônico",
-    description: "Section de feed harmônico do portfólio de mídia social do Chuv Studio.",
   },
 ] as const satisfies readonly PublishedSectionLink[]
 

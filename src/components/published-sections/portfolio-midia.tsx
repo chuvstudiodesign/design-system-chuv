@@ -12,21 +12,16 @@ import { AutoHeightReporter } from "@/components/published-sections/auto-height-
 
 const GITHUB_RAW = "https://raw.githubusercontent.com/chuvstudiodesign/portfolio-midia/master"
 
+function rawAssetPath(path: string) {
+  return `${GITHUB_RAW}/${path.split("/").map(encodeURIComponent).join("/")}`
+}
+
 const MIDIAS_ATUAIS_IMAGES = [
   { src: `${GITHUB_RAW}/Midias%20acaompanhadas%20atuais%20/Breno%20Masi%20Oficial.png`, alt: content["s2.masi.alt"], label: "Masi Negócios" },
   { src: `${GITHUB_RAW}/Midias%20acaompanhadas%20atuais%20/Overlens%20Oficial.png`, alt: content["s2.overlens.alt"], label: "Overlens" },
 ]
 
-const LOGOS = [
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/Samsung.png`,           alt: "Samsung"       },
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/Qualcom.png`,           alt: "Qualcomm"      },
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/PlayVFX.png`,           alt: "PlayVFX"       },
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/Masi%20Negocios.png`,   alt: "Masi Negócios" },
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/Hawksmoor.tif.png`,     alt: "Hawksmoor"     },
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/Mun.png`,               alt: "Mun"           },
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/Vinsel.png`,            alt: "Vinsel"        },
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/Volluy.png`,            alt: "Volluy"        },
-]
+const MARCAS_SRC = rawAssetPath("Marcas.png")
 
 const VFX_VIDEOS = [
   { src: `${GITHUB_RAW}/VFX/VFX.MOV`,  label: "VFX — take 1" },
@@ -61,6 +56,22 @@ const VALORIZACAO_IMAGES = [
 const VALORIZACAO_CARD_IMAGES = [
   { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/Melancia.png` },
   { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/Mel%C3%A3o.png` },
+]
+
+const IDENTIDADE_VISUAL_IMAGES = [
+  { src: rawAssetPath("Seguimento de Identidade Visual/1.png"), alt: "Seguimento de identidade visual 1" },
+  { src: rawAssetPath("Seguimento de Identidade Visual/2.png"), alt: "Seguimento de identidade visual 2" },
+  { src: rawAssetPath("Seguimento de Identidade Visual/3.png"), alt: "Seguimento de identidade visual 3" },
+  { src: rawAssetPath("Seguimento de Identidade Visual/4.png"), alt: "Seguimento de identidade visual 4" },
+  { src: rawAssetPath("Seguimento de Identidade Visual/5.png"), alt: "Seguimento de identidade visual 5" },
+]
+
+const IDENTIDADE_DIVERSAS_AREAS_IMAGES = [
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.06.png"), alt: "Seguimento de identidade em diversas áreas 1" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.16.png"), alt: "Seguimento de identidade em diversas áreas 2" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.25.png"), alt: "Seguimento de identidade em diversas áreas 3" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.36.png"), alt: "Seguimento de identidade em diversas áreas 4" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.42.png"), alt: "Seguimento de identidade em diversas áreas 5" },
 ]
 
 const FEED_HARMONICO_SRC = `${GITHUB_RAW}/Feed%20Harmonico.png`
@@ -168,6 +179,18 @@ function AlternatingImages({
   )
 }
 
+function ImageGrid({ images }: { images: { src: string; alt: string }[] }) {
+  return (
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
+      {images.map(({ src, alt }) => (
+        <div key={src} className="relative min-h-[340px] rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
+          <img src={src} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
+        </div>
+      ))}
+    </div>
+  )
+}
+
 function PublishedSectionShell({ children }: { children: ReactNode }) {
   return (
     <main className="bg-[#efefef] p-3 sm:p-4">
@@ -243,7 +266,7 @@ export function PortfolioMidiaMidiasAtuaisSection() {
         title={<>{content["s2.title.prefix"]}<Accent>{content["s2.title.accent"]}</Accent></>}
         subtitle={content["s2.subtitle"]}
       />
-      <div className="flex flex-col gap-4 mb-4">
+      <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
         {MIDIAS_ATUAIS_IMAGES.map(({ src, alt, label }) => (
           <div key={label} className="rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
             <img src={src} alt={alt} className="w-full h-auto object-cover block" />
@@ -259,16 +282,12 @@ export function PortfolioMidiaMidiasAtuaisSection() {
           </div>
           <Typography variant="body-m" className="text-muted-foreground max-w-2xl">{content["s2.legado.body"]}</Typography>
         </div>
-        <div className="grid grid-cols-4 gap-x-8 gap-y-6">
-          {LOGOS.map(({ src, alt }) => (
-            <div key={alt} className="flex items-center justify-center h-10">
-              <img
-                src={src}
-                alt={alt}
-                style={{ maxHeight: 32, maxWidth: 160, width: "auto", height: "auto", filter: "grayscale(1) opacity(0.55)" }}
-              />
-            </div>
-          ))}
+        <div className="px-[15px]">
+          <img
+            src={MARCAS_SRC}
+            alt="Marcas atendidas pela Chuv Studio"
+            className="mx-auto w-full h-auto block"
+          />
         </div>
       </div>
     </section>
@@ -285,13 +304,7 @@ export function PortfolioMidiaVFXSection() {
             <VideoPlayer src={src} />
           </div>
         ))}
-        <div className="col-span-2 rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
-          <AlternatingImages
-            images={VALORIZACAO_CARD_IMAGES}
-            alt="Valorização do produto — card alternado"
-            imageClassName="object-cover"
-          />
-        </div>
+        <div className="col-span-2 rounded-none border border-white bg-[#f9f9f9]" />
       </div>
       <InfoCards cards={[
         { label: content["s3.c1.label"], title: content["s3.c1.title"], body: content["s3.c1.body"] },
@@ -391,11 +404,17 @@ export function PortfolioMidiaValorizacaoSection() {
       <SectionHeader title={content["s8.title"]} subtitle={content["s8.subtitle"]} />
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {VALORIZACAO_IMAGES.slice(0, 2).map(({ src, alt }) => (
-          <div key={alt} className="rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
-            <img src={src} alt={alt} className="w-full h-auto object-cover block" />
+          <div key={alt} className="relative min-h-[420px] rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
+            <img src={src} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
           </div>
         ))}
-        <div className="col-span-2 rounded-none border border-white bg-[#f9f9f9]" />
+        <div className="relative col-span-2 min-h-[420px] rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
+          <AlternatingImages
+            images={VALORIZACAO_CARD_IMAGES}
+            alt="Valorização do produto — card alternado"
+            imageClassName="object-cover"
+          />
+        </div>
       </div>
       <InfoCards cards={[
         { label: content["s8.c1.label"], title: content["s8.c1.title"], body: content["s8.c1.body"] },
@@ -430,18 +449,48 @@ export function PortfolioMidiaFeedHarmonicoSection() {
   )
 }
 
+export function PortfolioMidiaIdentidadeVisualSection() {
+  return (
+    <section className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
+      <SectionHeader title={content["s10.title"]} subtitle={content["s10.subtitle"]} />
+      <ImageGrid images={IDENTIDADE_VISUAL_IMAGES} />
+      <InfoCards cards={[
+        { label: content["s10.c1.label"], title: content["s10.c1.title"], body: content["s10.c1.body"] },
+        { label: content["s10.c2.label"], title: content["s10.c2.title"], body: content["s10.c2.body"] },
+        { label: content["s10.c3.label"], title: content["s10.c3.title"], body: content["s10.c3.body"] },
+      ]} />
+    </section>
+  )
+}
+
+export function PortfolioMidiaIdentidadeDiversasAreasSection() {
+  return (
+    <section className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
+      <SectionHeader title={content["s11.title"]} subtitle={content["s11.subtitle"]} />
+      <ImageGrid images={IDENTIDADE_DIVERSAS_AREAS_IMAGES} />
+      <InfoCards cards={[
+        { label: content["s11.c1.label"], title: content["s11.c1.title"], body: content["s11.c1.body"] },
+        { label: content["s11.c2.label"], title: content["s11.c2.title"], body: content["s11.c2.body"] },
+        { label: content["s11.c3.label"], title: content["s11.c3.title"], body: content["s11.c3.body"] },
+      ]} />
+    </section>
+  )
+}
+
 // ── Published page router ─────────────────────────────────────────────────────
 
 const SECTION_RENDER: Record<PortfolioMidiaPublishedSectionSlug, () => ReactNode> = {
   "disciplinas":          () => <PortfolioMidiaAreasSection />,
   "midias-atuais":        () => <PortfolioMidiaMidiasAtuaisSection />,
+  "valorizacao-produto":  () => <PortfolioMidiaValorizacaoSection />,
+  "feed-harmonico":       () => <PortfolioMidiaFeedHarmonicoSection />,
+  "seguimento-identidade-visual": () => <PortfolioMidiaIdentidadeVisualSection />,
+  "seguimento-identidade-diversas-areas": () => <PortfolioMidiaIdentidadeDiversasAreasSection />,
   "vfx":                  () => <PortfolioMidiaVFXSection />,
   "reels-virais":         () => <PortfolioMidiaReelsViraisSection />,
   "motion-2d-3d":         () => <PortfolioMidiaMotionSection />,
   "posts-virais":         () => <PortfolioMidiaPostsViraisSection />,
   "posts-com-ia":         () => <PortfolioMidiaPostsIASection />,
-  "valorizacao-produto":  () => <PortfolioMidiaValorizacaoSection />,
-  "feed-harmonico":       () => <PortfolioMidiaFeedHarmonicoSection />,
 }
 
 export function PortfolioMidiaPublishedSectionPage({ slug }: { slug: PortfolioMidiaPublishedSectionSlug }) {

@@ -2,10 +2,8 @@
   "header.eyebrow": "PORTFÓLIO DE MÍDIA",
   "header.title": "Portfólio de Mídia Social",
   "header.description": "Uma seleção dos trabalhos do Chuv Studio em mídia social, com design, motion, identidade visual e conteúdo aplicados para construir presença digital com consistência e impacto.",
-
   "s1.title": "Em cada projeto, as disciplinas certas",
   "s1.subtitle": "Somos multidisciplinares. Do design gráfico ao motion 3D, da identidade visual ao desenvolvimento, entregamos o que cada projeto exige para construir presença digital com consistência e impacto.",
-
   "s2.title.prefix": "Mídias acompanhadas ",
   "s2.title.accent": "atualmente",
   "s2.subtitle": "Marcas que confiaram ao Chuv Studio a construção e gestão de sua presença digital.",
@@ -15,7 +13,6 @@
   "s2.legado.body": "Ao longo de mais de uma década, ajudando mais de 100 marcas, de pequenas empresas a grandes empresas do mercado.",
   "s2.masi.alt": "Masi Negócios — feed Instagram",
   "s2.overlens.alt": "Overlens — feed Instagram",
-
   "s3.title": "Reels com efeitos visuais",
   "s3.subtitle": "Criamos reels com VFX integrados à identidade da marca, com efeitos visuais que surpreendem e aumentam o engajamento orgânico.",
   "s3.c1.label": "VFX PUBLICITÁRIO",
@@ -27,7 +24,6 @@
   "s3.c3.label": "PROCESSO",
   "s3.c3.title": "Da concepção ao pixel",
   "s3.c3.body": "Planejamos o efeito em storyboard, filmamos com os requisitos técnicos e finalizamos a pós-produção alinhados à identidade visual da marca.",
-
   "s4.title": "Reels com potencial viral",
   "s4.subtitle": "Reels produzidos com estrutura, ritmo e narrativa pensados para performance, maximizando alcance e engajamento orgânico.",
   "s4.c1.label": "ESTRUTURA VIRAL",
@@ -39,7 +35,6 @@
   "s4.c3.label": "RESULTADO",
   "s4.c3.title": "Mais visibilidade, mais marca",
   "s4.c3.body": "Marcas com reels de alta performance crescem mais rápido, geram seguidores qualificados e aumentam o reconhecimento de forma consistente e mensurável.",
-
   "s5.title": "Motion 2D e 3D",
   "s5.subtitle": "Animações produzidas com After Effects e Cinema 4D aplicadas a posts, reels e comunicações de marca.",
   "s5.c1.label": "MOTION 2D",
@@ -51,7 +46,6 @@
   "s5.c3.label": "APLICAÇÃO",
   "s5.c3.title": "Para qualquer formato de mídia",
   "s5.c3.body": "Produzimos motion para stories, reels, carrosséis e vídeos institucionais, adaptando a linguagem de animação à identidade e ao tom de cada marca.",
-
   "s6.eyebrow": "POSTS KILLER",
   "s6.title": "Responsáveis por criar posts virais",
   "s6.subtitle": "Fomos responsáveis por criar o chamado Killer Post Masi, que gerou milhares de curtidas e reconhecimento para a marca. Posts planejados e desenvolvidos 100% pelo nosso estúdio.",
@@ -64,7 +58,6 @@
   "s6.c3.label": "IDENTIDADE",
   "s6.c3.title": "Presença visual consistente",
   "s6.c3.body": "Mesmo quando buscamos alto impacto, cada post é construído dentro da identidade da marca, mantendo consistência visual e reforçando reconhecimento em vez de gerar uma estética solta.",
-
   "s7.title": "Posts criados com IA",
   "s7.subtitle": "Aplicamos inteligência artificial no processo criativo, gerando conteúdos únicos que destacam a marca no feed.",
   "s7.placeholder.title": "Desenvolvido profissionalmente com orquestração de AI agêntica",
@@ -78,8 +71,7 @@
   "s7.c3.label": "DIFERENCIAL",
   "s7.c3.title": "Conteúdo único no feed",
   "s7.c3.body": "Posts criados com IA têm visual inconfundível, posicionando a marca como inovadora e ousada, com conteúdos que nenhum concorrente consegue replicar.",
-
-  "s8.title": "Valorização do produto",
+  "s8.title": "Valorização de produto ou serviço",
   "s8.subtitle": "Produção visual que destaca o produto da marca, com design aplicado à comunicação para transmitir qualidade e gerar desejo.",
   "s8.c1.label": "O QUE É",
   "s8.c1.title": "Design que gera desejo",
@@ -90,7 +82,6 @@
   "s8.c3.label": "RESULTADO",
   "s8.c3.title": "Produto que se vende sozinho",
   "s8.c3.body": "Produtos bem valorizados visualmente geram mais cliques, mais saves e mais conversões em mídia social, reduzindo o ciclo de vendas e fortalecendo a percepção de marca.",
-
   "s9.title": "Feed harmônico",
   "s9.subtitle": "Planejamento visual do feed como um todo, garantindo consistência estética, identidade visual forte e coesão em cada publicação.",
   "s9.c1.label": "O QUE É",
@@ -101,5 +92,27 @@
   "s9.c2.body": "Planejamos grid, paleta de cores, ritmo entre posts, alternância de tipos de conteúdo e identidade tipográfica consistente, criando um perfil com identidade própria e forte.",
   "s9.c3.label": "RESULTADO",
   "s9.c3.title": "Marca reconhecível",
-  "s9.c3.body": "Perfis com feed harmônico transmitem profissionalismo, fidelizam seguidores e geram mais conversões, pois o público percebe cuidado e consistência em cada publicação."
+  "s9.c3.body": "Perfis com feed harmônico transmitem profissionalismo, fidelizam seguidores e geram mais conversões, pois o público percebe cuidado e consistência em cada publicação.",
+  "s10.title": "Seguimento de identidade visual",
+  "s10.subtitle": "Segmentamos a identidade visual da empresa para que cada peça preserve a essência da marca, mantendo coerência estética e reconhecimento em toda a comunicação.",
+  "s10.c1.label": "CONSISTÊNCIA",
+  "s10.c1.title": "A marca continua sendo a marca",
+  "s10.c1.body": "Cada material é desenvolvido para respeitar a identidade visual da empresa, evitando desvios estéticos e garantindo que o público reconheça a marca mesmo em formatos diferentes.",
+  "s10.c2.label": "APLICAÇÃO",
+  "s10.c2.title": "Identidade adaptada ao contexto",
+  "s10.c2.body": "Segmentar não é repetir sempre o mesmo layout. É adaptar a linguagem visual para campanhas, conteúdos e objetivos diferentes, mantendo a unidade da marca em todas as frentes.",
+  "s10.c3.label": "BENEFÍCIO",
+  "s10.c3.title": "Reconhecimento e percepção de valor",
+  "s10.c3.body": "Quando a identidade é preservada com critério, a empresa transmite mais profissionalismo, fortalece lembrança de marca e cria uma presença visual mais sólida no mercado.",
+  "s11.title": "Seguimento de identidade em diversas áreas",
+  "s11.subtitle": "A Chuv Studio pesquisa, analisa e adapta a linguagem visual para cada segmento. Por isso conseguimos atender desde lojas de vinhos e comércios alimentícios até empresas de tecnologia.",
+  "s11.c1.label": "PESQUISA",
+  "s11.c1.title": "Entendimento real do segmento",
+  "s11.c1.body": "Antes de criar, analisamos o mercado, as referências, o público e a forma como aquele setor se comunica. Isso evita soluções genéricas e torna o material mais assertivo.",
+  "s11.c2.label": "ADAPTAÇÃO",
+  "s11.c2.title": "Linguagem visual para cada contexto",
+  "s11.c2.body": "Cada área pede ritmos, códigos e percepções diferentes. Ajustamos a identidade e a direção visual para que a marca converse com o público certo sem perder sua personalidade.",
+  "s11.c3.label": "VERSATILIDADE",
+  "s11.c3.title": "Do vinho à tecnologia",
+  "s11.c3.body": "Essa capacidade de adaptação permite atender negócios de naturezas muito diferentes, preservando estratégia e qualidade visual mesmo quando o desafio muda completamente de setor."
 }

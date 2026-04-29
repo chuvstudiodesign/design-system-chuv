@@ -14,6 +14,10 @@ const NS_SIGO = "proposta-sigo"
 
 const GITHUB_RAW = "https://raw.githubusercontent.com/chuvstudiodesign/portfolio-midia/master"
 
+function rawAssetPath(path: string) {
+  return `${GITHUB_RAW}/${path.split("/").map(encodeURIComponent).join("/")}`
+}
+
 // ── Media assets ─────────────────────────────────────────────────────────────
 
 const MIDIAS_ATUAIS_IMAGES = [
@@ -21,16 +25,7 @@ const MIDIAS_ATUAIS_IMAGES = [
   { src: `${GITHUB_RAW}/Midias%20acaompanhadas%20atuais%20/Overlens%20Oficial.png`, altKey: "s2.overlens.alt" as ContentKey, label: "Overlens" },
 ]
 
-const LOGOS = [
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/Samsung.png`,           alt: "Samsung"       },
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/Qualcom.png`,           alt: "Qualcomm"      },
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/PlayVFX.png`,           alt: "PlayVFX"       },
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/Masi%20Negocios.png`,   alt: "Masi Negócios" },
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/Hawksmoor.tif.png`,     alt: "Hawksmoor"     },
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/Mun.png`,               alt: "Mun"           },
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/Vinsel.png`,            alt: "Vinsel"        },
-  { src: `${GITHUB_RAW}/Logos%20Chuv%20Atendidos/Volluy.png`,            alt: "Volluy"        },
-]
+const MARCAS_SRC = rawAssetPath("Marcas.png")
 
 const VFX_VIDEOS = [
   { src: `${GITHUB_RAW}/VFX/VFX.MOV`,  label: "VFX — take 1" },
@@ -65,6 +60,22 @@ const VALORIZACAO_IMAGES = [
 const VALORIZACAO_CARD_IMAGES = [
   { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/Melancia.png` },
   { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/Mel%C3%A3o.png` },
+]
+
+const IDENTIDADE_VISUAL_IMAGES = [
+  { src: rawAssetPath("Seguimento de Identidade Visual/1.png"), alt: "Seguimento de identidade visual 1" },
+  { src: rawAssetPath("Seguimento de Identidade Visual/2.png"), alt: "Seguimento de identidade visual 2" },
+  { src: rawAssetPath("Seguimento de Identidade Visual/3.png"), alt: "Seguimento de identidade visual 3" },
+  { src: rawAssetPath("Seguimento de Identidade Visual/4.png"), alt: "Seguimento de identidade visual 4" },
+  { src: rawAssetPath("Seguimento de Identidade Visual/5.png"), alt: "Seguimento de identidade visual 5" },
+]
+
+const IDENTIDADE_DIVERSAS_AREAS_IMAGES = [
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.06.png"), alt: "Seguimento de identidade em diversas áreas 1" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.16.png"), alt: "Seguimento de identidade em diversas áreas 2" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.25.png"), alt: "Seguimento de identidade em diversas áreas 3" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.36.png"), alt: "Seguimento de identidade em diversas áreas 4" },
+  { src: rawAssetPath("Seguimento de Identidade Visual Diversas Areas/Captura de Tela 2026-03-08 às 09.49.42.png"), alt: "Seguimento de identidade em diversas áreas 5" },
 ]
 
 const FEED_HARMONICO_SRC = `${GITHUB_RAW}/Feed%20Harmonico.png`
@@ -153,6 +164,18 @@ function InfoCards({ keys }: { keys: [ContentKey, ContentKey, ContentKey][] }) {
           <Typography variant="body-s" className="text-muted-foreground">
             <EditableText namespace={NS} id={bodyKey}>{c(bodyKey)}</EditableText>
           </Typography>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function ImageGrid({ images }: { images: { src: string; alt: string }[] }) {
+  return (
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
+      {images.map(({ src, alt }) => (
+        <div key={src} className="relative min-h-[340px] rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
+          <img src={src} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
         </div>
       ))}
     </div>
@@ -269,7 +292,7 @@ export default function PortfolioMidiaPage() {
           </Typography>
         </div>
 
-        <div className="flex flex-col gap-4 mb-4">
+        <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
           {MIDIAS_ATUAIS_IMAGES.map(({ src, altKey, label }) => (
             <div key={label} className="rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
               <img src={src} alt={c(altKey)} className="w-full h-auto object-cover block" />
@@ -295,18 +318,81 @@ export default function PortfolioMidiaPage() {
             </Typography>
           </div>
 
-          <div className="grid grid-cols-4 gap-x-8 gap-y-6">
-            {LOGOS.map(({ src, alt }) => (
-              <div key={alt} className="flex items-center justify-center h-10">
-                <img
-                  src={src}
-                  alt={alt}
-                  style={{ maxHeight: 32, maxWidth: 160, width: "auto", height: "auto", filter: "grayscale(1) opacity(0.55)" }}
-                />
-              </div>
-            ))}
+          <div className="px-[15px]">
+            <img
+              src={MARCAS_SRC}
+              alt="Marcas atendidas pela Chuv Studio"
+              className="mx-auto w-full h-auto block"
+            />
           </div>
         </div>
+      </section>
+
+      {/* ── S8 — Valorização do Produto ───────────────────────────────────── */}
+      <section className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
+        <SectionHeader titleId="s8.title" subtitleId="s8.subtitle" />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {VALORIZACAO_IMAGES.slice(0, 2).map(({ src, alt }) => (
+            <div key={alt} className="relative min-h-[420px] rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
+              <img src={src} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
+            </div>
+          ))}
+          <div className="relative col-span-2 min-h-[420px] rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
+            <AlternatingImages
+              images={VALORIZACAO_CARD_IMAGES}
+              alt="Valorização do produto — card alternado"
+              imageClassName="object-cover"
+            />
+          </div>
+        </div>
+        <InfoCards keys={[
+          ["s8.c1.label", "s8.c1.title", "s8.c1.body"],
+          ["s8.c2.label", "s8.c2.title", "s8.c2.body"],
+          ["s8.c3.label", "s8.c3.title", "s8.c3.body"],
+        ]} />
+      </section>
+
+      {/* ── S9 — Feed Harmônico ───────────────────────────────────────────── */}
+      <section className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
+        <SectionHeader titleId="s9.title" subtitleId="s9.subtitle" />
+        <div className="grid grid-cols-1 items-stretch gap-4 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+          <div className="rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
+            <img src={FEED_HARMONICO_SRC} alt="Feed harmônico" className="w-full h-auto object-cover block" />
+          </div>
+          <div className="overflow-hidden">
+            <AlternatingImages
+              images={VALORIZACAO_IMAGES.slice(2, 4)}
+              alt="Valorização do produto"
+            />
+          </div>
+        </div>
+        <InfoCards keys={[
+          ["s9.c1.label", "s9.c1.title", "s9.c1.body"],
+          ["s9.c2.label", "s9.c2.title", "s9.c2.body"],
+          ["s9.c3.label", "s9.c3.title", "s9.c3.body"],
+        ]} />
+      </section>
+
+      {/* ── S10 — Seguimento de Identidade Visual ────────────────────────── */}
+      <section className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
+        <SectionHeader titleId="s10.title" subtitleId="s10.subtitle" />
+        <ImageGrid images={IDENTIDADE_VISUAL_IMAGES} />
+        <InfoCards keys={[
+          ["s10.c1.label", "s10.c1.title", "s10.c1.body"],
+          ["s10.c2.label", "s10.c2.title", "s10.c2.body"],
+          ["s10.c3.label", "s10.c3.title", "s10.c3.body"],
+        ]} />
+      </section>
+
+      {/* ── S11 — Seguimento de Identidade em Diversas Áreas ─────────────── */}
+      <section className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
+        <SectionHeader titleId="s11.title" subtitleId="s11.subtitle" />
+        <ImageGrid images={IDENTIDADE_DIVERSAS_AREAS_IMAGES} />
+        <InfoCards keys={[
+          ["s11.c1.label", "s11.c1.title", "s11.c1.body"],
+          ["s11.c2.label", "s11.c2.title", "s11.c2.body"],
+          ["s11.c3.label", "s11.c3.title", "s11.c3.body"],
+        ]} />
       </section>
 
       {/* ── S4 — Reels Virais (antes dos VFX) ────────────────────────────── */}
@@ -335,13 +421,7 @@ export default function PortfolioMidiaPage() {
               <VideoPlayer src={src} />
             </div>
           ))}
-          <div className="col-span-2 rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
-            <AlternatingImages
-              images={VALORIZACAO_CARD_IMAGES}
-              alt="Valorização do produto — card alternado"
-              imageClassName="object-cover"
-            />
-          </div>
+          <div className="col-span-2 rounded-none border border-white bg-[#f9f9f9]" />
         </div>
         <InfoCards keys={[
           ["s3.c1.label", "s3.c1.title", "s3.c1.body"],
@@ -406,45 +486,6 @@ export default function PortfolioMidiaPage() {
           ["s7.c1.label", "s7.c1.title", "s7.c1.body"],
           ["s7.c2.label", "s7.c2.title", "s7.c2.body"],
           ["s7.c3.label", "s7.c3.title", "s7.c3.body"],
-        ]} />
-      </section>
-
-      {/* ── S8 — Valorização do Produto ───────────────────────────────────── */}
-      <section className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
-        <SectionHeader titleId="s8.title" subtitleId="s8.subtitle" />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {VALORIZACAO_IMAGES.slice(0, 2).map(({ src, alt }) => (
-            <div key={alt} className="rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
-              <img src={src} alt={alt} className="w-full h-auto object-cover block" />
-            </div>
-          ))}
-          <div className="col-span-2 rounded-none border border-white bg-[#f9f9f9]" />
-        </div>
-        <InfoCards keys={[
-          ["s8.c1.label", "s8.c1.title", "s8.c1.body"],
-          ["s8.c2.label", "s8.c2.title", "s8.c2.body"],
-          ["s8.c3.label", "s8.c3.title", "s8.c3.body"],
-        ]} />
-      </section>
-
-      {/* ── S9 — Feed Harmônico ───────────────────────────────────────────── */}
-      <section className="ds-section flex flex-col" style={{ backgroundColor: "#efefef" }}>
-        <SectionHeader titleId="s9.title" subtitleId="s9.subtitle" />
-        <div className="grid grid-cols-1 items-stretch gap-4 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
-          <div className="rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
-            <img src={FEED_HARMONICO_SRC} alt="Feed harmônico" className="w-full h-auto object-cover block" />
-          </div>
-          <div className="overflow-hidden">
-            <AlternatingImages
-              images={VALORIZACAO_IMAGES.slice(2, 4)}
-              alt="Valorização do produto"
-            />
-          </div>
-        </div>
-        <InfoCards keys={[
-          ["s9.c1.label", "s9.c1.title", "s9.c1.body"],
-          ["s9.c2.label", "s9.c2.title", "s9.c2.body"],
-          ["s9.c3.label", "s9.c3.title", "s9.c3.body"],
         ]} />
       </section>
 
