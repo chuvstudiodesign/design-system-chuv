@@ -62,6 +62,11 @@ const VALORIZACAO_IMAGES = [
   { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/SORVETE%20MEL%C3%83O.png`,             alt: "Sorvete Melão" },
 ]
 
+const VALORIZACAO_CARD_IMAGES = [
+  { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/Melancia.png` },
+  { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/Mel%C3%A3o.png` },
+]
+
 const FEED_HARMONICO_SRC = `${GITHUB_RAW}/Feed%20Harmonico.png`
 
 // ── Areas (reuse proposta-sigo) ───────────────────────────────────────────────
@@ -157,9 +162,11 @@ function InfoCards({ keys }: { keys: [ContentKey, ContentKey, ContentKey][] }) {
 function AlternatingImages({
   images,
   alt,
+  imageClassName,
 }: {
   images: { src: string }[]
   alt: string
+  imageClassName?: string
 }) {
   const [index, setIndex] = useState(0)
 
@@ -178,7 +185,7 @@ function AlternatingImages({
           key={image.src}
           src={image.src}
           alt={alt}
-          className={`absolute inset-0 h-full w-full object-contain transition-none ${imageIndex === index ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 h-full w-full transition-none ${imageClassName ?? "object-contain"} ${imageIndex === index ? "opacity-100" : "opacity-0"}`}
         />
       ))}
     </div>
@@ -328,7 +335,13 @@ export default function PortfolioMidiaPage() {
               <VideoPlayer src={src} />
             </div>
           ))}
-          <div className="col-span-2 rounded-none border border-white bg-[#f9f9f9]" />
+          <div className="col-span-2 rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
+            <AlternatingImages
+              images={VALORIZACAO_CARD_IMAGES}
+              alt="Valorização do produto — card alternado"
+              imageClassName="object-cover"
+            />
+          </div>
         </div>
         <InfoCards keys={[
           ["s3.c1.label", "s3.c1.title", "s3.c1.body"],
