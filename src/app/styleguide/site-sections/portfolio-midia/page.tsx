@@ -32,6 +32,8 @@ const VFX_VIDEOS = [
   { src: `${GITHUB_RAW}/VFX/VFX2.MP4`, label: "VFX — take 2" },
 ]
 
+const VFX_EXTRA_VIDEO_SRC = rawAssetPath("3D FAST.mp4")
+
 const REELS_VIRAIS_VIDEOS = [
   { src: `${GITHUB_RAW}/REELS%20VIRAIS/Meu%20projeto%20(10).MP4`, label: "Reel 1" },
   { src: `${GITHUB_RAW}/REELS%20VIRAIS/Meu%20projeto%20(11).MP4`, label: "Reel 2" },
@@ -444,7 +446,9 @@ export default function PortfolioMidiaPage() {
               <VideoPlayer src={src} />
             </div>
           ))}
-          <div className="col-span-2 rounded-none border border-white bg-[#f9f9f9]" />
+          <div className="col-span-2 rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
+            <VideoPlayer src={VFX_EXTRA_VIDEO_SRC} />
+          </div>
         </div>
         <InfoCards keys={[
           ["s3.c1.label", "s3.c1.title", "s3.c1.body"],
