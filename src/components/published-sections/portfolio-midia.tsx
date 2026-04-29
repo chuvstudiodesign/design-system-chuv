@@ -221,9 +221,15 @@ function DarkInfoCards({ cards }: { cards: { label: string; title: string; body:
   )
 }
 
-function PublishedSectionShell({ children }: { children: ReactNode }) {
+function PublishedSectionShell({
+  children,
+  backgroundColor = "#efefef",
+}: {
+  children: ReactNode
+  backgroundColor?: string
+}) {
   return (
-    <main className="bg-[#efefef] p-3 sm:p-4">
+    <main className="p-3 sm:p-4" style={{ backgroundColor }}>
       <AutoHeightReporter />
       <div data-published-section-root>{children}</div>
     </main>
@@ -537,8 +543,15 @@ const SECTION_RENDER: Record<PortfolioMidiaPublishedSectionSlug, () => ReactNode
 }
 
 export function PortfolioMidiaPublishedSectionPage({ slug }: { slug: PortfolioMidiaPublishedSectionSlug }) {
+  const darkShellSlugs: PortfolioMidiaPublishedSectionSlug[] = [
+    "seguimento-identidade-visual",
+    "seguimento-identidade-diversas-areas",
+  ]
+
   return (
-    <PublishedSectionShell>
+    <PublishedSectionShell
+      backgroundColor={darkShellSlugs.includes(slug) ? "#000000" : "#efefef"}
+    >
       {SECTION_RENDER[slug]()}
     </PublishedSectionShell>
   )
