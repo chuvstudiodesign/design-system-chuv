@@ -29,14 +29,14 @@ const MIDIAS_ATUAIS_IMAGES = [
 const MARCAS_SRC = rawAssetPath("Marcas.png")
 const MARCAS_MOBILE_SRC = rawAssetPath("Marcas Mobile2.png")
 const LOGOS_CHUV_ATENDIDOS = [
-  { src: rawAssetPath("Logos Chuv Atendidos/Hawksmoor.tif.png"), alt: "Hawksmoor" },
-  { src: rawAssetPath("Logos Chuv Atendidos/Masi Negocios.png"), alt: "Masi Negócios" },
-  { src: rawAssetPath("Logos Chuv Atendidos/Mun.png"), alt: "Mun" },
-  { src: rawAssetPath("Logos Chuv Atendidos/PlayVFX.png"), alt: "PlayVFX" },
-  { src: rawAssetPath("Logos Chuv Atendidos/Qualcom.png"), alt: "Qualcom" },
-  { src: rawAssetPath("Logos Chuv Atendidos/Samsung.png"), alt: "Samsung" },
-  { src: rawAssetPath("Logos Chuv Atendidos/Vinsel.png"), alt: "Vinsel" },
-  { src: rawAssetPath("Logos Chuv Atendidos/Volluy.png"), alt: "Volluy" },
+  { src: rawAssetPath("Logos Chuv Atendidos/Hawksmoor.tif.png"), alt: "Hawksmoor", scale: 1 },
+  { src: rawAssetPath("Logos Chuv Atendidos/Masi Negocios.png"), alt: "Masi Negócios", scale: 1.2 },
+  { src: rawAssetPath("Logos Chuv Atendidos/Mun.png"), alt: "Mun", scale: 1 },
+  { src: rawAssetPath("Logos Chuv Atendidos/PlayVFX.png"), alt: "PlayVFX", scale: 1 },
+  { src: rawAssetPath("Logos Chuv Atendidos/Qualcom.png"), alt: "Qualcomm", scale: 0.9 },
+  { src: rawAssetPath("Logos Chuv Atendidos/Samsung.png"), alt: "Samsung", scale: 1 },
+  { src: rawAssetPath("Logos Chuv Atendidos/Vinsel.png"), alt: "Vinsel", scale: 1 },
+  { src: rawAssetPath("Logos Chuv Atendidos/Volluy.png"), alt: "Volluy", scale: 0.85 },
 ] as const
 
 const VFX_VIDEOS = [
@@ -295,12 +295,17 @@ function LogosMarquee() {
           className="flex w-max items-center gap-8 px-8"
           style={{ animation: "portfolio-midia-mobile-marquee 26s linear infinite" }}
         >
-          {items.map(({ src, alt }, index) => (
+          {items.map(({ src, alt, scale }, index) => (
             <div
               key={`${alt}-${index}`}
               className="flex h-20 w-[150px] shrink-0 items-center justify-center"
             >
-              <img src={src} alt={alt} className="max-h-full w-full object-contain" />
+              <img
+                src={src}
+                alt={alt}
+                className="max-h-full w-full object-contain"
+                style={{ transform: `scale(${scale})` }}
+              />
             </div>
           ))}
         </div>
