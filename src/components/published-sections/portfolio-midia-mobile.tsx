@@ -91,15 +91,15 @@ const POSTS_IA_VIDEOS = [
 const AGENTICA_IMAGE_SRC = rawAssetPath("Agentica.png")
 
 const VALORIZACAO_IMAGES = [
-  { src: rawAssetPath("Valorização do Produto/POST PARA MIDIA MELANCIA.png"), alt: "Post mídia — Melancia" },
-  { src: rawAssetPath("Valorização do Produto/POST PARA MIDIA MELÃO.png"), alt: "Post mídia — Melão" },
-  { src: rawAssetPath("Valorização do Produto/SORVETE MELANCIA.png"), alt: "Sorvete Melancia" },
-  { src: rawAssetPath("Valorização do Produto/SORVETE MELÃO.png"), alt: "Sorvete Melão" },
+  { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/POST%20PARA%20MIDIA%20MELANCIA.png`, alt: "Post mídia — Melancia" },
+  { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/POST%20PARA%20MIDIA%20MEL%C3%83O.png`, alt: "Post mídia — Melão" },
+  { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/SORVETE%20MELANCIA.png`, alt: "Sorvete Melancia" },
+  { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/SORVETE%20MEL%C3%83O.png`, alt: "Sorvete Melão" },
 ]
 
 const VALORIZACAO_CARD_IMAGES = [
-  { src: rawAssetPath("Valorização do Produto/Melancia.png") },
-  { src: rawAssetPath("Valorização do Produto/Melão.png") },
+  { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/Melancia.png` },
+  { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/Mela%CC%83o.png` },
 ]
 
 const IDENTIDADE_VISUAL_IMAGES = [
@@ -258,7 +258,7 @@ function LogosMarquee() {
 
   return (
     <div className="hidden max-[390px]:block">
-      <div className="overflow-hidden rounded-none border border-white bg-[#f9f9f9] py-7">
+      <div className="-mx-[var(--card-padding)] overflow-hidden py-4">
         <div
           className="flex w-max items-center gap-8 px-8"
           style={{ animation: "portfolio-midia-mobile-marquee 26s linear infinite" }}
@@ -360,7 +360,7 @@ export function PortfolioMidiaMobileAreasSection() {
         </div>
 
         <div
-          className="relative aspect-[5/3] max-[390px]:mx-auto max-[390px]:w-full max-[390px]:max-w-[214px] max-[390px]:aspect-[9/16] xl:aspect-auto rounded-none border border-white bg-[#f9f9f9] xl:col-span-1 overflow-hidden"
+          className="relative aspect-[5/3] max-[390px]:w-full max-[390px]:aspect-[9/16] xl:aspect-auto rounded-none border border-white bg-[#f9f9f9] xl:col-span-1 overflow-hidden"
           style={getFadeStyle(AREAS.length, entered)}
         >
           <SplineViewer url={AREAS_SPLINE_URL} />

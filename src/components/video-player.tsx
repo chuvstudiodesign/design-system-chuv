@@ -72,6 +72,15 @@ export function VideoPlayer({
     setProgress((v.currentTime / v.duration) * 100)
   }
 
+  function ensurePlayback() {
+    const v = videoRef.current
+    if (!v) return
+
+    v.play().then(() => {
+      setPlaying(true)
+    }).catch(() => {})
+  }
+
   function seekTo(e: React.MouseEvent<HTMLDivElement>) {
     const v = videoRef.current
     if (!v || !v.duration) return
@@ -85,12 +94,15 @@ export function VideoPlayer({
         ref={videoRef}
         src={src}
         loop
+        autoPlay
         muted={muted}
         playsInline
         controls={useNativeControls}
-        preload="metadata"
+        preload="auto"
         className={`block h-auto w-[calc(100%+6px)] max-w-none translate-x-[-3px] translate-y-[-3px] mb-[-3px] ${videoClassName ?? ""}`}
         onTimeUpdate={handleTimeUpdate}
+        onLoadedData={ensurePlayback}
+        onCanPlay={ensurePlayback}
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
         onEnded={() => { setPlaying(false); setProgress(0) }}
