@@ -53,7 +53,7 @@ function SplineViewer({ url }: { url: string }) {
     return () => { el.innerHTML = "" }
   }, [url])
 
-  return <div ref={ref} style={{ width: "100%", height: "100%" }} />
+  return <div ref={ref} style={{ position: "absolute", inset: "3px" }} />
 }
 
 const AREAS = [
@@ -406,7 +406,7 @@ export function PropostaSigoAreasSection() {
         </div>
 
         <div
-          className="rounded-none border border-white bg-[#f9f9f9] p-[3px] xl:col-span-1 overflow-hidden"
+          className="relative aspect-[5/3] xl:aspect-auto rounded-none border border-white bg-[#f9f9f9] xl:col-span-1 overflow-hidden"
           style={getFadeStyle(AREAS.length, entered)}
         >
           <SplineViewer url="https://prod.spline.design/S-9NtNJpkF44Kli3/scene.splinecode" />
