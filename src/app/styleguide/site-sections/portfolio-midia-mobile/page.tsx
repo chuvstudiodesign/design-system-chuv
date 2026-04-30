@@ -28,6 +28,16 @@ const MIDIAS_ATUAIS_IMAGES = [
 
 const MARCAS_SRC = rawAssetPath("Marcas.png")
 const MARCAS_MOBILE_SRC = rawAssetPath("Marcas Mobile2.png")
+const LOGOS_CHUV_ATENDIDOS = [
+  { src: rawAssetPath("Logos Chuv Atendidos/Hawksmoor.tif.png"), alt: "Hawksmoor" },
+  { src: rawAssetPath("Logos Chuv Atendidos/Masi Negocios.png"), alt: "Masi Negócios" },
+  { src: rawAssetPath("Logos Chuv Atendidos/Mun.png"), alt: "Mun" },
+  { src: rawAssetPath("Logos Chuv Atendidos/PlayVFX.png"), alt: "PlayVFX" },
+  { src: rawAssetPath("Logos Chuv Atendidos/Qualcom.png"), alt: "Qualcom" },
+  { src: rawAssetPath("Logos Chuv Atendidos/Samsung.png"), alt: "Samsung" },
+  { src: rawAssetPath("Logos Chuv Atendidos/Vinsel.png"), alt: "Vinsel" },
+  { src: rawAssetPath("Logos Chuv Atendidos/Volluy.png"), alt: "Volluy" },
+] as const
 
 const VFX_VIDEOS = [
   { src: `${GITHUB_RAW}/VFX/VFX.MOV`,  label: "VFX — take 1" },
@@ -59,15 +69,15 @@ const POSTS_IA_VIDEOS = [
 const AGENTICA_IMAGE_SRC = rawAssetPath("Agentica.png")
 
 const VALORIZACAO_IMAGES = [
-  { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/POST%20PARA%20MIDIA%20MELANCIA.png`, alt: "Post mídia — Melancia" },
-  { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/POST%20PARA%20MIDIA%20MEL%C3%83O.png`,  alt: "Post mídia — Melão" },
-  { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/SORVETE%20MELANCIA.png`,                alt: "Sorvete Melancia" },
-  { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/SORVETE%20MEL%C3%83O.png`,             alt: "Sorvete Melão" },
+  { src: rawAssetPath("Valorização do Produto/POST PARA MIDIA MELANCIA.png"), alt: "Post mídia — Melancia" },
+  { src: rawAssetPath("Valorização do Produto/POST PARA MIDIA MELÃO.png"), alt: "Post mídia — Melão" },
+  { src: rawAssetPath("Valorização do Produto/SORVETE MELANCIA.png"), alt: "Sorvete Melancia" },
+  { src: rawAssetPath("Valorização do Produto/SORVETE MELÃO.png"), alt: "Sorvete Melão" },
 ]
 
 const VALORIZACAO_CARD_IMAGES = [
-  { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/Melancia.png` },
-  { src: `${GITHUB_RAW}/Valoriza%C3%A7%C3%A3o%20do%20Produto/Mel%C3%A3o.png` },
+  { src: rawAssetPath("Valorização do Produto/Melancia.png") },
+  { src: rawAssetPath("Valorização do Produto/Melão.png") },
 ]
 
 const IDENTIDADE_VISUAL_IMAGES = [
@@ -275,6 +285,36 @@ function DarkInfoCards({ keys }: { keys: [ContentKey, ContentKey, ContentKey][] 
   )
 }
 
+function LogosMarquee() {
+  const items = [...LOGOS_CHUV_ATENDIDOS, ...LOGOS_CHUV_ATENDIDOS]
+
+  return (
+    <div className="hidden max-[390px]:block">
+      <div className="overflow-hidden rounded-none border border-white bg-[#f9f9f9] py-7">
+        <div
+          className="flex w-max items-center gap-8 px-8"
+          style={{ animation: "portfolio-midia-mobile-marquee 26s linear infinite" }}
+        >
+          {items.map(({ src, alt }, index) => (
+            <div
+              key={`${alt}-${index}`}
+              className="flex h-20 w-[150px] shrink-0 items-center justify-center"
+            >
+              <img src={src} alt={alt} className="max-h-full w-full object-contain" />
+            </div>
+          ))}
+        </div>
+      </div>
+      <style>{`
+        @keyframes portfolio-midia-mobile-marquee {
+          from { transform: translate3d(0, 0, 0); }
+          to { transform: translate3d(-50%, 0, 0); }
+        }
+      `}</style>
+    </div>
+  )
+}
+
 // ── Mobile section class: 45px vertical padding, standard horizontal ──────────
 const MOBILE_SECTION = "w-full rounded-[10px] px-5 sm:px-8 py-[45px] flex flex-col"
 
@@ -345,7 +385,7 @@ export default function PortfolioMidiaMobilePage() {
           </div>
 
           <div
-            className="relative aspect-[5/3] xl:aspect-auto rounded-none border border-white bg-[#f9f9f9] xl:col-span-1 overflow-hidden"
+            className="relative aspect-[5/3] max-[390px]:mx-auto max-[390px]:w-full max-[390px]:max-w-[214px] max-[390px]:aspect-[9/16] xl:aspect-auto rounded-none border border-white bg-[#f9f9f9] xl:col-span-1 overflow-hidden"
             style={getAreaFadeStyle(areas.length, areasEntered)}
           >
             <SplineViewer url={AREAS_SPLINE_URL} />
@@ -379,7 +419,7 @@ export default function PortfolioMidiaMobilePage() {
               <EditableText namespace={NS} id="s2.legado.label">{c("s2.legado.label")}</EditableText>
             </p>
             <div className="flex items-end gap-4">
-              <Typography variant="display-xl" className="text-primary leading-none">
+              <Typography variant="display-xl" className="text-primary leading-none max-[390px]:text-[5rem]">
                 <EditableText namespace={NS} id="s2.legado.years.value">{c("s2.legado.years.value")}</EditableText>
               </Typography>
               <Typography variant="h2" className="pb-1">
@@ -399,8 +439,9 @@ export default function PortfolioMidiaMobilePage() {
             <img
               src={MARCAS_MOBILE_SRC}
               alt="Marcas atendidas pela Chuv Studio"
-              className="mx-auto hidden h-auto w-[80%] max-[810px]:block"
+              className="mx-auto hidden h-auto w-[88%] max-[390px]:hidden max-[810px]:block"
             />
+            <LogosMarquee />
           </div>
         </div>
       </section>
@@ -414,7 +455,7 @@ export default function PortfolioMidiaMobilePage() {
               <img src={src} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
             </div>
           ))}
-          <div className="relative col-span-2 max-[390px]:col-span-1 min-h-[280px] rounded-none border border-white bg-[#f9f9f9] overflow-hidden">
+          <div className="relative col-span-2 min-h-[280px] rounded-none border border-white bg-[#f9f9f9] overflow-hidden max-[390px]:hidden">
             <AlternatingImages
               images={VALORIZACAO_CARD_IMAGES}
               alt="Valorização do produto — card alternado"

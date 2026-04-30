@@ -17,9 +17,28 @@ export function VideoPlayer({
   const [playing,   setPlaying]  = useState(false)
   const [muted,     setMuted]    = useState(true)
   const [progress,  setProgress] = useState(0)
+  const [useNativeControls, setUseNativeControls] = useState(false)
+
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+      return
+    }
+
+    const mediaQuery = window.matchMedia("(hover: none), (pointer: coarse)")
+    const syncControlsMode = () => setUseNativeControls(mediaQuery.matches)
+
+    syncControlsMode()
+    mediaQuery.addEventListener?.("change", syncControlsMode)
+
+    return () => mediaQuery.removeEventListener?.("change", syncControlsMode)
+  }, [])
 
   // Auto-play when 50% visible, pause when out of view
   useEffect(() => {
+    if (useNativeControls) {
+      return
+    }
+
     const container = containerRef.current
     if (!container) return
     const observer = new IntersectionObserver(
@@ -38,7 +57,7 @@ export function VideoPlayer({
     )
     observer.observe(container)
     return () => observer.disconnect()
-  }, [])
+  }, [useNativeControls])
 
   function toggle() {
     const v = videoRef.current
@@ -68,26 +87,32 @@ export function VideoPlayer({
         loop
         muted={muted}
         playsInline
+        controls={useNativeControls}
+        preload="metadata"
         className={`block h-auto w-[calc(100%+6px)] max-w-none translate-x-[-3px] translate-y-[-3px] mb-[-3px] ${videoClassName ?? ""}`}
         onTimeUpdate={handleTimeUpdate}
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
         onEnded={() => { setPlaying(false); setProgress(0) }}
       />
 
       {/* Mute toggle — top-right, always visible */}
-      <button
-        onClick={() => {
-          const v = videoRef.current
-          if (v) v.muted = !muted
-          setMuted(m => !m)
-        }}
-        className="absolute top-3 right-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm border border-white/20 text-white hover:bg-black/60 transition-colors"
-        aria-label={muted ? "Ativar som" : "Silenciar"}
-      >
-        {muted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-      </button>
+      {!useNativeControls && (
+        <button
+          onClick={() => {
+            const v = videoRef.current
+            if (v) v.muted = !muted
+            setMuted(m => !m)
+          }}
+          className="absolute top-3 right-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm border border-white/20 text-white hover:bg-black/60 transition-colors"
+          aria-label={muted ? "Ativar som" : "Silenciar"}
+        >
+          {muted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+        </button>
+      )}
 
       {/* Big play overlay when paused */}
-      {!playing && (
+      {!useNativeControls && !playing && (
         <button
           onClick={toggle}
           className="absolute inset-0 flex items-center justify-center"
@@ -100,21 +125,23 @@ export function VideoPlayer({
       )}
 
       {/* Progress + play/pause — bottom on hover */}
-      <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent px-4 pb-3 pt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-        <div className="flex items-center gap-3">
-          <button onClick={toggle} className="text-white shrink-0" aria-label={playing ? "Pause" : "Play"}>
-            {playing ? <Pause size={14} /> : <Play size={14} />}
-          </button>
-          <div
-            className="flex-1 h-px bg-white/30 cursor-pointer relative"
-            onClick={seekTo}
-            role="slider"
-            aria-label="Progresso"
-          >
-            <div className="absolute inset-y-0 left-0 bg-white" style={{ width: `${progress}%` }} />
+      {!useNativeControls && (
+        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent px-4 pb-3 pt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <div className="flex items-center gap-3">
+            <button onClick={toggle} className="text-white shrink-0" aria-label={playing ? "Pause" : "Play"}>
+              {playing ? <Pause size={14} /> : <Play size={14} />}
+            </button>
+            <div
+              className="flex-1 h-px bg-white/30 cursor-pointer relative"
+              onClick={seekTo}
+              role="slider"
+              aria-label="Progresso"
+            >
+              <div className="absolute inset-y-0 left-0 bg-white" style={{ width: `${progress}%` }} />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
