@@ -316,7 +316,7 @@ function LogosMarquee() {
 }
 
 // ── Mobile section class: 45px vertical padding, standard horizontal ──────────
-const MOBILE_SECTION = "w-full rounded-[10px] px-5 sm:px-8 py-[45px] flex flex-col"
+const MOBILE_SECTION = "w-full rounded-[10px] px-5 py-[45px] sm:px-8 sm:py-[45px] md:p-10 lg:p-14 xl:p-20 flex flex-col"
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 

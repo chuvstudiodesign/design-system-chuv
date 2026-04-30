@@ -331,7 +331,7 @@ function getFadeStyle(index: number, entered: boolean): CSSProperties {
 
 // All sections in the mobile version use 45px vertical padding (top + bottom).
 // Horizontal padding follows the standard ds-section responsive scale.
-const MOBILE_SECTION = "w-full rounded-[10px] px-5 sm:px-8 py-[45px] flex flex-col"
+const MOBILE_SECTION = "w-full rounded-[10px] px-5 py-[45px] sm:px-8 sm:py-[45px] md:p-10 lg:p-14 xl:p-20 flex flex-col"
 
 // ── Section components ────────────────────────────────────────────────────────
 
