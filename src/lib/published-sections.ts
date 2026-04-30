@@ -381,6 +381,93 @@ export const PORTFOLIO_MIDIA_PUBLISHED_SECTION_BY_SLUG = Object.fromEntries(
   PORTFOLIO_MIDIA_PUBLISHED_SECTIONS.map((section) => [section.slug, section])
 ) as Record<PortfolioMidiaPublishedSectionSlug, (typeof PORTFOLIO_MIDIA_PUBLISHED_SECTIONS)[number]>
 
+export const PORTFOLIO_MIDIA_MOBILE_PUBLISHED_SECTIONS = [
+  {
+    name: "Disciplinas de mídia social",
+    slug: "disciplinas",
+    href: "/sections/portfolio-midia-mobile/disciplinas",
+    title: "Disciplinas de Mídia Social",
+    description: "Section responsiva de áreas de atuação em mídia social do Chuv Studio.",
+  },
+  {
+    name: "Mídias acompanhadas atualmente",
+    slug: "midias-atuais",
+    href: "/sections/portfolio-midia-mobile/midias-atuais",
+    title: "Mídias Acompanhadas Atualmente",
+    description: "Section responsiva com os clientes ativos de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Valorização do produto",
+    slug: "valorizacao-produto",
+    href: "/sections/portfolio-midia-mobile/valorizacao-produto",
+    title: "Valorização do Produto",
+    description: "Section responsiva de valorização de produto do portfólio de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Feed harmônico",
+    slug: "feed-harmonico",
+    href: "/sections/portfolio-midia-mobile/feed-harmonico",
+    title: "Feed Harmônico",
+    description: "Section responsiva de feed harmônico do portfólio de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Reels virais",
+    slug: "reels-virais",
+    href: "/sections/portfolio-midia-mobile/reels-virais",
+    title: "Reels com Potencial Viral",
+    description: "Section responsiva de reels virais do portfólio de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Reels com VFX",
+    slug: "vfx",
+    href: "/sections/portfolio-midia-mobile/vfx",
+    title: "Reels com Efeitos Visuais",
+    description: "Section responsiva de reels com VFX do portfólio de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Motion 2D e 3D",
+    slug: "motion-2d-3d",
+    href: "/sections/portfolio-midia-mobile/motion-2d-3d",
+    title: "Motion 2D e 3D",
+    description: "Section responsiva de animações motion do portfólio de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Posts virais",
+    slug: "posts-virais",
+    href: "/sections/portfolio-midia-mobile/posts-virais",
+    title: "Posts de Alta Performance",
+    description: "Section responsiva de posts virais do portfólio de mídia social do Chuv Studio.",
+  },
+  {
+    name: "Posts com IA",
+    slug: "posts-com-ia",
+    href: "/sections/portfolio-midia-mobile/posts-com-ia",
+    title: "Posts Criados com IA",
+    description: "Section responsiva de posts criados com inteligência artificial do Chuv Studio.",
+  },
+  {
+    name: "Seguimento de identidade visual",
+    slug: "seguimento-identidade-visual",
+    href: "/sections/portfolio-midia-mobile/seguimento-identidade-visual",
+    title: "Seguimento de Identidade Visual",
+    description: "Section responsiva sobre preservação da identidade visual no portfólio de mídia social da Chuv Studio.",
+  },
+  {
+    name: "Seguimento de identidade em diversas áreas",
+    slug: "seguimento-identidade-diversas-areas",
+    href: "/sections/portfolio-midia-mobile/seguimento-identidade-diversas-areas",
+    title: "Seguimento de Identidade em Diversas Áreas",
+    description: "Section responsiva sobre adaptação da identidade visual para segmentos diversos no portfólio de mídia social da Chuv Studio.",
+  },
+] as const satisfies readonly PublishedSectionLink[]
+
+export type PortfolioMidiaMobilePublishedSectionSlug =
+  (typeof PORTFOLIO_MIDIA_MOBILE_PUBLISHED_SECTIONS)[number]["slug"]
+
+export const PORTFOLIO_MIDIA_MOBILE_PUBLISHED_SECTION_BY_SLUG = Object.fromEntries(
+  PORTFOLIO_MIDIA_MOBILE_PUBLISHED_SECTIONS.map((section) => [section.slug, section])
+) as Record<PortfolioMidiaMobilePublishedSectionSlug, (typeof PORTFOLIO_MIDIA_MOBILE_PUBLISHED_SECTIONS)[number]>
+
 export function getPublishedSectionVercelUrl(href: string) {
   return `${VERCEL_PRODUCTION_BASE_URL}${href}`
 }

@@ -1,4 +1,4 @@
-import { PORTFOLIO_MIDIA_PUBLISHED_SECTIONS, PROPOSTA_KITO_PUBLISHED_SECTIONS, PROPOSTA_SIGO_PUBLISHED_SECTIONS, PROPOSTA_WEBSITE_BLACKBELLS_PUBLISHED_SECTIONS, PROPOSTA_WEBSITE_SIGO_PUBLISHED_SECTIONS, type PublishedSectionLink } from "@/lib/published-sections";
+import { PORTFOLIO_MIDIA_PUBLISHED_SECTIONS, PORTFOLIO_MIDIA_MOBILE_PUBLISHED_SECTIONS, PROPOSTA_KITO_PUBLISHED_SECTIONS, PROPOSTA_SIGO_PUBLISHED_SECTIONS, PROPOSTA_WEBSITE_BLACKBELLS_PUBLISHED_SECTIONS, PROPOSTA_WEBSITE_SIGO_PUBLISHED_SECTIONS, type PublishedSectionLink } from "@/lib/published-sections";
 
 export interface NavItem {
   name: string;
@@ -57,6 +57,11 @@ export const navigation: NavSection[] = [
         name: "Portfólio de Mídia",
         href: "/styleguide/site-sections/portfolio-midia",
         publishedLinks: PORTFOLIO_MIDIA_PUBLISHED_SECTIONS,
+      },
+      {
+        name: "Portfólio de Mídia — Mobile",
+        href: "/styleguide/site-sections/portfolio-midia-mobile",
+        publishedLinks: PORTFOLIO_MIDIA_MOBILE_PUBLISHED_SECTIONS,
       },
       {
         name: "Proposta Comercial — Sigo",

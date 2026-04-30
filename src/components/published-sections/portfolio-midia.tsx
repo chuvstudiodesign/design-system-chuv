@@ -42,7 +42,7 @@ function SplineViewer({ url }: { url: string }) {
     }
   }, [url])
 
-  return <div ref={ref} style={{ width: "100%", height: "100%" }} />
+  return <div ref={ref} style={{ width: "100%", height: "100%", overflow: "hidden" }} />
 }
 
 const MIDIAS_ATUAIS_IMAGES = [
