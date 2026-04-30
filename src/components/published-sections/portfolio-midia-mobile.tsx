@@ -50,16 +50,7 @@ const MIDIAS_ATUAIS_IMAGES = [
 
 const MARCAS_SRC = rawAssetPath("Marcas.png")
 const MARCAS_MOBILE_SRC = rawAssetPath("Marcas Mobile2.png")
-const LOGOS_CHUV_ATENDIDOS = [
-  { src: rawAssetPath("Logos Chuv Atendidos/Hawksmoor.tif.png"), alt: "Hawksmoor", scale: 1 },
-  { src: rawAssetPath("Logos Chuv Atendidos/Masi Negocios.png"), alt: "Masi Negócios", scale: 1.2 },
-  { src: rawAssetPath("Logos Chuv Atendidos/Mun.png"), alt: "Mun", scale: 1 },
-  { src: rawAssetPath("Logos Chuv Atendidos/PlayVFX.png"), alt: "PlayVFX", scale: 1 },
-  { src: rawAssetPath("Logos Chuv Atendidos/Qualcom.png"), alt: "Qualcomm", scale: 0.9 },
-  { src: rawAssetPath("Logos Chuv Atendidos/Samsung.png"), alt: "Samsung", scale: 1 },
-  { src: rawAssetPath("Logos Chuv Atendidos/Vinsel.png"), alt: "Vinsel", scale: 1 },
-  { src: rawAssetPath("Logos Chuv Atendidos/Volluy.png"), alt: "Volluy", scale: 0.85 },
-] as const
+const CARROSSEL_MARCAS_SRC = "/portfolio-midia/carrossel-marcas.png"
 
 const VFX_VIDEOS = [
   { src: `${GITHUB_RAW}/VFX/VFX.MOV`,  label: "VFX — take 1" },
@@ -254,28 +245,24 @@ function DarkInfoCards({ cards }: { cards: { label: string; title: string; body:
 }
 
 function LogosMarquee() {
-  const items = [...LOGOS_CHUV_ATENDIDOS, ...LOGOS_CHUV_ATENDIDOS]
-
   return (
     <div className="hidden max-[390px]:block">
       <div className="-mx-[var(--card-padding)] overflow-hidden py-4">
         <div
-          className="flex w-max items-center gap-8 px-8"
+          className="flex w-max items-center"
           style={{ animation: "portfolio-midia-mobile-marquee 26s linear infinite" }}
         >
-          {items.map(({ src, alt, scale }, index) => (
-            <div
-              key={`${alt}-${index}`}
-              className="flex h-20 w-[150px] shrink-0 items-center justify-center"
-            >
-              <img
-                src={src}
-                alt={alt}
-                className="max-h-full w-full object-contain"
-                style={{ transform: `scale(${scale})` }}
-              />
-            </div>
-          ))}
+          <img
+            src={CARROSSEL_MARCAS_SRC}
+            alt="Carrossel de marcas atendidas"
+            className="block h-[36px] w-auto shrink-0 max-w-none"
+          />
+          <img
+            src={CARROSSEL_MARCAS_SRC}
+            alt=""
+            aria-hidden="true"
+            className="block h-[36px] w-auto shrink-0 max-w-none"
+          />
         </div>
       </div>
       <style>{`
