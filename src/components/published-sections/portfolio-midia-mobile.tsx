@@ -50,7 +50,7 @@ const MIDIAS_ATUAIS_IMAGES = [
 
 const MARCAS_SRC = rawAssetPath("Marcas.png")
 const MARCAS_MOBILE_SRC = rawAssetPath("Marcas Mobile2.png")
-const CARROSSEL_MARCAS_SRC = "/portfolio-midia/carrossel-marcas.png"
+const CARROSSEL_MARCAS_SRC = "/portfolio-midia/carrossel-marcas-2.png"
 
 const VFX_VIDEOS = [
   { src: `${GITHUB_RAW}/VFX/VFX.MOV`,  label: "VFX — take 1" },
@@ -246,22 +246,22 @@ function DarkInfoCards({ cards }: { cards: { label: string; title: string; body:
 
 function LogosMarquee() {
   return (
-    <div className="hidden max-[390px]:block">
+    <div className="block">
       <div className="-mx-[var(--card-padding)] overflow-hidden py-4">
         <div
-          className="flex w-max items-center"
+          className="flex w-max items-center gap-[30px]"
           style={{ animation: "portfolio-midia-mobile-marquee 26s linear infinite" }}
         >
           <img
             src={CARROSSEL_MARCAS_SRC}
             alt="Carrossel de marcas atendidas"
-            className="block h-[36px] w-auto shrink-0 max-w-none"
+            className="block h-[36px] w-auto shrink-0 max-w-none sm:h-[42px] md:h-[31px] lg:h-[36px] xl:h-[41px]"
           />
           <img
             src={CARROSSEL_MARCAS_SRC}
             alt=""
             aria-hidden="true"
-            className="block h-[36px] w-auto shrink-0 max-w-none"
+            className="block h-[36px] w-auto shrink-0 max-w-none sm:h-[42px] md:h-[31px] lg:h-[36px] xl:h-[41px]"
           />
         </div>
       </div>
@@ -389,12 +389,12 @@ export function PortfolioMidiaMobileMidiasAtuaisSection() {
           <img
             src={MARCAS_SRC}
             alt="Marcas atendidas pela Chuv Studio"
-            className="mx-auto block h-auto w-[70%] max-[810px]:hidden"
+            className="hidden"
           />
           <img
             src={MARCAS_MOBILE_SRC}
             alt="Marcas atendidas pela Chuv Studio"
-            className="mx-auto hidden h-auto w-[88%] max-[390px]:hidden max-[810px]:block"
+            className="hidden"
           />
           <LogosMarquee />
         </div>
@@ -497,7 +497,7 @@ export function PortfolioMidiaMobilePostsIASection() {
             <VideoPlayer src={src} videoClassName="mb-[-5px]" />
           </div>
         ))}
-        <div className="col-span-2 max-[390px]:col-span-1 rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] flex flex-col justify-between gap-6">
+        <div className="col-span-2 hidden rounded-none border border-white bg-[#f9f9f9] p-[var(--card-padding)] md:flex md:flex-col md:justify-between md:gap-6">
           <Typography variant="h4" className="text-center leading-tight">
             {content["s7.placeholder.title.prefix"]}
             <span className="text-primary">{content["s7.placeholder.title.accent"]}</span>

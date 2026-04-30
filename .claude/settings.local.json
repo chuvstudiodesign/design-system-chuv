@@ -31,7 +31,9 @@
       "Bash(git commit *)",
       "Bash(cat)",
       "Read(//tmp/**)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(cp -r /Users/lucaszerlotini/Documents/design-system-chuv /tmp/design-system-site)",
+      "Bash(rm -rf /tmp/design-system-site/.git /tmp/design-system-site/.next /tmp/design-system-site/node_modules)"
     ]
   }
 }
