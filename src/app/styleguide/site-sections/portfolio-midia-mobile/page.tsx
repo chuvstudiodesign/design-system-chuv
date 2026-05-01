@@ -281,7 +281,7 @@ function LogosMarquee() {
     <div className="block">
       <div className="-mx-[var(--card-padding)] overflow-hidden py-4">
         <div
-          className="flex w-max items-center gap-[30px]"
+          className="flex w-max items-center gap-[35px] pr-[35px]"
           style={{ animation: "portfolio-midia-mobile-marquee 26s linear infinite" }}
         >
           <img
