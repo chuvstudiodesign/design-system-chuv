@@ -294,6 +294,96 @@ export const PROPOSTA_KITO_PUBLISHED_SECTION_BY_SLUG = Object.fromEntries(
   PROPOSTA_KITO_PUBLISHED_SECTIONS.map((section) => [section.slug, section])
 ) as Record<PropostaKitoPublishedSectionSlug, (typeof PROPOSTA_KITO_PUBLISHED_SECTIONS)[number]>
 
+export const PROPOSTA_SOUZA_E_SOUZA_PUBLISHED_SECTIONS = [
+  {
+    name: "Nossas áreas de atuação",
+    slug: "nossas-areas-de-atuacao",
+    href: "/sections/proposta-souza-e-souza/nossas-areas-de-atuacao",
+    title: "Nossas Áreas de Atuação",
+    description: "Section de áreas de atuação da Chuv Studio aplicada à proposta da Souza & Souza Advocacia.",
+  },
+  {
+    name: "Objetivos do projeto",
+    slug: "objetivos-do-projeto",
+    href: "/sections/proposta-souza-e-souza/objetivos-do-projeto",
+    title: "Objetivos do Projeto",
+    description: "Section de objetivos do projeto da proposta da Souza & Souza Advocacia.",
+  },
+  {
+    name: "Escopo do projeto",
+    slug: "escopo-do-projeto",
+    href: "/sections/proposta-souza-e-souza/escopo-do-projeto",
+    title: "Escopo do Projeto",
+    description: "Section de escopo do projeto da proposta da Souza & Souza Advocacia.",
+  },
+  {
+    name: "Frente 1: Design system e identidade digital",
+    slug: "frente-1-design-system-e-identidade-digital",
+    href: "/sections/proposta-souza-e-souza/frente-1-design-system-e-identidade-digital",
+    title: "Frente 1: Design System e Identidade Digital",
+    description: "Section detalhada da frente de design system e identidade digital da Souza & Souza Advocacia.",
+  },
+  {
+    name: "Frente 2: Atualização e modernização do site",
+    slug: "frente-2-atualizacao-e-modernizacao-do-site",
+    href: "/sections/proposta-souza-e-souza/frente-2-atualizacao-e-modernizacao-do-site",
+    title: "Frente 2: Atualização e Modernização do Site",
+    description: "Section detalhada da frente de atualização e modernização do site da Souza & Souza Advocacia.",
+  },
+  {
+    name: "Frente 3: Automação inteligente",
+    slug: "frente-3-automacao-inteligente-de-atendimento",
+    href: "/sections/proposta-souza-e-souza/frente-3-automacao-inteligente-de-atendimento",
+    title: "Frente 3: Automação Inteligente",
+    description: "Section detalhada da frente de automação inteligente da Souza & Souza Advocacia.",
+  },
+  {
+    name: "Frente 4: Consulta processual via IA",
+    slug: "frente-4-consulta-processual-via-ia",
+    href: "/sections/proposta-souza-e-souza/frente-4-consulta-processual-via-ia",
+    title: "Frente 4: Consulta Processual via IA",
+    description: "Section detalhada da frente de consulta processual via IA da Souza & Souza Advocacia.",
+  },
+  {
+    name: "Frente 5: SEO e presença no Google",
+    slug: "frente-5-seo-e-presenca-no-google",
+    href: "/sections/proposta-souza-e-souza/frente-5-seo-e-presenca-no-google",
+    title: "Frente 5: SEO e Presença no Google",
+    description: "Section detalhada da frente de SEO e presença no Google da Souza & Souza Advocacia.",
+  },
+  {
+    name: "Frente 6: Aplicação da marca nos espaços físicos",
+    slug: "frente-6-aplicacao-da-marca-nos-espacos-fisicos",
+    href: "/sections/proposta-souza-e-souza/frente-6-aplicacao-da-marca-nos-espacos-fisicos",
+    title: "Frente 6: Aplicação da Marca nos Espaços Físicos",
+    description: "Section detalhada da frente de aplicação da marca nos espaços físicos da Souza & Souza Advocacia.",
+  },
+  {
+    name: "Comparativo dos pacotes",
+    slug: "comparativo-dos-pacotes",
+    href: "/sections/proposta-souza-e-souza/comparativo-dos-pacotes",
+    title: "Comparativo dos Pacotes",
+    description: "Comparativo entre os pacotes Start, Pro e Insane da proposta da Souza & Souza Advocacia.",
+  },
+  {
+    name: "Pacotes e investimento",
+    slug: "pacotes-e-investimento",
+    href: "/sections/proposta-souza-e-souza/pacotes-e-investimento",
+    title: "Pacotes e Investimento",
+    description: "Comparativo dos pacotes Start, Pro e Insane da proposta da Souza & Souza Advocacia.",
+  },
+] as const satisfies readonly PublishedSectionLink[]
+
+export type PropostaSouzaESouzaPublishedSectionSlug =
+  (typeof PROPOSTA_SOUZA_E_SOUZA_PUBLISHED_SECTIONS)[number]["slug"]
+
+export const PROPOSTA_SOUZA_E_SOUZA_PUBLISHED_SECTION_BY_SLUG = Object.fromEntries(
+  PROPOSTA_SOUZA_E_SOUZA_PUBLISHED_SECTIONS.map((section) => [section.slug, section])
+) as Record<
+  PropostaSouzaESouzaPublishedSectionSlug,
+  (typeof PROPOSTA_SOUZA_E_SOUZA_PUBLISHED_SECTIONS)[number]
+>
+
 export const PORTFOLIO_MIDIA_PUBLISHED_SECTIONS = [
   {
     name: "Disciplinas de mídia social",

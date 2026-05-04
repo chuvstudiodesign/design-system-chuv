@@ -1,4 +1,4 @@
-import { PORTFOLIO_MIDIA_PUBLISHED_SECTIONS, PORTFOLIO_MIDIA_MOBILE_PUBLISHED_SECTIONS, PROPOSTA_KITO_PUBLISHED_SECTIONS, PROPOSTA_SIGO_PUBLISHED_SECTIONS, PROPOSTA_WEBSITE_BLACKBELLS_PUBLISHED_SECTIONS, PROPOSTA_WEBSITE_SIGO_PUBLISHED_SECTIONS, type PublishedSectionLink } from "@/lib/published-sections";
+import { PORTFOLIO_MIDIA_PUBLISHED_SECTIONS, PORTFOLIO_MIDIA_MOBILE_PUBLISHED_SECTIONS, PROPOSTA_KITO_PUBLISHED_SECTIONS, PROPOSTA_SIGO_PUBLISHED_SECTIONS, PROPOSTA_SOUZA_E_SOUZA_PUBLISHED_SECTIONS, PROPOSTA_WEBSITE_BLACKBELLS_PUBLISHED_SECTIONS, PROPOSTA_WEBSITE_SIGO_PUBLISHED_SECTIONS, type PublishedSectionLink } from "@/lib/published-sections";
 
 export interface NavItem {
   name: string;
@@ -82,6 +82,11 @@ export const navigation: NavSection[] = [
         name: "Proposta Comercial — Black Bells",
         href: "/styleguide/site-sections/proposta-kito",
         publishedLinks: PROPOSTA_KITO_PUBLISHED_SECTIONS,
+      },
+      {
+        name: "Proposta Souza & Souza",
+        href: "/styleguide/site-sections/proposta-souza-e-souza",
+        publishedLinks: PROPOSTA_SOUZA_E_SOUZA_PUBLISHED_SECTIONS,
       },
     ],
   },

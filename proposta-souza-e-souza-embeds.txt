@@ -1,0 +1,309 @@
+PROPOSTA SOUZA E SOUZA - EMBEDS OFICIAIS
+Base de producao: https://design-system-chuv.vercel.app
+Padrao: getPublishedSectionEmbedCode() de src/lib/published-sections.ts
+
+1. Nossas areas de atuacao
+URL: https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/nossas-areas-de-atuacao
+<div style="width:100%;">
+  <iframe
+    id="sections-proposta-souza-e-souza-nossas-areas-de-atuacao"
+    src="https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/nossas-areas-de-atuacao"
+    title="Nossas Áreas de Atuação"
+    style="width:100%;height:10px;border:0;display:block;overflow:hidden;background:transparent;"
+    scrolling="no"
+  ></iframe>
+</div>
+<script>
+(function () {
+  const iframe = document.getElementById("sections-proposta-souza-e-souza-nossas-areas-de-atuacao");
+  const expectedPath = "/sections/proposta-souza-e-souza/nossas-areas-de-atuacao";
+
+  window.addEventListener("message", function (event) {
+    const data = event.data;
+    if (!data || data.type !== "chuv:embed-resize" || data.path !== expectedPath) return;
+    if (typeof data.height === "number" && data.height > 0) {
+      iframe.style.height = data.height + "px";
+    }
+  });
+})();
+</script>
+
+---
+
+2. Objetivos do projeto
+URL: https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/objetivos-do-projeto
+<div style="width:100%;">
+  <iframe
+    id="sections-proposta-souza-e-souza-objetivos-do-projeto"
+    src="https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/objetivos-do-projeto"
+    title="Objetivos do Projeto"
+    style="width:100%;height:10px;border:0;display:block;overflow:hidden;background:transparent;"
+    scrolling="no"
+  ></iframe>
+</div>
+<script>
+(function () {
+  const iframe = document.getElementById("sections-proposta-souza-e-souza-objetivos-do-projeto");
+  const expectedPath = "/sections/proposta-souza-e-souza/objetivos-do-projeto";
+
+  window.addEventListener("message", function (event) {
+    const data = event.data;
+    if (!data || data.type !== "chuv:embed-resize" || data.path !== expectedPath) return;
+    if (typeof data.height === "number" && data.height > 0) {
+      iframe.style.height = data.height + "px";
+    }
+  });
+})();
+</script>
+
+---
+
+3. Escopo do projeto
+URL: https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/escopo-do-projeto
+<div style="width:100%;">
+  <iframe
+    id="sections-proposta-souza-e-souza-escopo-do-projeto"
+    src="https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/escopo-do-projeto"
+    title="Escopo do Projeto"
+    style="width:100%;height:10px;border:0;display:block;overflow:hidden;background:transparent;"
+    scrolling="no"
+  ></iframe>
+</div>
+<script>
+(function () {
+  const iframe = document.getElementById("sections-proposta-souza-e-souza-escopo-do-projeto");
+  const expectedPath = "/sections/proposta-souza-e-souza/escopo-do-projeto";
+
+  window.addEventListener("message", function (event) {
+    const data = event.data;
+    if (!data || data.type !== "chuv:embed-resize" || data.path !== expectedPath) return;
+    if (typeof data.height === "number" && data.height > 0) {
+      iframe.style.height = data.height + "px";
+    }
+  });
+})();
+</script>
+
+---
+
+4. Frente 1: Design system e identidade digital
+URL: https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/frente-1-design-system-e-identidade-digital
+<div style="width:100%;">
+  <iframe
+    id="sections-proposta-souza-e-souza-frente-1-design-system-e-identidade-digital"
+    src="https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/frente-1-design-system-e-identidade-digital"
+    title="Frente 1: Design System e Identidade Digital"
+    style="width:100%;height:10px;border:0;display:block;overflow:hidden;background:transparent;"
+    scrolling="no"
+  ></iframe>
+</div>
+<script>
+(function () {
+  const iframe = document.getElementById("sections-proposta-souza-e-souza-frente-1-design-system-e-identidade-digital");
+  const expectedPath = "/sections/proposta-souza-e-souza/frente-1-design-system-e-identidade-digital";
+
+  window.addEventListener("message", function (event) {
+    const data = event.data;
+    if (!data || data.type !== "chuv:embed-resize" || data.path !== expectedPath) return;
+    if (typeof data.height === "number" && data.height > 0) {
+      iframe.style.height = data.height + "px";
+    }
+  });
+})();
+</script>
+
+---
+
+5. Frente 2: Atualizacao e modernizacao do site
+URL: https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/frente-2-atualizacao-e-modernizacao-do-site
+<div style="width:100%;">
+  <iframe
+    id="sections-proposta-souza-e-souza-frente-2-atualizacao-e-modernizacao-do-site"
+    src="https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/frente-2-atualizacao-e-modernizacao-do-site"
+    title="Frente 2: Atualização e Modernização do Site"
+    style="width:100%;height:10px;border:0;display:block;overflow:hidden;background:transparent;"
+    scrolling="no"
+  ></iframe>
+</div>
+<script>
+(function () {
+  const iframe = document.getElementById("sections-proposta-souza-e-souza-frente-2-atualizacao-e-modernizacao-do-site");
+  const expectedPath = "/sections/proposta-souza-e-souza/frente-2-atualizacao-e-modernizacao-do-site";
+
+  window.addEventListener("message", function (event) {
+    const data = event.data;
+    if (!data || data.type !== "chuv:embed-resize" || data.path !== expectedPath) return;
+    if (typeof data.height === "number" && data.height > 0) {
+      iframe.style.height = data.height + "px";
+    }
+  });
+})();
+</script>
+
+---
+
+6. Frente 3: Automacao inteligente
+URL: https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/frente-3-automacao-inteligente-de-atendimento
+<div style="width:100%;">
+  <iframe
+    id="sections-proposta-souza-e-souza-frente-3-automacao-inteligente-de-atendimento"
+    src="https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/frente-3-automacao-inteligente-de-atendimento"
+    title="Frente 3: Automação Inteligente"
+    style="width:100%;height:10px;border:0;display:block;overflow:hidden;background:transparent;"
+    scrolling="no"
+  ></iframe>
+</div>
+<script>
+(function () {
+  const iframe = document.getElementById("sections-proposta-souza-e-souza-frente-3-automacao-inteligente-de-atendimento");
+  const expectedPath = "/sections/proposta-souza-e-souza/frente-3-automacao-inteligente-de-atendimento";
+
+  window.addEventListener("message", function (event) {
+    const data = event.data;
+    if (!data || data.type !== "chuv:embed-resize" || data.path !== expectedPath) return;
+    if (typeof data.height === "number" && data.height > 0) {
+      iframe.style.height = data.height + "px";
+    }
+  });
+})();
+</script>
+
+---
+
+7. Frente 4: Consulta processual via IA
+URL: https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/frente-4-consulta-processual-via-ia
+<div style="width:100%;">
+  <iframe
+    id="sections-proposta-souza-e-souza-frente-4-consulta-processual-via-ia"
+    src="https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/frente-4-consulta-processual-via-ia"
+    title="Frente 4: Consulta Processual via IA"
+    style="width:100%;height:10px;border:0;display:block;overflow:hidden;background:transparent;"
+    scrolling="no"
+  ></iframe>
+</div>
+<script>
+(function () {
+  const iframe = document.getElementById("sections-proposta-souza-e-souza-frente-4-consulta-processual-via-ia");
+  const expectedPath = "/sections/proposta-souza-e-souza/frente-4-consulta-processual-via-ia";
+
+  window.addEventListener("message", function (event) {
+    const data = event.data;
+    if (!data || data.type !== "chuv:embed-resize" || data.path !== expectedPath) return;
+    if (typeof data.height === "number" && data.height > 0) {
+      iframe.style.height = data.height + "px";
+    }
+  });
+})();
+</script>
+
+---
+
+8. Frente 5: SEO e presenca no Google
+URL: https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/frente-5-seo-e-presenca-no-google
+<div style="width:100%;">
+  <iframe
+    id="sections-proposta-souza-e-souza-frente-5-seo-e-presenca-no-google"
+    src="https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/frente-5-seo-e-presenca-no-google"
+    title="Frente 5: SEO e Presença no Google"
+    style="width:100%;height:10px;border:0;display:block;overflow:hidden;background:transparent;"
+    scrolling="no"
+  ></iframe>
+</div>
+<script>
+(function () {
+  const iframe = document.getElementById("sections-proposta-souza-e-souza-frente-5-seo-e-presenca-no-google");
+  const expectedPath = "/sections/proposta-souza-e-souza/frente-5-seo-e-presenca-no-google";
+
+  window.addEventListener("message", function (event) {
+    const data = event.data;
+    if (!data || data.type !== "chuv:embed-resize" || data.path !== expectedPath) return;
+    if (typeof data.height === "number" && data.height > 0) {
+      iframe.style.height = data.height + "px";
+    }
+  });
+})();
+</script>
+
+---
+
+9. Frente 6: Aplicacao da marca nos espacos fisicos
+URL: https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/frente-6-aplicacao-da-marca-nos-espacos-fisicos
+<div style="width:100%;">
+  <iframe
+    id="sections-proposta-souza-e-souza-frente-6-aplicacao-da-marca-nos-espacos-fisicos"
+    src="https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/frente-6-aplicacao-da-marca-nos-espacos-fisicos"
+    title="Frente 6: Aplicação da Marca nos Espaços Físicos"
+    style="width:100%;height:10px;border:0;display:block;overflow:hidden;background:transparent;"
+    scrolling="no"
+  ></iframe>
+</div>
+<script>
+(function () {
+  const iframe = document.getElementById("sections-proposta-souza-e-souza-frente-6-aplicacao-da-marca-nos-espacos-fisicos");
+  const expectedPath = "/sections/proposta-souza-e-souza/frente-6-aplicacao-da-marca-nos-espacos-fisicos";
+
+  window.addEventListener("message", function (event) {
+    const data = event.data;
+    if (!data || data.type !== "chuv:embed-resize" || data.path !== expectedPath) return;
+    if (typeof data.height === "number" && data.height > 0) {
+      iframe.style.height = data.height + "px";
+    }
+  });
+})();
+</script>
+
+---
+
+10. Comparativo dos pacotes
+URL: https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/comparativo-dos-pacotes
+<div style="width:100%;">
+  <iframe
+    id="sections-proposta-souza-e-souza-comparativo-dos-pacotes"
+    src="https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/comparativo-dos-pacotes"
+    title="Comparativo dos Pacotes"
+    style="width:100%;height:10px;border:0;display:block;overflow:hidden;background:transparent;"
+    scrolling="no"
+  ></iframe>
+</div>
+<script>
+(function () {
+  const iframe = document.getElementById("sections-proposta-souza-e-souza-comparativo-dos-pacotes");
+  const expectedPath = "/sections/proposta-souza-e-souza/comparativo-dos-pacotes";
+
+  window.addEventListener("message", function (event) {
+    const data = event.data;
+    if (!data || data.type !== "chuv:embed-resize" || data.path !== expectedPath) return;
+    if (typeof data.height === "number" && data.height > 0) {
+      iframe.style.height = data.height + "px";
+    }
+  });
+})();
+</script>
+
+---
+
+11. Pacotes e investimento
+URL: https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/pacotes-e-investimento
+<div style="width:100%;">
+  <iframe
+    id="sections-proposta-souza-e-souza-pacotes-e-investimento"
+    src="https://design-system-chuv.vercel.app/sections/proposta-souza-e-souza/pacotes-e-investimento"
+    title="Pacotes e Investimento"
+    style="width:100%;height:10px;border:0;display:block;overflow:hidden;background:transparent;"
+    scrolling="no"
+  ></iframe>
+</div>
+<script>
+(function () {
+  const iframe = document.getElementById("sections-proposta-souza-e-souza-pacotes-e-investimento");
+  const expectedPath = "/sections/proposta-souza-e-souza/pacotes-e-investimento";
+
+  window.addEventListener("message", function (event) {
+    const data = event.data;
+    if (!data || data.type !== "chuv:embed-resize" || data.path !== expectedPath) return;
+    if (typeof data.height === "number" && data.height > 0) {
+      iframe.style.height = data.height + "px";
+    }
+  });
+})();
+</script>

@@ -244,6 +244,34 @@
     @apply w-full rounded-[10px] p-5 sm:p-8 md:p-10 lg:p-14 xl:p-20;
   }
 
+  .proposta-souza-e-souza-page .ds-section {
+    @apply py-[60px];
+  }
+
+  @media (min-width: 640px) {
+    .proposta-souza-e-souza-page .ds-section {
+      @apply p-8;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .proposta-souza-e-souza-page .ds-section {
+      @apply p-10;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .proposta-souza-e-souza-page .ds-section {
+      @apply p-14;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .proposta-souza-e-souza-page .ds-section {
+      @apply p-20;
+    }
+  }
+
   .ds-section-title {
     @apply text-xl font-bold text-foreground sm:text-2xl;
   }
